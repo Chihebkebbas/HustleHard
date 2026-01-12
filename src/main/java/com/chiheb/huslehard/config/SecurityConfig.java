@@ -16,9 +16,13 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(AbstractHttpConfigurer::disable) // Toujours désactiver CSRF pour Postman
+                // POINT 2 : Désactiver CSRF pour que Postman puisse envoyer des POST
+                .csrf(AbstractHttpConfigurer::disable)
+
                 .authorizeHttpRequests(auth -> auth
-                        .anyRequest().permitAll() // <--- ATTENTION : On autorise TOUT ici pour tester
+                        // POINT 3 : Autoriser explicitement ton URL d'inscription
+                        .requestMatchers("/api/auth/**").permitAll()
+                        .anyRequest().authenticated()
                 );
 
         return http.build();

@@ -3,15 +3,13 @@ package com.chiheb.huslehard.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
-@Data
+@Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -37,6 +35,9 @@ public class User {
     private String password;
 
     private String avatar;
+
+    @Column(nullable = false)
+    private String role;
 
     @CreationTimestamp
     @Column(updatable = false)

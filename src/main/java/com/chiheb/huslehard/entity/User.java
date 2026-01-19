@@ -13,8 +13,15 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name= "_user")
+@Entity(name = "User")
+@Table(
+        name= "_user",
+        uniqueConstraints = {
+                @UniqueConstraint(name = "user_pseudo_unique", columnNames = "pseudo"),
+                @UniqueConstraint(name = "user_email_unique", columnNames = "email")
+        }
+)
+
 
 public class User {
 
@@ -23,23 +30,49 @@ public class User {
     private Long id;
 
     @NotBlank(message= "Le pseudo est obligatoire")
-    @Column(unique = true, nullable = false)
+    @Column(
+            name = "pseudo",
+            nullable = false
+    )
     private String pseudo;
 
-    @Email(message = "L'email doit être valide")
-    @NotBlank(message = "L'email est obligatoire")
-    @Column(unique = true, nullable = false)
+    @Email(
+            message = "L'email doit être valide"
+    )
+    @NotBlank(
+            message = "L'email est obligatoire"
+    )
+    @Column(
+            name = "email",
+            nullable = false
+    )
     private String email;
 
-    @NotBlank(message = "Le mot de passe est obligatoire")
+    @NotBlank(
+            message = "Le mot de passe est obligatoire"
+    )
+    @Column(
+            name = "password",
+            nullable = false
+    )
     private String password;
 
+    @Column(
+            name = "avatar"
+    )
     private String avatar;
 
-    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    @Column(
+            name = "role",
+            nullable = false
+    )
     private String role;
 
     @CreationTimestamp
-    @Column(updatable = false)
+    @Column(
+            name = "created_at",
+            updatable = false
+    )
     private LocalDateTime createdAt;
 }

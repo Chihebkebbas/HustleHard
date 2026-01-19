@@ -67,7 +67,7 @@ public class User {
             name = "role",
             nullable = false
     )
-    private String role;
+    private Role role;
 
     @CreationTimestamp
     @Column(

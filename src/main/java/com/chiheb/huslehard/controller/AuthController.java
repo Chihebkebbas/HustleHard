@@ -2,6 +2,7 @@ package com.chiheb.huslehard.controller;
 
 
 import com.chiheb.huslehard.dto.LoginRequest;
+import com.chiheb.huslehard.entity.Role;
 import com.chiheb.huslehard.entity.User;
 import com.chiheb.huslehard.repository.UserRepository;
 import com.chiheb.huslehard.security.JwtUtils;
@@ -37,7 +38,7 @@ public class AuthController {
 
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
-        user.setRole("ROLE_USER");
+        user.setRole(Role.ROLE_USER);
 
         userRepository.save(user);
 
@@ -54,7 +55,7 @@ public class AuthController {
         User user = userRepository.findByPseudo(loginRequest.getPseudo())
                 .orElseThrow(() -> new RuntimeException("Utilisateur non trouvé"));
 
-        String token = jwtUtils.generateToken(user.getPseudo(), user.getRole());
+        String token = jwtUtils.generateToken(user.getPseudo(), String.valueOf(user.getRole()));
         Map<String, String> response = new HashMap<>();
         response.put("token", token);
 

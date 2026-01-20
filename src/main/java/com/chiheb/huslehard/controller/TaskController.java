@@ -24,4 +24,14 @@ public class TaskController {
         Task createdTask = taskService.addTask(task, userId);
         return new ResponseEntity<>(createdTask, HttpStatus.CREATED);
     }
+
+    @PostMapping("/update")
+    public ResponseEntity<Task> update(
+            @RequestBody Task task,
+            @RequestParam Long userId
+    ) {
+        Task updatedTask = taskService.updateTask(task, userId);
+        return new ResponseEntity<>(updatedTask, HttpStatus.OK);
+    }
+
 }

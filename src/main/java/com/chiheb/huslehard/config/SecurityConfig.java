@@ -1,5 +1,6 @@
 package com.chiheb.huslehard.config; // Vérifie ton package
 
+import com.chiheb.huslehard.entity.Role;
 import com.chiheb.huslehard.security.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -29,7 +30,9 @@ public class SecurityConfig {
 
                 .authorizeHttpRequests(auth -> auth
                         // POINT 3 : Autoriser explicitement ton URL d'inscription
-                        .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/api" +
+                                "/auth/**").permitAll()
+                        .requestMatchers("/api/task/**").hasAuthority("ROLE_USER")
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(

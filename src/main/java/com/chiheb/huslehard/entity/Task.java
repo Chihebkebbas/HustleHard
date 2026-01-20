@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity(name = "Task")
@@ -14,7 +15,16 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name="_tasks")
+@Table(
+        name="_tasks",
+        uniqueConstraints = {
+            @UniqueConstraint(
+                    name = "task_unique_title",
+                    columnNames = "title"
+            )
+        }
+)
+
 
 public class Task {
     @Id
@@ -39,18 +49,21 @@ public class Task {
 
     @CreationTimestamp
     @Column(
-            name = "du_date",
+            name = "created_at",
             updatable = false
     )
-    private LocalDateTime duDate;
+    private LocalDate createdAt;
 
     @Column(
             name = "completed"
     )
-    private boolean completed = false;
+    private Boolean completed = false;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(
+            name = "user_id",
+            nullable = false
+    )
     private User user;
 
 }

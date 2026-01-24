@@ -1,0 +1,1001 @@
+/* Apple "Rat Pro" Aesthetic - macOS Web App Theme */
+:root {
+    /* System Colors (macOS/iOS inspired) */
+    --system-background: #F5F5F7;
+    --sidebar-background: rgba(242, 242, 247, 0.7);
+    --card-background: #FFFFFF;
+    --text-primary: #1D1D1F;
+    --text-secondary: #86868B;
+    --text-tertiary: #C7C7CC;
+
+    /* Accents */
+    --accent-orange: #FF9500;
+    --accent-blue: #007AFF;
+    --accent-indigo: #5856D6;
+    --accent-green: #34C759;
+    --accent-red: #FF3B30;
+
+    /* Brand Accent */
+    --brand-color: #FF6B35;
+
+    /* Metrics */
+    --radius-l: 20px;
+    --radius-m: 14px;
+    --radius-s: 10px;
+
+    /* Effects */
+    --glass-material: blur(20px) saturate(180%);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.08);
+    --border-light: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--system-background);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.01em;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+    /* App-like feel */
+}
+
+/* --- Sidebar (macOS Finder Style) --- */
+/* --- Sidebar (macOS "Liquid Glass" Style) --- */
+.sidebar {
+    width: 280px;
+    /* Slightly wider for premium feel */
+    background: rgba(255, 255, 255, 0.45);
+    /* More translucent */
+    backdrop-filter: blur(40px) saturate(200%);
+    /* Heavy blur "Liquid" effect */
+    -webkit-backdrop-filter: blur(40px) saturate(200%);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 20px 0 40px rgba(0, 0, 0, 0.02);
+    /* Subtle depth */
+    height: 100vh;
+    padding: 2.5rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 100;
+}
+
+/* "Liquid" Noise Texture Overlay (Optional but nice) */
+/* .sidebar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('path-to-noise.png'); 
+    opacity: 0.03;
+    pointer-events: none;
+} */
+
+.window-controls {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 2.5rem;
+    padding-left: 0.8rem;
+}
+
+.traffic-light {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    transition: transform 0.2s;
+}
+
+.traffic-light:hover {
+    transform: scale(1.1);
+}
+
+.close {
+    background: #FF5F57;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.minimize {
+    background: #FEBC2E;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.maximize {
+    background: #28C840;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation Groups */
+.nav-group {
+    margin-bottom: 2rem;
+}
+
+.nav-section-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.4);
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+    padding-left: 0.8rem;
+    letter-spacing: 0.02em;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    /* Tight stacking */
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.55rem 0.8rem;
+    border-radius: 6px;
+    /* Finder-style squaricle */
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.15s ease-out;
+    position: relative;
+}
+
+/* Finder Selection State */
+.nav-item:hover {
+    background: rgba(0, 0, 0, 0.04);
+}
+
+.nav-item.active {
+    background: rgba(0, 0, 0, 0.08);
+    /* Darker "selected" grey */
+    color: black;
+    font-weight: 600;
+}
+
+.nav-item.active svg {
+    color: var(--accent-blue);
+    /* Icon tint active */
+}
+
+/* Sidebar Profile (Bottom) */
+.sidebar-profile {
+    margin-top: auto;
+    /* Push to bottom */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0.8rem;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.sidebar-profile:hover {
+    background: rgba(255, 255, 255, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.profile-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FF6B35, #F7C59F);
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.profile-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.profile-role {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+/* --- Main Content --- */
+.main-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 2rem 3rem;
+    scroll-behavior: smooth;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+}
+
+.greeting h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.2rem;
+}
+
+.greeting p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* Buttons (Apple Style) */
+.btn-primary {
+    background: var(--text-primary);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    border: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.1s;
+}
+
+.btn-primary:active {
+    transform: scale(0.96);
+}
+
+/* --- Header Actions (AI & Notif) --- */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.notification-btn {
+    width: 44px;
+    height: 44px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    position: relative;
+    color: var(--text-primary);
+    transition: transform 0.2s;
+}
+
+.notification-btn:hover {
+    transform: scale(1.05);
+}
+
+.notif-badge {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    width: 10px;
+    height: 10px;
+    background: #FF3B30;
+    border: 2px solid white;
+    border-radius: 50%;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Apple Intelligence Button */
+/* Apple Intelligence Button */
+.btn-ai {
+    background: linear-gradient(110deg, #30CFD0 0%, #330867 100%);
+    background: linear-gradient(110deg, #2ac3ff, #9966ff, #ff5588);
+    background-size: 200% 200%;
+    animation: glowShift 4s ease infinite;
+    color: white;
+    border: none;
+    height: 44px;
+    padding: 0 12px;
+    /* Centered icon */
+    border-radius: 22px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    box-shadow: 0 5px 20px rgba(153, 102, 255, 0.3);
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    max-width: 44px;
+    /* Circle initially */
+}
+
+.btn-ai svg {
+    flex-shrink: 0;
+}
+
+.ai-text {
+    opacity: 0;
+    max-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.btn-ai:hover {
+    max-width: 210px;
+    /* Expand on hover */
+    padding: 0 1.2rem;
+    gap: 10px;
+    box-shadow: 0 8px 30px rgba(153, 102, 255, 0.5);
+    background-position: 100% 50%;
+}
+
+.btn-ai:hover .ai-text {
+    opacity: 1;
+    max-width: 150px;
+}
+
+@keyframes glowShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* --- Unified Stats Card --- */
+.stats-overview-card {
+    background: var(--card-background);
+    border-radius: var(--radius-l);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-md);
+    border: var(--border-light);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.streak-container {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    border-right: 1px solid var(--text-tertiary);
+    padding-right: 2rem;
+}
+
+.streak-icon-box {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #FF9F0A, #FF3B30);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    box-shadow: 0 8px 16px rgba(255, 59, 48, 0.25);
+}
+
+.streak-info .count {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.streak-info .label {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+}
+
+.progress-group {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* Rings (CSS Only) */
+.stat-ring-wrapper {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-ring-wrapper svg {
+    transform: rotate(-90deg);
+    width: 100%;
+    height: 100%;
+}
+
+.ring-bg {
+    fill: none;
+    stroke: rgba(0, 0, 0, 0.06);
+    stroke-width: 4;
+}
+
+.ring-progress {
+    fill: none;
+    stroke-linecap: round;
+    stroke-width: 4;
+    stroke-dasharray: 220;
+    stroke-dashoffset: 40;
+    transition: stroke-dashoffset 1s ease;
+}
+
+.stat-content {
+    text-align: center;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-content span {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+/* --- Reminders (Widget Style) --- */
+.reminders-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.reminder-card {
+    background: var(--card-background);
+    padding: 1rem;
+    border-radius: var(--radius-m);
+    box-shadow: var(--shadow-sm);
+    border: var(--border-light);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.reminder-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.widget-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+}
+
+.reminder-info h4 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 2px;
+}
+
+.reminder-info .value {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+/* --- Habit Table (macOS List Style) --- */
+.habit-section {
+    background: var(--card-background);
+    border-radius: var(--radius-l);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+    border: var(--border-light);
+    margin-bottom: 2rem;
+}
+
+.table-header {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+    padding-left: 0.5rem;
+}
+
+.habit-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.habit-table th {
+    text-align: left;
+    padding: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.habit-table td {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    vertical-align: middle;
+}
+
+.habit-table tr:last-child td {
+    border-bottom: none;
+}
+
+.habit-name-flex {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.habit-icon-sq {
+    width: 36px;
+    height: 36px;
+    background: var(--system-background);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+/* Frequency Badge */
+.freq-badge {
+    background: var(--system-background);
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    border: 1px solid transparent;
+    transition: all 0.2s;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+}
+
+.freq-input {
+    width: 30px;
+    border: none;
+    background: transparent;
+    text-align: center;
+    font-weight: 700;
+    color: var(--text-primary);
+    font-family: inherit;
+    margin-right: 4px;
+}
+
+.freq-input:focus {
+    outline: none;
+    border-bottom: 2px solid var(--accent-blue);
+}
+
+/* Add Habit Button */
+.btn-add-habit {
+    margin-top: 1rem;
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px dashed #E5E5EA;
+    border-radius: 12px;
+    background: transparent;
+    color: var(--text-secondary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.9rem;
+}
+
+.btn-add-habit:hover {
+    border-color: var(--accent-blue);
+    color: var(--accent-blue);
+    background: rgba(0, 122, 255, 0.05);
+}
+
+/* Habit Actions */
+.habit-actions {
+    display: flex;
+    gap: 8px;
+    opacity: 0;
+    /* Hidden by default */
+    transition: opacity 0.2s;
+    justify-content: flex-end;
+}
+
+.habit-table tr:hover .habit-actions {
+    opacity: 1;
+    /* Show on row hover */
+}
+
+.action-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.action-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--text-primary);
+}
+
+.action-btn.delete:hover {
+    background: rgba(255, 59, 48, 0.1);
+    color: var(--accent-red);
+}
+
+/* Checkboxes Circles */
+.check-row {
+    display: flex;
+    gap: 8px;
+}
+
+.day-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.day-circle.filled {
+    background: var(--brand-color);
+    transform: scale(1.1);
+}
+
+.day-circle.filled-blue {
+    background: var(--accent-blue);
+}
+
+.day-circle.filled-green {
+    background: var(--accent-green);
+}
+
+/* --- Split Section --- */
+.dashboard-split {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2rem;
+    padding-bottom: 3rem;
+}
+
+/* Workout Card */
+.workout-card {
+    background: linear-gradient(180deg, #1C1C1E 0%, #2C2C2E 100%);
+    color: white;
+    border-radius: var(--radius-l);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.workout-card:hover {
+    transform: translateY(-4px);
+}
+
+.workout-card.completed {
+    opacity: 0.8;
+    background: #2C2C2E;
+    /* Flatter dark gray */
+}
+
+.workout-card.completed::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 6px;
+    height: 100%;
+    background: var(--accent-green);
+}
+
+.workout-card h2 {
+    font-size: 1.8rem;
+    margin: 0.5rem 0;
+}
+
+.workout-meta {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 1.5rem;
+}
+
+/* Exercises Pane (Always Visible) */
+.exercises-pane {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-top: 1rem;
+    display: block;
+    /* Always visible */
+}
+
+.ex-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+}
+
+.ex-row:last-child {
+    border: none;
+}
+
+/* Check Circle for Workout (White border on dark bg) */
+.workout-check {
+    width: 28px;
+    height: 28px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    transition: all 0.2s;
+}
+
+.workout-card.completed .workout-check {
+    background: var(--accent-green);
+    border-color: var(--accent-green);
+    color: white;
+}
+
+/* --- Apple Routine Blocks (Rectangles) --- */
+.routine-block {
+    background: var(--card-background);
+    border-radius: 20px;
+    /* Slightly tighter than 24px */
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    border: var(--border-light);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.routine-block:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Completed State */
+.routine-block.completed {
+    background: #FAFAFA;
+    border-color: transparent;
+    opacity: 0.9;
+}
+
+.routine-block.completed::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--accent-green);
+}
+
+.routine-block.completed .routine-header h3 {
+    text-decoration: line-through;
+    color: var(--text-tertiary);
+}
+
+.routine-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.routine-header h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+}
+
+.check-badge {
+    width: 26px;
+    height: 26px;
+    background: #E5E5EA;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.routine-block.completed .check-badge {
+    background: var(--accent-green);
+    color: white;
+}
+
+/* Routine Internal List */
+.routine-items {
+    list-style: none;
+    padding-left: 1.5rem;
+    border-left: 2px solid #F2F2F7;
+    margin-top: 0.5rem;
+}
+
+.routine-items li {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.routine-items li::before {
+    content: "•";
+    position: absolute;
+    left: -1rem;
+    color: #D1D1D6;
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+/* Tasks List (Apple Reminders Style) */
+.tasks-panel {
+    background: var(--card-background);
+    border-radius: var(--radius-l);
+    padding: 1.8rem;
+    border: var(--border-light);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+}
+
+.task-row {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.task-row:last-child {
+    border-bottom: none;
+}
+
+.apple-checkbox {
+    width: 22px;
+    height: 22px;
+    border: 2px solid #D1D1D6;
+    border-radius: 50%;
+    margin-right: 12px;
+    cursor: pointer;
+    flex-shrink: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    position: relative;
+    background: white;
+}
+
+.apple-checkbox:checked {
+    background: var(--accent-blue);
+    border-color: var(--accent-blue);
+}
+
+.apple-checkbox:checked::after {
+    content: "✓";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 12px;
+}
+
+.task-text {
+    font-size: 1rem;
+    color: var(--text-primary);
+    transition: color 0.2s;
+}
+
+.apple-checkbox:checked+.task-text {
+    color: var(--text-tertiary);
+    text-decoration: none;
+}
+
+/* Quick Add Task Row */
+.quick-add-row {
+    margin-top: auto;
+    /* Push to bottom */
+    padding-top: 1.5rem;
+    border-top: 1px dashed rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    color: var(--text-secondary);
+}
+
+.plus-icon {
+    font-size: 1.4rem;
+    margin-right: 0.8rem;
+    color: var(--text-tertiary);
+    font-weight: 300;
+}
+
+.quick-input {
+    border: none;
+    background: transparent;
+    font-size: 1rem;
+    width: 100%;
+    outline: none;
+    color: var(--text-primary);
+}
+
+.quick-input::placeholder {
+    color: var(--text-tertiary);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #D1D1D6;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}

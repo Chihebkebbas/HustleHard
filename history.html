@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hustle Hard | Historique</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="history.css">
+</head>
+
+<body>
+
+    <!-- macOS Sidebar (Finder Style) -->
+    <aside class="sidebar">
+        <div class="window-controls">
+            <!-- Logo Icon + Text -->
+            <div class="logo-container" style="display: flex; align-items: center; gap: 8px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#FF6B35" />
+                            <stop offset="1" stop-color="#FF2D55" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" fill="url(#logoGradient)" stroke="white"
+                        stroke-width="1.5" stroke-linejoin="round" />
+                </svg>
+                <div class="logo-text">
+                    <span class="logo-primary">Hustle</span>
+                    <span class="logo-accent">Hard</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-group">
+            <h3 class="nav-section-title">Aujourd'hui</h3>
+            <nav class="nav-menu">
+                <a href="dashboard.html" class="nav-item">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                        </path>
+                    </svg>
+                    Dashboard
+                </a>
+                <a href="history.html" class="nav-item active">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    Historique
+                </a>
+                <a href="#" class="nav-item">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
+                        </path>
+                    </svg>
+                    Analytics
+                </a>
+            </nav>
+        </div>
+
+        <div class="nav-group">
+            <h3 class="nav-section-title">Bibliothèque</h3>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                        </path>
+                    </svg>
+                    Habitudes
+                </a>
+                <a href="#" class="nav-item">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+                    </svg>
+                    Programmes
+                </a>
+            </nav>
+        </div>
+
+        <div class="sidebar-profile">
+            <div class="profile-avatar"></div>
+            <div class="profile-info">
+                <span class="profile-name">Chiheb K.</span>
+                <span class="profile-role">Pro Account</span>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header>
+            <div class="greeting">
+                <h1>Historique</h1>
+                <p>Vos accomplissements passés</p>
+            </div>
+
+            <div class="header-actions">
+                <div class="notification-btn">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9">
+                        </path>
+                    </svg>
+                    <div class="notif-badge"></div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Summary Stats Grid -->
+        <section class="history-stats-grid">
+            <div class="h-stat-card">
+                <div class="h-icon-box orange">🔥</div>
+                <div class="h-stat-info">
+                    <span class="h-label">Current Streak</span>
+                    <span class="h-value">12</span>
+                </div>
+            </div>
+            <div class="h-stat-card">
+                <div class="h-icon-box blue">🏆</div>
+                <div class="h-stat-info">
+                    <span class="h-label">Best Streak</span>
+                    <span class="h-value">28</span>
+                </div>
+            </div>
+            <div class="h-stat-card">
+                <div class="h-icon-box purple">📊</div>
+                <div class="h-stat-info">
+                    <span class="h-label">Total Tâches</span>
+                    <span class="h-value">142</span>
+                </div>
+            </div>
+            <div class="h-stat-card">
+                <div class="h-icon-box green">📈</div>
+                <div class="h-stat-info">
+                    <span class="h-label">Taux Global</span>
+                    <span class="h-value">84%</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="single-card-container">
+            <div class="history-toolbar">
+                <span class="toolbar-label">Filtrer par :</span>
+                <div class="filter-group">
+                    <button class="filter-btn active" onclick="filterStatic('all', this)">Tous</button>
+                    <button class="filter-btn" onclick="filterStatic('high', this)">Succès</button>
+                    <button class="filter-btn" onclick="filterStatic('low', this)">À améliorer</button>
+                </div>
+            </div>
+
+            <div class="history-list-view" id="history-feed">
+
+                <!-- Day 1: Today -->
+                <div class="history-day-row" data-rate="high">
+                    <div class="day-header" onclick="toggleDetails(this)">
+                        <div class="day-info">
+                            <span class="day-name">Aujourd'hui</span>
+                            <span class="day-date">25 Jan</span>
+                        </div>
+                        <div class="day-stats">
+                            <div class="mini-progress">
+                                <div class="mini-bar" style="width: 85%; background-color: var(--accent-green)"></div>
+                            </div>
+                            <div class="stat-badge high">85%</div>
+                        </div>
+                    </div>
+                    <div class="day-tasks-container">
+                        <div class="mini-task completed">
+                            <div class="dot-status completed"></div><span class="task-label">Morning Routine</span>
+                        </div>
+                        <div class="mini-task completed">
+                            <div class="dot-status completed"></div><span class="task-label">Séance Sport (Push)</span>
+                        </div>
+                        <div class="mini-task completed">
+                            <div class="dot-status completed"></div><span class="task-label">Boire 2L d'eau</span>
+                        </div>
+                        <div class="mini-task completed">
+                            <div class="dot-status completed"></div><span class="task-label">Lire 10 pages</span>
+                        </div>
+                        <div class="mini-task missed">
+                            <div class="dot-status pending"></div><span class="task-label">Méditation (10min)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 2: Yesterday -->
+                <div class="history-day-row" data-rate="high">
+                    <div class="day-header" onclick="toggleDetails(this)">
+                        <div class="day-info">
+                            <span class="day-name">Hier</span>
+                            <span class="day-date">24 Jan</span>
+                        </div>
+                        <div class="day-stats">
+                            <div class="mini-progress">
+                                <div class="mini-bar" style="width: 100%; background-color: var(--accent-green)"></div>
+                            </div>
+                            <div class="stat-badge high">100%</div>
+                        </div>
+                    </div>
+                    <div class="day-tasks-container">
+                        <div class="mini-task completed">
+                            <div class="dot-status completed"></div><span class="task-label">Morning Routine</span>
+                        </div>
+                        <div class="mini-task completed">
+                            <div class="dot-status completed"></div><span class="task-label">Pull Day</span>
+                        </div>
+                        <div class="mini-task completed">
+                            <div class="dot-status completed"></div><span class="task-label">Code Review</span>
+                        </div>
+                        <div class="mini-task completed">
+                            <div class="dot-status completed"></div><span class="task-label">Marche 10k pas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 3 -->
+                <div class="history-day-row" data-rate="medium">
+                    <div class="day-header" onclick="toggleDetails(this)">
+                        <div class="day-info">
+                            <span class="day-name">Mercredi</span>
+                            <span class="day-date">23 Jan</span>
+                        </div>
+                        <div class="day-stats">
+                            <div class="mini-progress">
+                                <div class="mini-bar" style="width: 60%; background-color: var(--accent-orange)"></div>
+                            </div>
+                            <div class="stat-badge medium">60%</div>
+                        </div>
+                    </div>
+                    <div class="day-tasks-container">
+                        <div class="mini-task completed">
+                            <div class="dot-status completed"></div><span class="task-label">Morning Routine</span>
+                        </div>
+                        <div class="mini-task missed">
+                            <div class="dot-status pending"></div><span class="task-label">Leg Day (Skipped)</span>
+                        </div>
+                        <div class="mini-task completed">
+                            <div class="dot-status completed"></div><span class="task-label">Boire 2L d'eau</span>
+                        </div>
+                        <div class="mini-task missed">
+                            <div class="dot-status pending"></div><span class="task-label">Journaling</span>
+                        </div>
+                        <div class="mini-task completed">
+                            <div class="dot-status completed"></div><span class="task-label">Meeting Client</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 4 -->
+                <div class="history-day-row" data-rate="high">
+                    <div class="day-header" onclick="toggleDetails(this)">
+                        <div class="day-info">
+                            <span class="day-name">Mardi</span>
+                            <span class="day-date">22 Jan</span>
+                        </div>
+                        <div class="day-stats">
+                            <div class="mini-progress">
+                                <div class="mini-bar" style="width: 90%; background-color: var(--accent-green)"></div>
+                            </div>
+                            <div class="stat-badge high">90%</div>
+                        </div>
+                    </div>
+                    <div class="day-tasks-container">
+                        <div class="mini-task completed">
+                            <div class="dot-status completed"></div><span class="task-label">Morning Routine</span>
+                        </div>
+                        <div class="mini-task completed">
+                            <div class="dot-status completed"></div><span class="task-label">Cardio 30min</span>
+                        </div>
+                        <div class="mini-task completed">
+                            <div class="dot-status completed"></div><span class="task-label">Deep Work (4h)</span>
+                        </div>
+                        <div class="mini-task missed">
+                            <div class="dot-status pending"></div><span class="task-label">Reading</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 5 -->
+                <div class="history-day-row" data-rate="low">
+                    <div class="day-header" onclick="toggleDetails(this)">
+                        <div class="day-info">
+                            <span class="day-name">Lundi</span>
+                            <span class="day-date">21 Jan</span>
+                        </div>
+                        <div class="day-stats">
+                            <div class="mini-progress">
+                                <div class="mini-bar" style="width: 40%; background-color: var(--accent-red)"></div>
+                            </div>
+                            <div class="stat-badge low">40%</div>
+                        </div>
+                    </div>
+                    <div class="day-tasks-container">
+                        <div class="mini-task completed">
+                            <div class="dot-status completed"></div><span class="task-label">Morning Routine</span>
+                        </div>
+                        <div class="mini-task missed">
+                            <div class="dot-status pending"></div><span class="task-label">Sport</span>
+                        </div>
+                        <div class="mini-task missed">
+                            <div class="dot-status pending"></div><span class="task-label">Clean Setup</span>
+                        </div>
+                        <div class="mini-task missed">
+                            <div class="dot-status pending"></div><span class="task-label">Study AWS</span>
+                        </div>
+                        <div class="mini-task completed">
+                            <div class="dot-status completed"></div><span class="task-label">Call Mom</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Minimal JS for interaction (Toggle & Filter)
+
+        function toggleDetails(header) {
+            const container = header.nextElementSibling;
+            if (container) {
+                // Determine if we need to show or hide. 
+                // We'll toggle a 'hidden' class or just display none.
+                // In CSS I can add a utility or just manipulate style directly for simplicity in static file.
+                if (container.style.display === 'none') {
+                    container.style.display = 'flex';
+                } else {
+                    container.style.display = 'none';
+                }
+            }
+        }
+
+        function filterStatic(type, btn) {
+            // Update buttons
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Filter Rows
+            const rows = document.querySelectorAll('.history-day-row');
+            rows.forEach(row => {
+                const rate = row.getAttribute('data-rate');
+                if (type === 'all') {
+                    row.style.display = 'block';
+                } else if (type === 'high') {
+                    row.style.display = rate === 'high' ? 'block' : 'none';
+                } else if (type === 'low') {
+                    row.style.display = (rate === 'low' || rate === 'medium') ? 'block' : 'none'; // Group low/medium for 'To Improve'
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,633 @@
+/* Goals Page Styles - Apple Pro Design */
+
+/* Using global variables from styles.css to ensure consistency 
+   (--system-background, --card-background, --radius-*, etc.) 
+*/
+
+/* --- Segmented Control (View Toggle) --- */
+.view-toggle {
+    background: rgba(118, 118, 128, 0.12);
+    /* Apple Control background */
+    padding: 2px;
+    border-radius: 9px;
+    display: flex;
+    position: relative;
+    height: 32px;
+    box-sizing: content-box;
+}
+
+.toggle-btn {
+    border: none;
+    background: transparent;
+    padding: 0 12px;
+    height: 100%;
+    border-radius: 7px;
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 2;
+    opacity: 0.7;
+}
+
+.toggle-btn:hover {
+    opacity: 1;
+}
+
+.toggle-btn.active {
+    background: white;
+    color: black;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 0.5px 1px rgba(0, 0, 0, 0.1);
+    /* Floating card effect */
+    font-weight: 600;
+    opacity: 1;
+}
+
+/* --- Stats Grid (Apple Charts Style) --- */
+.goals-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    max-width: 100%;
+}
+
+.g-stat-card {
+    background: var(--card-background);
+    padding: 1.5rem;
+    border-radius: var(--radius-m);
+    box-shadow: var(--shadow-sm);
+    border: var(--border-light);
+    display: flex;
+    flex-direction: column;
+    /* Stacked for modern look */
+    align-items: flex-start;
+    gap: 0.8rem;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.g-stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.g-icon-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    margin-bottom: 4px;
+}
+
+/* Icons colors with Apple style softness - keeping specific tints as they match the accent colors in styles.css but with different opacity usage here */
+.g-icon-box.purple {
+    background: rgba(88, 86, 214, 0.12);
+    color: var(--accent-indigo);
+}
+
+.g-icon-box.green {
+    background: rgba(52, 199, 89, 0.12);
+    color: var(--accent-green);
+}
+
+.g-icon-box.blue {
+    background: rgba(0, 122, 255, 0.12);
+    color: var(--accent-blue);
+}
+
+.g-icon-box.orange {
+    background: rgba(255, 149, 0, 0.12);
+    color: var(--accent-orange);
+}
+
+.g-stat-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.g-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.g-value {
+    font-size: 2rem;
+    font-weight: 700;
+    /* San Francisco Bold */
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+/* --- Quarters Grid Layout --- */
+.quarters-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding-bottom: 3rem;
+}
+
+.quarter-section {
+    background: var(--card-background);
+    border-radius: var(--radius-l);
+    box-shadow: var(--shadow-sm);
+    border: var(--border-light);
+    padding: 1.5rem;
+
+    /* Flex Container for independent scrolling */
+    display: flex;
+    flex-direction: column;
+    height: 420px;
+    /* Specific Fixed Height */
+    max-height: 420px;
+
+    transition: box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+    /* Prevent spillover */
+}
+
+.quarter-section:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.quarter-header {
+    margin-bottom: 0.8rem;
+    flex-shrink: 0;
+    /* Header stays fixed */
+    padding-bottom: 0;
+    border-bottom: none;
+    position: relative;
+}
+
+.q-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+}
+
+.q-badge {
+    background: #F2F2F7;
+    color: #8E8E93;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Modern thinner progress bar */
+.q-progress-wrapper {
+    width: 100%;
+    height: 5px;
+    background: rgba(0, 0, 0, 0.04);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.q-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--brand-color), #FF2D55);
+    border-radius: 10px;
+}
+
+/* Goals List */
+.goals-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+
+    /* Fill remaining space but allow shrink */
+    flex: 1;
+    min-height: 0;
+
+    /* Scroll properties */
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    /* Visual Padding for scrollbar */
+    padding-right: 4px;
+    margin-right: -4px;
+}
+
+/* Custom Scrollbar for Webkit */
+.goals-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.goals-list::-webkit-scrollbar-track {
+    background: transport;
+}
+
+.goals-list::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}
+
+/* Goal Item - Reminders iOS Style */
+.goal-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    /* Separator line */
+    background: transparent;
+    transition: background 0.2s;
+}
+
+.goal-item:last-child {
+    border-bottom: none;
+}
+
+.goal-item:hover {
+    /* No bg change, keep clean */
+}
+
+.goal-checkbox {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    /* iOS uses circles for reminders usually */
+    border: 2px solid #C7C7CC;
+    cursor: pointer;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 2px;
+    /* Align with text top */
+}
+
+.goal-checkbox:hover {
+    border-color: var(--brand-color);
+    background: rgba(255, 107, 53, 0.05);
+}
+
+.goal-checkbox.checked {
+    background: var(--brand-color);
+    border-color: var(--brand-color);
+    box-shadow: 0 2px 5px rgba(255, 107, 53, 0.3);
+}
+
+.goal-checkbox.checked::after {
+    content: '';
+    width: 10px;
+    height: 6px;
+    border-left: 2px solid white;
+    border-bottom: 2px solid white;
+    transform: rotate(-45deg) translate(2px, -2px);
+}
+
+.goal-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.goal-title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    transition: color 0.2s;
+    line-height: 1.4;
+}
+
+.goal-checkbox.checked~.goal-content .goal-title {
+    color: #999;
+    text-decoration: none;
+    /* iOS doesn't strike-through often, just dims */
+    opacity: 0.6;
+}
+
+.goal-meta {
+    font-size: 0.75rem;
+    color: #8E8E93;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-weight: 500;
+}
+
+.goal-actions {
+    display: flex;
+    gap: 8px;
+    opacity: 0;
+    transition: opacity 0.2s;
+    margin-top: 2px;
+}
+
+.goal-item:hover .goal-actions {
+    opacity: 1;
+}
+
+.goal-btn-icon {
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: transparent;
+    color: #8E8E93;
+    /* Subtle gray initially */
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.goal-btn-icon:hover {
+    color: var(--text-primary);
+    background: rgba(0, 0, 0, 0.05);
+    /* Slight darken on hover */
+}
+
+/* Specific Delete Hover */
+.goal-btn-icon.delete:hover {
+    color: var(--accent-red);
+    background: rgba(255, 59, 48, 0.1);
+}
+
+/* Specific Edit Hover */
+.goal-btn-icon.edit:hover {
+    color: var(--accent-blue);
+    background: rgba(0, 122, 255, 0.1);
+}
+
+/* --- Gantt Chart --- */
+.gantt-container {
+    background: var(--card-background);
+    border-radius: var(--radius-l);
+    box-shadow: var(--shadow-sm);
+    border: var(--border-light);
+    padding: 2rem;
+    overflow-x: auto;
+}
+
+.gantt-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.gantt-months {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1px;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #8E8E93;
+    letter-spacing: 0.5px;
+}
+
+.gantt-body {
+    background: repeating-linear-gradient(to right,
+            transparent,
+            transparent calc(8.33% - 1px),
+            rgba(0, 0, 0, 0.04) calc(8.33% - 1px),
+            rgba(0, 0, 0, 0.04) 8.33%);
+    border-radius: 12px;
+    padding: 10px 0;
+}
+
+.gantt-line {
+    height: 48px;
+    /* Taller lines */
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.gantt-bar {
+    position: absolute;
+    height: 24px;
+    border-radius: 12px;
+    /* Fully rounded pill */
+    background: var(--accent-blue);
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-shadow: 0 2px 6px rgba(0, 122, 255, 0.3);
+    /* Colored shadow */
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.gantt-bar:hover {
+    transform: scale(1.02);
+    z-index: 5;
+}
+
+.gantt-bar.completed {
+    background: var(--accent-green);
+    box-shadow: 0 2px 6px rgba(52, 199, 89, 0.3);
+    opacity: 1;
+}
+
+/* --- Modal (Apple Alert/Sheet Style) --- */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.2);
+    /* Lighter backdrop */
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.modal-overlay:not(.hidden) {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-card {
+    background: rgba(255, 255, 255, 0.95);
+    width: 100%;
+    max-width: 420px;
+    border-radius: 18px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    transform: scale(0.95);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.modal-overlay:not(.hidden) .modal-card {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.modal-header h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.close-modal {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.05);
+    border: none;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+/* Modal Custom Inputs */
+.input-field {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background: #F2F2F7;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: var(--text-primary);
+    transition: all 0.2s;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+select.input-field {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238E8E93' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+    padding-right: 2.5rem;
+}
+
+.input-field:focus {
+    background: white;
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 4px rgba(0, 122, 255, 0.1);
+    outline: none;
+}
+
+/* Quick Add Button In-Card */
+.quick-add-btn {
+    margin-top: 10px;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.03);
+    /* Light gray */
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.quick-add-btn:hover {
+    background: rgba(0, 0, 0, 0.06);
+    transform: translateY(-1px);
+}
+
+.quick-add-btn:active {
+    transform: scale(0.98);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    /* Increased spacing */
+}
+
+.form-group label {
+    font-weight: 500;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+/* Modal buttons */
+.btn-cancel {
+    padding: 8px 16px;
+    /* Smaller */
+    border: none;
+    background: transparent;
+    color: var(--accent-red);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-cancel:hover {
+    opacity: 0.7;
+}
+
+.btn-save {
+    padding: 8px 20px;
+    /* Reduced size */
+    border: none;
+    background: var(--text-primary);
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 10px;
+    /* iOS-like rectangle with radius */
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-save:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.btn-save:active {
+    transform: scale(0.97);
+}
+
+/* Helper Utilities */
+.hidden {
+    display: none !important;
+}

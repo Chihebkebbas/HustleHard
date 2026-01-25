@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hustle Hard | Objectifs</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="goals.css">
+</head>
+
+<body>
+
+    <!-- macOS Sidebar -->
+    <aside class="sidebar">
+        <div class="window-controls">
+            <div class="logo-container" style="display: flex; align-items: center; gap: 8px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#FF6B35" />
+                            <stop offset="1" stop-color="#FF2D55" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" fill="url(#logoGradient)" stroke="white"
+                        stroke-width="1.5" stroke-linejoin="round" />
+                </svg>
+                <div class="logo-text">
+                    <span class="logo-primary">Hustle</span>
+                    <span class="logo-accent">Hard</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-group">
+            <h3 class="nav-section-title">Aujourd'hui</h3>
+            <nav class="nav-menu">
+                <a href="dashboard.html" class="nav-item">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                        </path>
+                    </svg>
+                    Dashboard
+                </a>
+                <a href="goals.html" class="nav-item active">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    Objectifs
+                </a>
+                <a href="history.html" class="nav-item">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    Historique
+                </a>
+            </nav>
+        </div>
+
+        <div class="nav-group">
+            <h3 class="nav-section-title">Bibliothèque</h3>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                        </path>
+                    </svg>
+                    Habitudes
+                </a>
+                <a href="#" class="nav-item">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+                    </svg>
+                    Programmes
+                </a>
+            </nav>
+        </div>
+
+        <div class="sidebar-profile">
+            <div class="profile-avatar"></div>
+            <div class="profile-info">
+                <span class="profile-name">Chiheb K.</span>
+                <span class="profile-role">Pro Account</span>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header>
+            <div class="greeting">
+                <h1>Objectifs 2026</h1>
+                <p>Planification stratégique trimestrielle</p>
+            </div>
+
+            <div class="header-actions">
+                <div class="view-toggle">
+                    <button class="toggle-btn active" onclick="switchView('cards')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="3" y1="9" x2="21" y2="9"></line>
+                            <line x1="9" y1="21" x2="9" y2="9"></line>
+                        </svg>
+                    </button>
+                    <button class="toggle-btn" onclick="switchView('gantt')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="8" y1="6" x2="21" y2="6"></line>
+                            <line x1="8" y1="12" x2="21" y2="12"></line>
+                            <line x1="8" y1="18" x2="21" y2="18"></line>
+                            <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                            <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                            <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+                <button class="btn-primary" onclick="openAddGoalModal()"
+                    style="display:flex; align-items:center; gap:8px;">
+                    <span>+</span> Nouvel Objectif
+                </button>
+            </div>
+        </header>
+
+        <!-- Stats Grid -->
+        <section class="goals-stats-grid">
+            <div class="g-stat-card">
+                <div class="g-icon-box purple">🎯</div>
+                <div class="g-stat-info">
+                    <span class="g-label">Total Objectifs</span>
+                    <span class="g-value" id="total-goals">0</span>
+                </div>
+            </div>
+            <div class="g-stat-card">
+                <div class="g-icon-box green">✅</div>
+                <div class="g-stat-info">
+                    <span class="g-label">Accomplis</span>
+                    <span class="g-value" id="completed-goals">0</span>
+                </div>
+            </div>
+            <div class="g-stat-card">
+                <div class="g-icon-box blue">⏳</div>
+                <div class="g-stat-info">
+                    <span class="g-label">En Cours</span>
+                    <span class="g-value" id="pending-goals">0</span>
+                </div>
+            </div>
+            <div class="g-stat-card">
+                <div class="g-icon-box orange">🔥</div>
+                <div class="g-stat-info">
+                    <span class="g-label">Progression Annuelle</span>
+                    <span class="g-value" id="annual-progress">0%</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quarters Grid (Cards View) -->
+        <div class="quarters-container" id="cards-view">
+            <!-- Q1 Section -->
+            <section class="quarter-section" id="q1-section">
+                <div class="quarter-header">
+                    <h2 class="q-title"><span class="q-badge">Q1</span> Jan - Mar</h2>
+                    <div class="q-progress-wrapper">
+                        <div class="q-progress-bar" style="width: 65%"></div>
+                    </div>
+                </div>
+                <div class="goals-list" id="list-q1">
+                    <!-- Goals injected via JS -->
+                </div>
+                <button class="quick-add-btn" onclick="openAddGoalModal('Q1')">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg> Ajouter
+                </button>
+            </section>
+
+            <!-- Q2 Section -->
+            <section class="quarter-section" id="q2-section">
+                <div class="quarter-header">
+                    <h2 class="q-title"><span class="q-badge">Q2</span> Avr - Juin</h2>
+                    <div class="q-progress-wrapper">
+                        <div class="q-progress-bar" style="width: 0%"></div>
+                    </div>
+                </div>
+                <div class="goals-list" id="list-q2"></div>
+                <button class="quick-add-btn" onclick="openAddGoalModal('Q2')">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg> Ajouter
+                </button>
+            </section>
+
+            <!-- Q3 Section -->
+            <section class="quarter-section" id="q3-section">
+                <div class="quarter-header">
+                    <h2 class="q-title"><span class="q-badge">Q3</span> Juil - Sep</h2>
+                    <div class="q-progress-wrapper">
+                        <div class="q-progress-bar" style="width: 0%"></div>
+                    </div>
+                </div>
+                <div class="goals-list" id="list-q3"></div>
+                <button class="quick-add-btn" onclick="openAddGoalModal('Q3')">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg> Ajouter
+                </button>
+            </section>
+
+            <!-- Q4 Section -->
+            <section class="quarter-section" id="q4-section">
+                <div class="quarter-header">
+                    <h2 class="q-title"><span class="q-badge">Q4</span> Oct - Déc</h2>
+                    <div class="q-progress-wrapper">
+                        <div class="q-progress-bar" style="width: 0%"></div>
+                    </div>
+                </div>
+                <div class="goals-list" id="list-q4"></div>
+                <button class="quick-add-btn" onclick="openAddGoalModal('Q4')">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg> Ajouter
+                </button>
+            </section>
+        </div>
+
+        <!-- Gantt View (Hidden by default) -->
+        <div class="gantt-container hidden" id="gantt-view">
+            <div class="gantt-header">
+                <div class="gantt-months">
+                    <div>Jan</div>
+                    <div>Fév</div>
+                    <div>Mar</div>
+                    <div>Avr</div>
+                    <div>Mai</div>
+                    <div>Jui</div>
+                    <div>Juil</div>
+                    <div>Aoû</div>
+                    <div>Sep</div>
+                    <div>Oct</div>
+                    <div>Nov</div>
+                    <div>Déc</div>
+                </div>
+            </div>
+            <div class="gantt-body" id="gantt-lines">
+                <!-- Lines injected by JS -->
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Modal for Add/Edit -->
+    <div id="goal-modal" class="modal-overlay hidden">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="modal-title">Nouvel Objectif</h3>
+                <button class="close-modal" onclick="closeModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="goal-id">
+                <div class="form-group">
+                    <label>Titre de l'objectif</label>
+                    <input type="text" id="goal-title" placeholder="Ex: Lancer le MVP..." class="input-field">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Trimestre</label>
+                        <select id="goal-q" class="input-field">
+                            <option value="Q1">Q1 (Jan-Mar)</option>
+                            <option value="Q2">Q2 (Avr-Juin)</option>
+                            <option value="Q3">Q3 (Juil-Sep)</option>
+                            <option value="Q4">Q4 (Oct-Déc)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Date Limite</label>
+                        <input type="date" id="goal-deadline" class="input-field">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="closeModal()">Annuler</button>
+                <button class="btn-save" onclick="saveGoal()">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="goals.js"></script>
+</body>
+
+</html>

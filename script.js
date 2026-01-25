@@ -73,6 +73,16 @@ window.toggleEditHabit = function (btn) {
     }
 };
 
+// 6. Delete Task Row
+window.deleteTask = function (btn) {
+    const row = btn.closest('.task-row');
+    row.style.opacity = '0';
+    row.style.transform = 'translateY(-10px)';
+    setTimeout(() => {
+        row.remove();
+    }, 200); // Wait for transition
+};
+
 // Helper to generate circles for new rows
 function generateCircles(count) {
     let html = '';

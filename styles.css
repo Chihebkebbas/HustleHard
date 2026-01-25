@@ -1,11 +1,13 @@
-/* Apple "Rat Pro" Aesthetic - macOS Web App Theme */
+/* Apple "Hustle Hard" Aesthetic - macOS Web App Theme */
 :root {
     /* System Colors (macOS/iOS inspired) */
-    --system-background: #F5F5F7;
-    --sidebar-background: rgba(242, 242, 247, 0.7);
+    --system-background: #F2F2F7;
+    /* Slightly deeper gray for contrast with white cards */
+    --sidebar-background: rgba(255, 255, 255, 0.65);
+    /* Cleaner frosted glass */
     --card-background: #FFFFFF;
-    --text-primary: #1D1D1F;
-    --text-secondary: #86868B;
+    --text-primary: #1C1C1E;
+    --text-secondary: #8E8E93;
     --text-tertiary: #C7C7CC;
 
     /* Accents */
@@ -19,9 +21,10 @@
     --brand-color: #FF6B35;
 
     /* Metrics */
-    --radius-l: 20px;
-    --radius-m: 14px;
-    --radius-s: 10px;
+    --radius-l: 24px;
+    /* More modern, softer corner */
+    --radius-m: 16px;
+    --radius-s: 12px;
 
     /* Effects */
     --glass-material: blur(20px) saturate(180%);
@@ -38,32 +41,29 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Helvetica Neue", sans-serif;
     background-color: var(--system-background);
     color: var(--text-primary);
     -webkit-font-smoothing: antialiased;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
     height: 100vh;
     display: flex;
     overflow: hidden;
     /* App-like feel */
 }
 
-/* --- Sidebar (macOS Finder Style) --- */
 /* --- Sidebar (macOS "Liquid Glass" Style) --- */
 .sidebar {
     width: 280px;
-    /* Slightly wider for premium feel */
-    background: rgba(255, 255, 255, 0.45);
-    /* More translucent */
-    backdrop-filter: blur(40px) saturate(200%);
-    /* Heavy blur "Liquid" effect */
-    -webkit-backdrop-filter: blur(40px) saturate(200%);
-    border-right: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 20px 0 40px rgba(0, 0, 0, 0.02);
-    /* Subtle depth */
+    background: var(--sidebar-background);
+    backdrop-filter: var(--glass-material);
+    -webkit-backdrop-filter: var(--glass-material);
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    /* Subtler border */
+    box-shadow: 1px 0 0 rgba(255, 255, 255, 0.5) inset;
+    /* Inner light highlight */
     height: 100vh;
-    padding: 2.5rem 1.2rem;
+    padding: 2.5rem 1.4rem;
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
@@ -83,10 +83,43 @@ body {
 
 .window-controls {
     display: flex;
-    gap: 8px;
+    align-items: center;
     margin-bottom: 2.5rem;
     padding-left: 0.8rem;
+    height: 40px;
 }
+
+.logo-text {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", sans-serif;
+    font-size: 1.5rem;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+    user-select: none;
+}
+
+/* Sidebar specific */
+.logo-primary {
+    font-weight: 500;
+    color: var(--text-primary);
+    /* Ensure strong contrast against glass */
+}
+
+.logo-accent {
+    font-weight: 800;
+    /* Heavy weight like modern branding */
+    background: linear-gradient(135deg, #FF6B35 0%, #FF2D55 100%);
+    /* Vivid gradient */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+}
+
+/* Optional: Add a subtle dot or shape if "Google" inspired geometric shapes are needed
+   but text-only was requested. Let's keep it typographic. */
 
 .traffic-light {
     width: 12px;
@@ -575,6 +608,93 @@ header {
     font-size: 1.1rem;
 }
 
+/* --- Task List Styles --- */
+.task-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Space between checkbox/text and delete btn */
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.2s;
+}
+
+.task-row:last-child {
+    border-bottom: none;
+}
+
+.task-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    /* Take remaining space */
+}
+
+.apple-checkbox {
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    border: 1px solid var(--text-tertiary);
+    appearance: none;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s;
+}
+
+.apple-checkbox:checked {
+    background: var(--brand-color);
+    /* Updated to brand color */
+    border-color: var(--brand-color);
+}
+
+.apple-checkbox:checked::after {
+    content: '✔';
+    color: white;
+    font-size: 12px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.task-text {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    transition: color 0.2s;
+}
+
+.apple-checkbox:checked+.task-text {
+    color: var(--text-tertiary);
+    text-decoration: line-through;
+}
+
+/* Delete Task Button */
+.task-delete-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    opacity: 0;
+    /* Hidden by default */
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.task-row:hover .task-delete-btn {
+    opacity: 1;
+    /* Show on hover */
+}
+
+.task-delete-btn:hover {
+    background: rgba(255, 59, 48, 0.1);
+    color: var(--accent-red);
+}
+
 /* Frequency Badge */
 .freq-badge {
     background: var(--system-background);
@@ -959,11 +1079,13 @@ header {
 .quick-add-row {
     margin-top: auto;
     /* Push to bottom */
-    padding-top: 1.5rem;
+    padding: 1.5rem 2rem;
+    /* Added horizontal padding for alignment */
     border-top: 1px dashed rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     color: var(--text-secondary);
+    cursor: text;
 }
 
 .plus-icon {

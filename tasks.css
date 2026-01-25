@@ -1,0 +1,128 @@
+/* Tasks Page Specific Styles - Apple Pro Aesthetic */
+
+/* Metrics Cards Container */
+.tasks-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.25rem;
+    /* Slightly tighter, precision grid */
+    margin-bottom: 2rem;
+}
+
+.task-metric-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    /* Slightly tighter radius than standard 24px */
+    padding: 1.75rem 1.5rem;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
+    /* Multi-layered smooth shadow */
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 140px;
+    /* Taller for grandeur */
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.task-metric-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+.task-metric-card h3 {
+    font-size: 0.75rem;
+    color: #6e6e73;
+    /* Apple's specific secondary gray */
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    z-index: 2;
+    margin-bottom: 0.5rem;
+}
+
+.task-metric-value {
+    font-size: 3.2rem;
+    /* Larger, statement numbering */
+    font-weight: 700;
+    color: #1d1d1f;
+    /* Almost black but not quite */
+    line-height: 1;
+    z-index: 2;
+    letter-spacing: -0.04em;
+    /* Tight Pro tracking */
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+}
+
+/* Illustration Image Styling */
+/* Widget Icon Positioning (Coherent with Dashboard) */
+.task-metric-card .widget-icon {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 64px;
+    /* Significantly larger */
+    height: 64px;
+    font-size: 2rem;
+    /* Larger emoji */
+    border-radius: 16px;
+    box-shadow: none;
+    z-index: 1;
+}
+
+/* Specific Colors - More muted/professional */
+.metric-blue {
+    color: #0071e3;
+}
+
+.metric-orange {
+    color: #ff9500;
+}
+
+.metric-fire {
+    color: #ff3b30;
+}
+
+/* List Container Tweaks for Full Page */
+.full-page-tasks {
+    background: #FFFFFF;
+    border-radius: 24px;
+    padding: 0;
+    /* Removing padding to let header/list sit flush or custom */
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
+    /* Very subtle depth */
+    min-height: 60vh;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+}
+
+.tasks-header-row {
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    /* Pro Glass Header */
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+}
+
+.tasks-container-scroll {
+    padding: 1rem 2rem 2rem 2rem;
+}
+
+.tasks-count-badge {
+    background: #F5F5F7;
+    color: #86868b;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}

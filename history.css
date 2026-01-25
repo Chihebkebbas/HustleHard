@@ -1,0 +1,146 @@
+/* History Page Specific Styles */
+
+/* History Container */
+.history-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-bottom: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Day Group Card */
+.history-day-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+
+.history-day-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* Header of the Day Card */
+.day-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    background: rgba(250, 250, 252, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.day-date {
+    display: flex;
+    flex-direction: column;
+}
+
+.day-date h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.day-date span {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* Stats for the day */
+.day-stats {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.completion-badge {
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.completion-high {
+    background: rgba(52, 199, 89, 0.1);
+    color: #34C759;
+}
+
+.completion-med {
+    background: rgba(255, 149, 0, 0.1);
+    color: #FF9500;
+}
+
+.completion-low {
+    background: rgba(255, 59, 48, 0.1);
+    color: #FF3B30;
+}
+
+/* List of history items */
+.history-list {
+    padding: 0.5rem 0;
+}
+
+.history-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    transition: background 0.1s;
+}
+
+.history-item:last-child {
+    border-bottom: none;
+}
+
+.history-item:hover {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+.h-task-name {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.h-task-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Status Badges */
+.status-pill {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.status-done {
+    color: #34C759;
+    background: rgba(52, 199, 89, 0.1);
+}
+
+.status-missed {
+    color: #FF3B30;
+    background: rgba(255, 59, 48, 0.1);
+}
+
+.h-task-name.done {
+    text-decoration: line-through;
+    color: var(--text-tertiary);
+}

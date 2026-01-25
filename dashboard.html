@@ -44,16 +44,32 @@
                     </svg>
                     Dashboard
                 </a>
+                <a href="tasks.html" class="nav-item">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4">
+                        </path>
+                    </svg>
+                    Tâches
+                </a>
                 <a href="goals.html" class="nav-item">
                     <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                     </svg>
                     Objectifs
                 </a>
-                <a href="history.html" class="nav-item">
+                <a href="habits.html" class="nav-item">
                     <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    Habitudes
+                </a>
+                <a href="history.html" class="nav-item">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
+                        </path>
                     </svg>
                     Historique
                 </a>
@@ -172,6 +188,17 @@
                     </div>
                 </div>
             </div>
+
+            <!-- AI Motivation Quote -->
+            <div class="quote-container">
+                <div class="quote-text">"La discipline est le pont entre les objectifs et l'accomplissement."</div>
+                <div class="quote-author">
+                    <span
+                        style="background:linear-gradient(135deg, #30CFD0, #330867); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-weight:800;">IA
+                        Insight</span>
+                    <span>• Jim Rohn</span>
+                </div>
+            </div>
         </section>
 
         <!-- Reminders Grid (Mac Widgets Style) -->
@@ -209,127 +236,129 @@
         <!-- Habit Table (Cocoa Style) -->
         <section class="habit-section">
             <div class="table-header">Suivi Mensuel</div>
-            <table class="habit-table" id="habit-table-main">
-                <thead>
-                    <tr>
-                        <th style="width: 25%">Habitude</th>
-                        <th style="width: 15%">Fréquence</th>
-                        <th>Semaine 1 <span style="font-weight:400; opacity:0.6; font-size:0.75rem;">(1-7 Jan)</span>
-                        </th>
-                        <th>Semaine 2 <span style="font-weight:400; opacity:0.6; font-size:0.75rem;">(8-14 Jan)</span>
-                        </th>
-                        <th>Semaine 3 <span style="font-weight:400; opacity:0.6; font-size:0.75rem;">(15-21 Jan)</span>
-                        </th>
-                        <th>Semaine 4 <span style="font-weight:400; opacity:0.6; font-size:0.75rem;">(22-28 Jan)</span>
-                        </th>
-                        <th style="width: 5%"></th>
-                    </tr>
-                </thead>
-                <tbody id="habit-body">
-                    <tr>
-                        <td>
-                            <div class="habit-name-flex">
-                                <div class="habit-icon-sq" style="color:#FF9500">📖</div> Lecture
-                            </div>
-                        </td>
-                        <td>
-                            <div class="freq-badge">
-                                <input type="text" class="freq-input" value="7"> / sem
-                            </div>
-                        </td>
-                        <td>
-                            <div class="check-row">
-                                <div class="day-circle filled"></div>
-                                <div class="day-circle filled"></div>
-                                <div class="day-circle filled"></div>
-                                <div class="day-circle filled"></div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="check-row">
-                                <div class="day-circle filled"></div>
-                                <div class="day-circle filled"></div>
-                                <div class="day-circle filled"></div>
-                                <div class="day-circle"></div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="check-row">
-                                <div class="day-circle filled"></div>
-                                <div class="day-circle" onclick="this.classList.toggle('filled')"></div>
-                                <div class="day-circle"></div>
-                                <div class="day-circle"></div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="check-row">
-                                <div class="day-circle"></div>
-                                <div class="day-circle"></div>
-                                <div class="day-circle"></div>
-                                <div class="day-circle"></div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="habit-actions">
-                                <button class="action-btn" title="Modifier" onclick="toggleEditHabit(this)"><svg
-                                        width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                                    </svg></button>
-                                <button class="action-btn delete" title="Supprimer" onclick="deleteHabitRow(this)"><svg
-                                        width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <polyline points="3 6 5 6 21 6"></polyline>
-                                        <path
-                                            d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
-                                        </path>
-                                    </svg></button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="habit-name-flex">
-                                <div class="habit-icon-sq" style="color:#34C759">💪</div> Gym / Sport
-                            </div>
-                        </td>
-                        <td>
-                            <div class="freq-badge">
-                                <input type="text" class="freq-input" value="4"> / sem
-                            </div>
-                        </td>
-                        <td>
-                            <div class="check-row">
-                                <div class="day-circle filled-green"></div>
-                                <div class="day-circle filled-green"></div>
-                                <div class="day-circle filled-green"></div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="check-row">
-                                <div class="day-circle filled-green"></div>
-                                <div class="day-circle filled-green"></div>
-                                <div class="day-circle"></div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="check-row">
-                                <div class="day-circle filled-green"></div>
-                                <div class="day-circle" onclick="this.classList.toggle('filled-green')"></div>
-                                <div class="day-circle"></div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="check-row">
-                                <div class="day-circle"></div>
-                                <div class="day-circle"></div>
-                                <div class="day-circle"></div>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="habit-table-wrapper">
+                <table class="habit-table" id="habit-table-main">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%">Habitude</th>
+                            <th style="width: 15%">Fréquence</th>
+                            <th>Semaine 1 <span style="font-weight:400; opacity:0.6; font-size:0.75rem;">(1-7
+                                    Jan)</span></th>
+                            <th>Semaine 2 <span style="font-weight:400; opacity:0.6; font-size:0.75rem;">(8-14
+                                    Jan)</span></th>
+                            <th>Semaine 3 <span style="font-weight:400; opacity:0.6; font-size:0.75rem;">(15-21
+                                    Jan)</span></th>
+                            <th>Semaine 4 <span style="font-weight:400; opacity:0.6; font-size:0.75rem;">(22-28
+                                    Jan)</span></th>
+                            <th style="width: 5%"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="habit-body">
+                        <tr>
+                            <td>
+                                <div class="habit-name-flex">
+                                    <div class="habit-icon-sq" style="color:#FF9500">📖</div> Lecture
+                                </div>
+                            </td>
+                            <td>
+                                <div class="freq-badge">
+                                    <input type="text" class="freq-input" value="7"> / sem
+                                </div>
+                            </td>
+                            <td>
+                                <div class="check-row">
+                                    <div class="day-circle filled"></div>
+                                    <div class="day-circle filled"></div>
+                                    <div class="day-circle filled"></div>
+                                    <div class="day-circle filled"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="check-row">
+                                    <div class="day-circle filled"></div>
+                                    <div class="day-circle filled"></div>
+                                    <div class="day-circle filled"></div>
+                                    <div class="day-circle"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="check-row">
+                                    <div class="day-circle filled"></div>
+                                    <div class="day-circle" onclick="this.classList.toggle('filled')"></div>
+                                    <div class="day-circle"></div>
+                                    <div class="day-circle"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="check-row">
+                                    <div class="day-circle"></div>
+                                    <div class="day-circle"></div>
+                                    <div class="day-circle"></div>
+                                    <div class="day-circle"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="habit-actions">
+                                    <button class="action-btn" title="Modifier" onclick="toggleEditHabit(this)"><svg
+                                            width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2">
+                                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                        </svg></button>
+                                    <button class="action-btn delete" title="Supprimer"
+                                        onclick="deleteHabitRow(this)"><svg width="14" height="14" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="3 6 5 6 21 6"></polyline>
+                                            <path
+                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                            </path>
+                                        </svg></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="habit-name-flex">
+                                    <div class="habit-icon-sq" style="color:#34C759">💪</div> Gym / Sport
+                                </div>
+                            </td>
+                            <td>
+                                <div class="freq-badge">
+                                    <input type="text" class="freq-input" value="4"> / sem
+                                </div>
+                            </td>
+                            <td>
+                                <div class="check-row">
+                                    <div class="day-circle filled-green"></div>
+                                    <div class="day-circle filled-green"></div>
+                                    <div class="day-circle filled-green"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="check-row">
+                                    <div class="day-circle filled-green"></div>
+                                    <div class="day-circle filled-green"></div>
+                                    <div class="day-circle"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="check-row">
+                                    <div class="day-circle filled-green"></div>
+                                    <div class="day-circle" onclick="this.classList.toggle('filled-green')"></div>
+                                    <div class="day-circle"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="check-row">
+                                    <div class="day-circle"></div>
+                                    <div class="day-circle"></div>
+                                    <div class="day-circle"></div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
             <button class="btn-add-habit" onclick="addNewHabitRow()">
                 <span style="font-size:1.2rem; line-height:1;">+</span> Ajouter une habitude

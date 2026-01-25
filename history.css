@@ -1,87 +1,101 @@
 /* History Page Styles - Polished for Consistency */
 
-/* Stats Grid */
+/* Stats Grid & Unified Card Constraints */
 .history-stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    gap: 1.25rem;
     margin-bottom: 2rem;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    /* Full width */
 }
 
-.h-stat-card {
-    background: var(--card-background);
-    padding: 1.5rem;
-    /* Increased padding for premium feel */
-    border-radius: var(--radius-m);
-    box-shadow: var(--shadow-sm);
-    /* Subtler shadow */
-    border: var(--border-light);
+/* Constrain removed for Full Width */
+.stats-overview-card {
+    width: 100%;
+}
+
+/* Metric Card Styling (Matches Tasks Page) */
+.history-metric-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 1.75rem 1.5rem;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.04);
     display: flex;
-    align-items: center;
-    gap: 1.2rem;
-    transition: all 0.2s ease-out;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 140px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.h-stat-card:hover {
+.history-metric-card:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.03);
 }
 
-.h-icon-box {
-    width: 52px;
-    height: 52px;
-    border-radius: 14px;
+.history-metric-card h3 {
+    font-size: 0.75rem;
+    color: #6e6e73;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    z-index: 2;
+    margin-bottom: 0.5rem;
+}
+
+.history-metric-card .metric-value {
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: #1d1d1f;
+    line-height: 1;
+    z-index: 2;
+    letter-spacing: -0.04em;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+}
+
+.history-metric-card .widget-icon {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 64px;
+    height: 64px;
+    font-size: 2rem;
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.6rem;
-    flex-shrink: 0;
+    box-shadow: none;
+    z-index: 1;
 }
 
-.h-icon-box.orange {
-    background: rgba(255, 149, 0, 0.1);
-    color: var(--accent-orange);
-}
-
-.h-icon-box.blue {
-    background: rgba(0, 122, 255, 0.1);
-    color: var(--accent-blue);
-}
-
-.h-icon-box.purple {
-    background: rgba(88, 86, 214, 0.1);
-    color: var(--accent-indigo);
-}
-
-.h-icon-box.green {
-    background: rgba(52, 199, 89, 0.1);
+/* Specific Colors */
+.metric-green {
     color: var(--accent-green);
 }
 
-.h-stat-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.metric-blue {
+    color: var(--accent-blue);
 }
 
-.h-label {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    color: var(--text-secondary);
-    font-weight: 700;
-    margin-bottom: 4px;
-    letter-spacing: 0.5px;
+.metric-orange {
+    color: var(--accent-orange);
 }
 
-.h-value {
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--text-primary);
-    line-height: 1;
-    letter-spacing: -0.5px;
+/* AI Note Specifics */
+.history-metric-card.ai-card {
+    background: linear-gradient(135deg, rgba(88, 86, 214, 0.05), rgba(0, 122, 255, 0.05));
+    border: 1px solid rgba(88, 86, 214, 0.1);
+}
+
+.history-metric-card.ai-card .metric-value {
+    font-size: 1rem;
+    /* Smaller text for note */
+    line-height: 1.4;
+    white-space: normal;
+    font-weight: 500;
 }
 
 /* Single Card Container */
@@ -91,40 +105,85 @@
     box-shadow: var(--shadow-md);
     border: var(--border-light);
     overflow: hidden;
-    max-width: 900px;
-    margin: 0 auto;
-    animation: fadeIn 0.4s ease-out;
+    width: 100%;
+    /* Full Width */
+    margin-bottom: 2rem;
+    animation: fadeIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
     display: flex;
     flex-direction: column;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.text-green {
+    color: var(--accent-green);
 }
 
-/* Toolbar Controls */
+.text-orange {
+    color: var(--accent-orange);
+}
+
+.text-red {
+    color: var(--accent-red);
+}
+
+/* AI Note Card (Softer, Insightful) */
+.h-stat-card.ai-note {
+    grid-column: span 2;
+    background: linear-gradient(135deg, rgba(88, 86, 214, 0.08), rgba(0, 122, 255, 0.08));
+    border: 1px solid rgba(88, 86, 214, 0.2);
+    align-items: flex-start;
+}
+
+.h-stat-card.ai-note .h-label {
+    color: var(--accent-indigo);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.h-stat-card.ai-note .h-value {
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: normal;
+}
+
+/* Month Selector Button */
+.month-selector-btn {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 8px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.month-selector-btn:hover {
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-1px);
+}
+
 .history-toolbar {
-    padding: 1rem 1.5rem;
+    padding: 1.5rem 2rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* Spread out */
-    background: rgba(255, 255, 255, 0.7);
-    /* Slightly more opaque */
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
 }
 
 .toolbar-label {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 700;
     color: var(--text-secondary);
     text-transform: uppercase;
@@ -134,31 +193,34 @@
 .filter-group {
     display: flex;
     background: rgba(118, 118, 128, 0.12);
-    /* Apple Control color */
-    padding: 2px;
-    border-radius: 8px;
+    /* Apple Control Gray */
+    padding: 3px;
+    border-radius: 10px;
+    gap: 2px;
 }
 
 .filter-btn {
     border: none;
     background: transparent;
-    padding: 6px 12px;
-    border-radius: 6px;
+    padding: 6px 14px;
+    border-radius: 7px;
     font-size: 0.85rem;
     font-weight: 500;
     color: var(--text-primary);
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.2s ease;
 }
 
 .filter-btn.active {
     background: white;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Floating button look */
     font-weight: 600;
+    color: black;
 }
 
 .filter-btn:hover:not(.active) {
-    opacity: 0.7;
+    background: rgba(255, 255, 255, 0.5);
 }
 
 /* Inner List */
@@ -180,94 +242,55 @@
 
 /* Header */
 .day-header {
-    padding: 1.2rem 1.5rem;
+    padding: 1.5rem 2rem;
+    /* More breathing room */
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
     user-select: none;
+    transition: background 0.15s ease;
 }
 
 .day-header:hover {
     background: rgba(0, 0, 0, 0.02);
+    /* Very subtle hover */
 }
 
+/* ... day info styles ... */
 .day-info {
     display: flex;
     align-items: center;
-    gap: 1.2rem;
+    gap: 1.5rem;
 }
 
 .day-name {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     font-weight: 600;
     color: var(--text-primary);
     min-width: 90px;
 }
 
 .day-date {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--text-secondary);
     font-weight: 400;
 }
 
-.day-stats {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-.mini-progress {
-    width: 100px;
-    height: 6px;
-    background: rgba(0, 0, 0, 0.05);
-    border-radius: 3px;
-    overflow: hidden;
-}
-
-.mini-bar {
-    height: 100%;
-    border-radius: 3px;
-}
-
-.stat-badge {
-    font-size: 0.85rem;
-    font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 6px;
-    min-width: 55px;
-    text-align: center;
-}
-
-.stat-badge.high {
-    background: rgba(52, 199, 89, 0.15);
-    color: var(--accent-green);
-}
-
-.stat-badge.medium {
-    background: rgba(255, 149, 0, 0.15);
-    color: var(--accent-orange);
-}
-
-.stat-badge.low {
-    background: rgba(255, 59, 48, 0.15);
-    color: var(--accent-red);
-}
-
 /* Tasks List Container */
 .day-tasks-container {
-    padding: 0 1.5rem 1.5rem 1.5rem;
+    padding: 0 2rem 2rem 2rem;
+    /* Match header padding */
     display: none;
-    /* Hidden by default in static HTML, JS toggles it */
     flex-direction: column;
-    gap: 0;
-    animation: slideDown 0.2s ease-out;
+    gap: 4px;
+    animation: slideDown 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 @keyframes slideDown {
     from {
         opacity: 0;
-        transform: translateY(-5px);
+        transform: translateY(-8px);
     }
 
     to {
@@ -280,16 +303,18 @@
 .mini-task {
     display: flex;
     align-items: center;
-    gap: 14px;
-    padding: 0.9rem 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    gap: 16px;
+    padding: 0.8rem 1rem;
+    background: rgba(0, 0, 0, 0.02);
+    /* Slight inset look */
+    border-radius: 12px;
     font-size: 0.95rem;
     color: var(--text-primary);
+    transition: all 0.2s;
 }
 
-.mini-task:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
+.mini-task:hover {
+    background: rgba(0, 0, 0, 0.04);
 }
 
 .mini-task.completed .task-label {
@@ -298,10 +323,10 @@
 }
 
 .dot-status {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     border-radius: 6px;
-    border: 1px solid var(--text-tertiary);
+    border: 1.5px solid var(--text-tertiary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -309,18 +334,14 @@
 }
 
 .dot-status.completed {
-    background-color: var(--brand-color);
-    /* Match brand */
-    border-color: var(--brand-color);
+    background-color: var(--accent-green);
+    /* Using Success Green for ticks */
+    border-color: var(--accent-green);
 }
 
 .dot-status.completed::after {
     content: '✓';
     color: white;
-    font-size: 13px;
-    font-weight: 700;
-}
-
-.dot-status.pending {
-    border-color: var(--text-tertiary);
+    font-size: 14px;
+    font-weight: 800;
 }

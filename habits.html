@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hustle Hard | Habitudes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="habits.css">
+    <!-- Using Google Fonts matching Apple style -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- macOS Sidebar -->
+    <aside class="sidebar">
+        <div class="window-controls">
+            <div class="logo-container" style="display: flex; align-items: center; gap: 8px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#FF6B35" />
+                            <stop offset="1" stop-color="#FF2D55" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" fill="url(#logoGradient)" stroke="white"
+                        stroke-width="1.5" stroke-linejoin="round" />
+                </svg>
+                <div class="logo-text">
+                    <span class="logo-primary">Hustle</span>
+                    <span class="logo-accent">Hard</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-group">
+            <h3 class="nav-section-title">Aujourd'hui</h3>
+            <nav class="nav-menu">
+                <a href="dashboard.html" class="nav-item">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                        </path>
+                    </svg>
+                    Dashboard
+                </a>
+                <a href="tasks.html" class="nav-item">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4">
+                        </path>
+                    </svg>
+                    Tâches
+                </a>
+                <a href="goals.html" class="nav-item">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    Objectifs
+                </a>
+                <a href="habits.html" class="nav-item active">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    Habitudes
+                </a>
+                <a href="history.html" class="nav-item">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
+                        </path>
+                    </svg>
+                    Historique
+                </a>
+                <a href="#" class="nav-item">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
+                        </path>
+                    </svg>
+                    Analytics
+                </a>
+            </nav>
+        </div>
+
+        <div class="sidebar-profile">
+            <div class="profile-avatar"></div>
+            <div class="profile-info">
+                <span class="profile-name">Chiheb K.</span>
+                <span class="profile-role">Pro Account</span>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header>
+            <div class="greeting">
+                <h1>Mes Habitudes</h1>
+                <p>Construisez votre discipline jour après jour</p>
+            </div>
+            <div class="header-actions">
+                <div class="view-mode-switch">
+                    <!-- Example of a small segmented control for view if needed later -->
+                </div>
+                <button class="btn-primary" onclick="openAddHabitModal()"
+                    style="display:flex; align-items:center; gap:8px;">
+                    <span>+</span> Nouvelle Habitude
+                </button>
+            </div>
+        </header>
+
+        <!-- Habits Overview & AI Insight -->
+        <section class="habits-stats-grid">
+            <div class="h-stat-card">
+                <div class="h-stat-icon green">🔥</div>
+                <div class="h-stat-content">
+                    <div class="h-stat-value">12</div>
+                    <div class="h-stat-label">Best Streak</div>
+                </div>
+            </div>
+            <div class="h-stat-card">
+                <div class="h-stat-icon blue">✅</div>
+                <div class="h-stat-content">
+                    <div class="h-stat-value">85%</div>
+                    <div class="h-stat-label">Complétion</div>
+                </div>
+            </div>
+
+            <!-- AI Suggestion Card -->
+            <div class="h-stat-card ai-suggestion"
+                style="background: linear-gradient(135deg, rgba(88,86,214,0.05), rgba(0,122,255,0.05)); border: 1px solid rgba(88,86,214,0.1);">
+                <div class="h-stat-icon purple" style="background:white; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">💡
+                </div>
+                <div class="h-stat-content">
+                    <div class="h-stat-label" style="color:var(--accent-indigo); margin-bottom:4px;">Suggestion IA</div>
+                    <div style="font-size:0.9rem; font-weight:600; line-height:1.3;">"Essaie 5min de respiration ce
+                        soir."</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Habits List -->
+        <section class="habits-container">
+            <div class="habits-header-row">
+                <div class="col-name" style="flex:2.2">Habitude</div>
+                <div class="col-freq" style="flex:0.8">Fréquence</div>
+                <div class="col-streak" style="flex:0.6; text-align:center;">Streak</div>
+                <div class="col-history" style="flex:1.8; text-align:right; padding-right:45px;">Derniers 7 Jours</div>
+                <div class="col-actions"></div>
+            </div>
+
+            <div id="habits-list-body">
+                <!-- Habits injected via JS -->
+            </div>
+
+            <!-- Quick Add Button (Bottom of Card) -->
+            <div style="padding: 1rem 1.5rem 1.5rem 1.5rem;">
+                <button class="btn-add-habit" onclick="openAddHabitModal()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    Ajouter une habitude
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Add Habit Modal (Matches Goals Modal Design) -->
+    <div id="habit-modal" class="modal-overlay hidden">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="modal-title">Nouvelle Habitude</h3>
+                <button class="close-modal" onclick="closeModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="habit-id">
+                <div class="form-group">
+                    <label>Titre de l'habitude</label>
+                    <input type="text" id="habit-name" placeholder="Ex: Lire 10 pages..." class="input-field">
+                </div>
+
+                <div class="form-row">
+                    <!-- Icon input small -->
+                    <div class="form-group" style="flex:0 0 80px;">
+                        <label>Icone</label>
+                        <input type="text" id="habit-icon" placeholder="📚" class="input-field"
+                            style="text-align:center;">
+                    </div>
+                    <!-- Frequency Input (Simple Number) -->
+                    <div class="form-group" style="flex:1;">
+                        <label>Fréquence (Jours/Semaine)</label>
+                        <div>
+                            <input type="number" id="habit-freq" class="input-field" placeholder="7" min="1" max="7">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="closeModal()">Annuler</button>
+                <button class="btn-save" onclick="saveHabit()">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="habits.js"></script>
+</body>
+
+</html>

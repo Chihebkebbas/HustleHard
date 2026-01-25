@@ -401,6 +401,7 @@ header {
 }
 
 /* --- Unified Stats Card --- */
+/* --- Unified Stats Card --- */
 .stats-overview-card {
     background: var(--card-background);
     border-radius: var(--radius-l);
@@ -409,7 +410,8 @@ header {
     box-shadow: var(--shadow-md);
     border: var(--border-light);
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    /* 3 Columns: Streak | Rings | AI Quote */
+    grid-template-columns: 0.8fr 1.4fr 1fr;
     gap: 2rem;
     align-items: center;
 }
@@ -418,8 +420,39 @@ header {
     display: flex;
     align-items: center;
     gap: 1.5rem;
-    border-right: 1px solid var(--text-tertiary);
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    /* Lighter separator */
     padding-right: 2rem;
+}
+
+/* New Quote Section */
+.quote-container {
+    padding-left: 2rem;
+    border-left: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.quote-text {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--text-primary);
+    line-height: 1.5;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.quote-author {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .streak-icon-box {
@@ -547,6 +580,7 @@ header {
 }
 
 /* --- Habit Table (macOS List Style) --- */
+/* --- Habit Table (macOS List Style) --- */
 .habit-section {
     background: var(--card-background);
     border-radius: var(--radius-l);
@@ -554,6 +588,13 @@ header {
     box-shadow: var(--shadow-md);
     border: var(--border-light);
     margin-bottom: 2rem;
+
+    /* Dynamic layout with scroll limit */
+    display: flex;
+    flex-direction: column;
+    max-height: 380px;
+    /* Adjusted to scroll after ~4 habits */
+    overflow: hidden;
 }
 
 .table-header {
@@ -563,6 +604,29 @@ header {
     letter-spacing: 0.5px;
     margin-bottom: 1rem;
     padding-left: 0.5rem;
+    flex-shrink: 0;
+}
+
+/* Wrapper for scrollable table body logic */
+.habit-table-wrapper {
+    /* Allow wrapper to be smaller if content is small */
+    flex: 0 1 auto;
+    overflow-y: auto;
+    min-height: 0;
+}
+
+/* Custom Scrollbar */
+.habit-table-wrapper::-webkit-scrollbar {
+    width: 6px;
+}
+
+.habit-table-wrapper::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.habit-table-wrapper::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
 }
 
 .habit-table {
@@ -1022,6 +1086,34 @@ header {
     box-shadow: var(--shadow-md);
     display: flex;
     flex-direction: column;
+    /* Stretch to match left column */
+    height: 100%;
+    /* But cap it so it scrolls if very long */
+    max-height: 580px;
+    overflow: hidden;
+}
+
+#tasks-container {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 0;
+    margin: 0 -8px;
+    /* Negative margin for scrollbar breathing room */
+    padding: 0 8px;
+}
+
+#tasks-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+#tasks-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#tasks-container::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
 }
 
 .task-row {

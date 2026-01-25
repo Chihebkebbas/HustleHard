@@ -54,10 +54,24 @@
                     </svg>
                     Tâches
                 </a>
-                <a href="historique.html" class="nav-item">
+                <a href="goals.html" class="nav-item">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    Objectifs
+                </a>
+                <a href="habits.html" class="nav-item">
                     <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    Habitudes
+                </a>
+                <a href="history.html" class="nav-item">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
+                        </path>
                     </svg>
                     Historique
                 </a>
@@ -140,6 +154,16 @@
                 <div class="task-metric-value metric-fire">12 J</div>
                 <div class="widget-icon" style="background:#FFEBEE; color:#FF3B30">🔥</div>
             </div>
+            <!-- AI Suggestion Card -->
+            <div class="task-metric-card"
+                style="background: linear-gradient(135deg, rgba(88,86,214,0.05), rgba(0,122,255,0.05)); border: 1px solid rgba(88,86,214,0.1);">
+                <h3>Suggestion IA</h3>
+                <div class="task-metric-value"
+                    style="font-size:1.1rem; line-height:1.4; color:var(--text-primary); font-weight:600;">"Review PR
+                    #42"</div>
+                <div class="widget-icon"
+                    style="background:white; color:#5856D6; box-shadow:0 4px 12px rgba(0,0,0,0.05);">✨</div>
+            </div>
         </section>
 
         <!-- Tasks List (Apple Style) -->
@@ -221,7 +245,7 @@
 
             <!-- Quick Add -->
             <div class="quick-add-row" onclick="document.querySelector('.quick-input').focus()"
-                style="margin-top: 1.5rem;">
+                style="padding: 1.5rem 2rem; border-top: 1px solid rgba(0,0,0,0.05); flex-shrink: 0; background: #fff; border-bottom-left-radius: 24px; border-bottom-right-radius: 24px;">
                 <span class="plus-icon">+</span>
                 <input type="text" class="quick-input" placeholder="Ajouter une tâche..." onkeypress="if(event.key === 'Enter') { 
                     if(this.value.trim() === '') return;

@@ -549,11 +549,13 @@ select.input-field {
     margin-top: 10px;
     width: 100%;
     padding: 12px;
-    border: none;
+    border: 2px dashed rgba(0, 0, 0, 0.1);
+    /* Dashed */
     border-radius: 12px;
-    background: rgba(0, 0, 0, 0.03);
-    /* Light gray */
-    color: var(--text-primary);
+    background: transparent;
+    /* Transparent */
+    color: var(--text-secondary);
+    /* Text secondary */
     font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
@@ -566,7 +568,9 @@ select.input-field {
 }
 
 .quick-add-btn:hover {
-    background: rgba(0, 0, 0, 0.06);
+    border-color: var(--accent-blue);
+    color: var(--accent-blue);
+    background: rgba(0, 122, 255, 0.03);
     transform: translateY(-1px);
 }
 

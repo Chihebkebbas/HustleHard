@@ -7,14 +7,15 @@
     <title>Hustle Hard | Historique</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="history.css">
+    <!-- Using Google Fonts matching Apple style -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- macOS Sidebar (Finder Style) -->
+    <!-- macOS Sidebar -->
     <aside class="sidebar">
         <div class="window-controls">
-            <!-- Logo Icon + Text -->
             <div class="logo-container" style="display: flex; align-items: center; gap: 8px;">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <defs>
@@ -44,16 +45,32 @@
                     </svg>
                     Dashboard
                 </a>
+                <a href="tasks.html" class="nav-item">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4">
+                        </path>
+                    </svg>
+                    Tâches
+                </a>
                 <a href="goals.html" class="nav-item">
                     <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                     </svg>
                     Objectifs
                 </a>
-                <a href="history.html" class="nav-item active">
+                <a href="habits.html" class="nav-item">
                     <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    Habitudes
+                </a>
+                <a href="history.html" class="nav-item active">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
+                        </path>
                     </svg>
                     Historique
                 </a>
@@ -98,224 +115,153 @@
         </div>
     </aside>
 
+    <!-- Main Content -->
     <main class="main-content">
         <header>
             <div class="greeting">
                 <h1>Historique</h1>
-                <p>Vos accomplissements passés</p>
+                <p>Vos performances passées et archives</p>
             </div>
-
             <div class="header-actions">
-                <div class="notification-btn">
-                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9">
-                        </path>
+                <button class="month-selector-btn">
+                    <span>📅</span> Janvier 2026
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round" style="opacity:0.5; margin-top:2px;">
+                        <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
-                    <div class="notif-badge"></div>
-                </div>
+                </button>
             </div>
         </header>
 
-        <!-- Summary Stats Grid -->
+        <!-- Stats Overview Grid (Cards Style) -->
         <section class="history-stats-grid">
-            <div class="h-stat-card">
-                <div class="h-icon-box orange">🔥</div>
-                <div class="h-stat-info">
-                    <span class="h-label">Current Streak</span>
-                    <span class="h-value">12</span>
-                </div>
+            <!-- Card 1 -->
+            <div class="history-metric-card">
+                <h3>Total Tâches</h3>
+                <div class="metric-value">142</div>
+                <div class="widget-icon" style="background:#E1F5FE; color:#0288D1">📝</div>
             </div>
-            <div class="h-stat-card">
-                <div class="h-icon-box blue">🏆</div>
-                <div class="h-stat-info">
-                    <span class="h-label">Best Streak</span>
-                    <span class="h-value">28</span>
-                </div>
+            <!-- Card 2 -->
+            <div class="history-metric-card">
+                <h3>Réussite</h3>
+                <div class="metric-value metric-green">87%</div>
+                <div class="widget-icon" style="background:#E8F5E9; color:#34C759">📈</div>
             </div>
-            <div class="h-stat-card">
-                <div class="h-icon-box purple">📊</div>
-                <div class="h-stat-info">
-                    <span class="h-label">Total Tâches</span>
-                    <span class="h-value">142</span>
-                </div>
+            <!-- Card 3 -->
+            <div class="history-metric-card">
+                <h3>Série</h3>
+                <div class="metric-value metric-orange">12 J</div>
+                <div class="widget-icon" style="background:#FFF3E0; color:#FF9500">🔥</div>
             </div>
-            <div class="h-stat-card">
-                <div class="h-icon-box green">📈</div>
-                <div class="h-stat-info">
-                    <span class="h-label">Taux Global</span>
-                    <span class="h-value">84%</span>
-                </div>
+            <!-- Card 4: AI Note -->
+            <div class="history-metric-card ai-card">
+                <h3>Analyse IA</h3>
+                <div class="metric-value" style="font-size:1rem; font-weight:500;">"Productivité en hausse. Continue
+                    comme ça!"</div>
+                <div class="widget-icon"
+                    style="background:#FFFFFF; color:#5856D6; box-shadow:0 2px 8px rgba(0,0,0,0.05);">✨</div>
             </div>
         </section>
 
+        <!-- Main History List Card -->
         <section class="single-card-container">
+            <!-- Toolbar -->
             <div class="history-toolbar">
-                <span class="toolbar-label">Filtrer par :</span>
+                <div class="toolbar-label">Entrées Journalières</div>
                 <div class="filter-group">
-                    <button class="filter-btn active" onclick="filterStatic('all', this)">Tous</button>
-                    <button class="filter-btn" onclick="filterStatic('high', this)">Succès</button>
-                    <button class="filter-btn" onclick="filterStatic('low', this)">À améliorer</button>
+                    <button class="filter-btn active">Tous</button>
+                    <button class="filter-btn">Complets</button>
+                    <button class="filter-btn">Manqués</button>
                 </div>
             </div>
 
-            <div class="history-list-view" id="history-feed">
+            <!-- List View -->
+            <div class="history-list-view">
 
-                <!-- Day 1: Today -->
-                <div class="history-day-row" data-rate="high">
-                    <div class="day-header" onclick="toggleDetails(this)">
+                <!-- Today -->
+                <div class="history-day-row">
+                    <div class="day-header"
+                        onclick="this.parentElement.querySelector('.day-tasks-container').style.display = this.parentElement.querySelector('.day-tasks-container').style.display === 'flex' ? 'none' : 'flex'">
                         <div class="day-info">
                             <span class="day-name">Aujourd'hui</span>
-                            <span class="day-date">25 Jan</span>
+                            <span class="day-date">24 Janvier</span>
                         </div>
                         <div class="day-stats">
                             <div class="mini-progress">
-                                <div class="mini-bar" style="width: 85%; background-color: var(--accent-green)"></div>
+                                <div class="mini-bar" style="width: 80%; background: #34C759;"></div>
                             </div>
-                            <div class="stat-badge high">85%</div>
+                            <div class="stat-badge high">80%</div>
                         </div>
                     </div>
-                    <div class="day-tasks-container">
+                    <!-- Details (Expanded by default for today) -->
+                    <div class="day-tasks-container" style="display: flex;">
                         <div class="mini-task completed">
-                            <div class="dot-status completed"></div><span class="task-label">Morning Routine</span>
+                            <div class="dot-status completed"></div>
+                            <span class="task-label">Routine Morning</span>
                         </div>
                         <div class="mini-task completed">
-                            <div class="dot-status completed"></div><span class="task-label">Séance Sport (Push)</span>
+                            <div class="dot-status completed"></div>
+                            <span class="task-label">Gym / Sport</span>
                         </div>
-                        <div class="mini-task completed">
-                            <div class="dot-status completed"></div><span class="task-label">Boire 2L d'eau</span>
-                        </div>
-                        <div class="mini-task completed">
-                            <div class="dot-status completed"></div><span class="task-label">Lire 10 pages</span>
-                        </div>
-                        <div class="mini-task missed">
-                            <div class="dot-status pending"></div><span class="task-label">Méditation (10min)</span>
+                        <div class="mini-task">
+                            <div class="dot-status pending"></div>
+                            <span class="task-label">Lecture (10 pages)</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Day 2: Yesterday -->
-                <div class="history-day-row" data-rate="high">
-                    <div class="day-header" onclick="toggleDetails(this)">
+                <!-- Yesterday -->
+                <div class="history-day-row">
+                    <div class="day-header"
+                        onclick="this.parentElement.querySelector('.day-tasks-container').style.display = this.parentElement.querySelector('.day-tasks-container').style.display === 'flex' ? 'none' : 'flex'">
                         <div class="day-info">
                             <span class="day-name">Hier</span>
-                            <span class="day-date">24 Jan</span>
+                            <span class="day-date">23 Janvier</span>
                         </div>
                         <div class="day-stats">
                             <div class="mini-progress">
-                                <div class="mini-bar" style="width: 100%; background-color: var(--accent-green)"></div>
+                                <div class="mini-bar" style="width: 100%; background: #34C759;"></div>
                             </div>
                             <div class="stat-badge high">100%</div>
                         </div>
                     </div>
                     <div class="day-tasks-container">
                         <div class="mini-task completed">
-                            <div class="dot-status completed"></div><span class="task-label">Morning Routine</span>
+                            <div class="dot-status completed"></div><span class="task-label">Routine Morning</span>
                         </div>
                         <div class="mini-task completed">
-                            <div class="dot-status completed"></div><span class="task-label">Pull Day</span>
+                            <div class="dot-status completed"></div><span class="task-label">Gym / Sport</span>
                         </div>
                         <div class="mini-task completed">
-                            <div class="dot-status completed"></div><span class="task-label">Code Review</span>
+                            <div class="dot-status completed"></div><span class="task-label">Lecture</span>
                         </div>
                         <div class="mini-task completed">
-                            <div class="dot-status completed"></div><span class="task-label">Marche 10k pas</span>
+                            <div class="dot-status completed"></div><span class="task-label">Routine Soir</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Day 3 -->
-                <div class="history-day-row" data-rate="medium">
-                    <div class="day-header" onclick="toggleDetails(this)">
-                        <div class="day-info">
-                            <span class="day-name">Mercredi</span>
-                            <span class="day-date">23 Jan</span>
-                        </div>
-                        <div class="day-stats">
-                            <div class="mini-progress">
-                                <div class="mini-bar" style="width: 60%; background-color: var(--accent-orange)"></div>
-                            </div>
-                            <div class="stat-badge medium">60%</div>
-                        </div>
-                    </div>
-                    <div class="day-tasks-container">
-                        <div class="mini-task completed">
-                            <div class="dot-status completed"></div><span class="task-label">Morning Routine</span>
-                        </div>
-                        <div class="mini-task missed">
-                            <div class="dot-status pending"></div><span class="task-label">Leg Day (Skipped)</span>
-                        </div>
-                        <div class="mini-task completed">
-                            <div class="dot-status completed"></div><span class="task-label">Boire 2L d'eau</span>
-                        </div>
-                        <div class="mini-task missed">
-                            <div class="dot-status pending"></div><span class="task-label">Journaling</span>
-                        </div>
-                        <div class="mini-task completed">
-                            <div class="dot-status completed"></div><span class="task-label">Meeting Client</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Day 4 -->
-                <div class="history-day-row" data-rate="high">
-                    <div class="day-header" onclick="toggleDetails(this)">
-                        <div class="day-info">
-                            <span class="day-name">Mardi</span>
-                            <span class="day-date">22 Jan</span>
-                        </div>
-                        <div class="day-stats">
-                            <div class="mini-progress">
-                                <div class="mini-bar" style="width: 90%; background-color: var(--accent-green)"></div>
-                            </div>
-                            <div class="stat-badge high">90%</div>
-                        </div>
-                    </div>
-                    <div class="day-tasks-container">
-                        <div class="mini-task completed">
-                            <div class="dot-status completed"></div><span class="task-label">Morning Routine</span>
-                        </div>
-                        <div class="mini-task completed">
-                            <div class="dot-status completed"></div><span class="task-label">Cardio 30min</span>
-                        </div>
-                        <div class="mini-task completed">
-                            <div class="dot-status completed"></div><span class="task-label">Deep Work (4h)</span>
-                        </div>
-                        <div class="mini-task missed">
-                            <div class="dot-status pending"></div><span class="task-label">Reading</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Day 5 -->
-                <div class="history-day-row" data-rate="low">
-                    <div class="day-header" onclick="toggleDetails(this)">
+                <!-- Previous Day -->
+                <div class="history-day-row">
+                    <div class="day-header"
+                        onclick="this.parentElement.querySelector('.day-tasks-container').style.display = this.parentElement.querySelector('.day-tasks-container').style.display === 'flex' ? 'none' : 'flex'">
                         <div class="day-info">
                             <span class="day-name">Lundi</span>
-                            <span class="day-date">21 Jan</span>
+                            <span class="day-date">22 Janvier</span>
                         </div>
                         <div class="day-stats">
                             <div class="mini-progress">
-                                <div class="mini-bar" style="width: 40%; background-color: var(--accent-red)"></div>
+                                <div class="mini-bar" style="width: 40%; background: #FF9F0A;"></div>
                             </div>
-                            <div class="stat-badge low">40%</div>
+                            <div class="stat-badge medium">40%</div>
                         </div>
                     </div>
                     <div class="day-tasks-container">
                         <div class="mini-task completed">
-                            <div class="dot-status completed"></div><span class="task-label">Morning Routine</span>
+                            <div class="dot-status completed"></div><span class="task-label">Routine Morning</span>
                         </div>
-                        <div class="mini-task missed">
-                            <div class="dot-status pending"></div><span class="task-label">Sport</span>
-                        </div>
-                        <div class="mini-task missed">
-                            <div class="dot-status pending"></div><span class="task-label">Clean Setup</span>
-                        </div>
-                        <div class="mini-task missed">
-                            <div class="dot-status pending"></div><span class="task-label">Study AWS</span>
-                        </div>
-                        <div class="mini-task completed">
-                            <div class="dot-status completed"></div><span class="task-label">Call Mom</span>
+                        <div class="mini-task">
+                            <div class="dot-status pending"></div><span class="task-label">Gym / Sport</span>
                         </div>
                     </div>
                 </div>
@@ -325,42 +271,7 @@
 
     </main>
 
-    <script>
-        // Minimal JS for interaction (Toggle & Filter)
-
-        function toggleDetails(header) {
-            const container = header.nextElementSibling;
-            if (container) {
-                // Determine if we need to show or hide. 
-                // We'll toggle a 'hidden' class or just display none.
-                // In CSS I can add a utility or just manipulate style directly for simplicity in static file.
-                if (container.style.display === 'none') {
-                    container.style.display = 'flex';
-                } else {
-                    container.style.display = 'none';
-                }
-            }
-        }
-
-        function filterStatic(type, btn) {
-            // Update buttons
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            // Filter Rows
-            const rows = document.querySelectorAll('.history-day-row');
-            rows.forEach(row => {
-                const rate = row.getAttribute('data-rate');
-                if (type === 'all') {
-                    row.style.display = 'block';
-                } else if (type === 'high') {
-                    row.style.display = rate === 'high' ? 'block' : 'none';
-                } else if (type === 'low') {
-                    row.style.display = (rate === 'low' || rate === 'medium') ? 'block' : 'none'; // Group low/medium for 'To Improve'
-                }
-            });
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>

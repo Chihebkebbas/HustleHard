@@ -3,25 +3,23 @@
 /* Metrics Cards Container */
 .tasks-metrics {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 Columns for AI Card */
     gap: 1.25rem;
-    /* Slightly tighter, precision grid */
     margin-bottom: 2rem;
 }
 
+/* Metric Card Styling */
 .task-metric-card {
     background: #FFFFFF;
     border-radius: 20px;
-    /* Slightly tighter radius than standard 24px */
     padding: 1.75rem 1.5rem;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
-    /* Multi-layered smooth shadow */
     border: 1px solid rgba(0, 0, 0, 0.04);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 140px;
-    /* Taller for grandeur */
     position: relative;
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -35,7 +33,6 @@
 .task-metric-card h3 {
     font-size: 0.75rem;
     color: #6e6e73;
-    /* Apple's specific secondary gray */
     text-transform: uppercase;
     letter-spacing: 0.08em;
     font-weight: 700;
@@ -45,34 +42,30 @@
 
 .task-metric-value {
     font-size: 3.2rem;
-    /* Larger, statement numbering */
     font-weight: 700;
     color: #1d1d1f;
-    /* Almost black but not quite */
     line-height: 1;
     z-index: 2;
     letter-spacing: -0.04em;
-    /* Tight Pro tracking */
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
 }
 
-/* Illustration Image Styling */
-/* Widget Icon Positioning (Coherent with Dashboard) */
 .task-metric-card .widget-icon {
     position: absolute;
     top: 1.5rem;
     right: 1.5rem;
     width: 64px;
-    /* Significantly larger */
     height: 64px;
     font-size: 2rem;
-    /* Larger emoji */
     border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     box-shadow: none;
     z-index: 1;
 }
 
-/* Specific Colors - More muted/professional */
+/* Colors */
 .metric-blue {
     color: #0071e3;
 }
@@ -90,14 +83,15 @@
     background: #FFFFFF;
     border-radius: 24px;
     padding: 0;
-    /* Removing padding to let header/list sit flush or custom */
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
-    /* Very subtle depth */
-    min-height: 60vh;
+    /* Fixed Height for consistency & scrolling */
+    height: 600px;
     position: relative;
     border: 1px solid rgba(0, 0, 0, 0.03);
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    /* Clip overflow */
 }
 
 .tasks-header-row {
@@ -108,13 +102,35 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(20px);
-    /* Pro Glass Header */
     border-top-left-radius: 24px;
     border-top-right-radius: 24px;
+    flex-shrink: 0;
+    /* Header stays fixed */
+    z-index: 10;
 }
 
 .tasks-container-scroll {
-    padding: 1rem 2rem 2rem 2rem;
+    padding: 1rem 2rem 0 2rem;
+    /* Reduced bottom padding */
+    flex: 1;
+    /* Take remaining space */
+    overflow-y: auto;
+    /* Enable Scroll */
+    min-height: 0;
+}
+
+/* Scrollbar Styling */
+.tasks-container-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.tasks-container-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.tasks-container-scroll::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 
 .tasks-count-badge {

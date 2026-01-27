@@ -207,16 +207,28 @@ window.updateAIScoreDesign = function () {
     }
 };
 
-// Init Logic on load
-document.addEventListener('DOMContentLoaded', () => {
-    // Existing Init
-    // ...
-    // New:
-    updateAIScoreDesign();
-});
-
 // Profile Edit Modal Logic
 function openProfileEditModal() {
     const modal = document.getElementById('edit-profile-modal');
     if (modal) modal.classList.remove('hidden');
 }
+
+function closeProfileEditModal() {
+    const modal = document.getElementById('edit-profile-modal');
+    if (modal) modal.classList.add('hidden');
+}
+
+// Sidebar Profile Interaction
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Check AI Score
+    updateAIScoreDesign();
+
+    // 2. Sidebar Profile Link Handler
+    const sidebarProfileLink = document.querySelector('.sidebar-profile');
+    if (sidebarProfileLink && window.location.pathname.includes('profile.html')) {
+        sidebarProfileLink.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent page reload
+            openProfileEditModal();
+        });
+    }
+});

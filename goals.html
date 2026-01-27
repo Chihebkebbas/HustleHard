@@ -12,6 +12,7 @@
 <body>
 
     <!-- macOS Sidebar -->
+    <!-- MASTER SIDEBAR (ALL PAGES) -->
     <aside class="sidebar">
         <div class="window-controls">
             <div class="logo-container" style="display: flex; align-items: center; gap: 8px;">
@@ -33,7 +34,7 @@
         </div>
 
         <div class="nav-group">
-            <h3 class="nav-section-title">Aujourd'hui</h3>
+            <h3 class="nav-section-title">Quotidien</h3>
             <nav class="nav-menu">
                 <a href="dashboard.html" class="nav-item">
                     <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -43,7 +44,7 @@
                     </svg>
                     Dashboard
                 </a>
-                <a href="tasks.html" class="nav-item active">
+                <a href="tasks.html" class="nav-item">
                     <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4">
@@ -51,7 +52,7 @@
                     </svg>
                     Tâches
                 </a>
-                <a href="goals.html" class="nav-item">
+                <a href="goals.html" class="nav-item active">
                     <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                     </svg>
@@ -59,14 +60,8 @@
                 </a>
                 <a href="habits.html" class="nav-item">
                     <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                    Habitudes
-                </a>
-                <a href="history.html" class="nav-item">
-                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
+                        <path stroke-linecap="round" stroke-linejoin="round" <path stroke-linecap="round"
+                            stroke-linejoin="round"
                             d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
                         </path>
                     </svg>
@@ -101,51 +96,50 @@
                     </svg>
                     Programmes
                 </a>
+                <a href="analysis.html" class="nav-item">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 00-1.423 1.423z">
+                        </path>
+                    </svg>
+                    Analyse IA
+                </a>
             </nav>
         </div>
 
-        <div class="sidebar-profile">
-            <div class="profile-avatar"></div>
+        <!-- Footer Profile Link -->
+        <a href="profile.html" class="sidebar-profile">
+            <div class="profile-avatar">👨‍🚀</div>
             <div class="profile-info">
                 <span class="profile-name">Chiheb K.</span>
-                <span class="profile-role">Pro Account</span>
+                <span class="profile-role">Modifier le profil</span>
             </div>
-        </div>
+        </a>
     </aside>
 
+    <!-- Main Content -->
     <main class="main-content">
-        <header>
-            <div class="greeting">
-                <h1>Objectifs 2026</h1>
-                <p>Planification stratégique trimestrielle</p>
+        <header class="header">
+            <div class="header-left">
+                <h1>Mes Objectifs</h1>
+                <p class="subtitle">Définissez et atteignez vos buts</p>
             </div>
 
             <div class="header-actions">
-                <div class="view-toggle">
-                    <button class="toggle-btn active" onclick="switchView('cards')">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                            <line x1="3" y1="9" x2="21" y2="9"></line>
-                            <line x1="9" y1="21" x2="9" y2="9"></line>
-                        </svg>
-                    </button>
-                    <button class="toggle-btn" onclick="switchView('gantt')">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <line x1="8" y1="6" x2="21" y2="6"></line>
-                            <line x1="8" y1="12" x2="21" y2="12"></line>
-                            <line x1="8" y1="18" x2="21" y2="18"></line>
-                            <line x1="3" y1="6" x2="3.01" y2="6"></line>
-                            <line x1="3" y1="12" x2="3.01" y2="12"></line>
-                            <line x1="3" y1="18" x2="3.01" y2="18"></line>
-                        </svg>
-                    </button>
-                </div>
-                <button class="btn-primary" onclick="openAddGoalModal()"
-                    style="display:flex; align-items:center; gap:8px;">
-                    <span>+</span> Nouvel Objectif
+                <button class="toggle-btn" onclick="switchView('gantt')">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="8" y1="6" x2="21" y2="6"></line>
+                        <line x1="8" y1="12" x2="21" y2="12"></line>
+                        <line x1="8" y1="18" x2="21" y2="18"></line>
+                        <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                        <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                        <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                    </svg>
                 </button>
+            </div>
+            <button class="btn-primary" onclick="openAddGoalModal()" style="display:flex; align-items:center; gap:8px;">
+                <span>+</span> Nouvel Objectif
+            </button>
             </div>
         </header>
 

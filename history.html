@@ -13,7 +13,7 @@
 
 <body>
 
-    <!-- macOS Sidebar -->
+    <!-- MASTER SIDEBAR (ALL PAGES) -->
     <aside class="sidebar">
         <div class="window-controls">
             <div class="logo-container" style="display: flex; align-items: center; gap: 8px;">
@@ -35,7 +35,7 @@
         </div>
 
         <div class="nav-group">
-            <h3 class="nav-section-title">Aujourd'hui</h3>
+            <h3 class="nav-section-title">Quotidien</h3>
             <nav class="nav-menu">
                 <a href="dashboard.html" class="nav-item">
                     <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -62,9 +62,31 @@
                 <a href="habits.html" class="nav-item">
                     <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                        </path>
                     </svg>
                     Habitudes
+                </a>
+            </nav>
+        </div>
+
+        <div class="nav-group">
+            <h3 class="nav-section-title">Performance</h3>
+            <nav class="nav-menu">
+                <a href="programs.html" class="nav-item">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+                    </svg>
+                    Programmes
+                </a>
+                <a href="analysis.html" class="nav-item">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 00-1.423 1.423z">
+                        </path>
+                    </svg>
+                    Analyse IA
                 </a>
                 <a href="history.html" class="nav-item active">
                     <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -74,62 +96,39 @@
                     </svg>
                     Historique
                 </a>
-                <a href="#" class="nav-item">
-                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
-                        </path>
-                    </svg>
-                    Analytics
-                </a>
             </nav>
         </div>
 
-        <div class="nav-group">
-            <h3 class="nav-section-title">Bibliothèque</h3>
-            <nav class="nav-menu">
-                <a href="#" class="nav-item">
-                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
-                        </path>
-                    </svg>
-                    Habitudes
-                </a>
-                <a href="programs.html" class="nav-item">
-                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
-                    </svg>
-                    Programmes
-                </a>
-            </nav>
-        </div>
-
-        <div class="sidebar-profile">
-            <div class="profile-avatar"></div>
+        <!-- Footer Profile Link -->
+        <a href="profile.html" class="sidebar-profile">
+            <div class="profile-avatar">👨‍🚀</div>
             <div class="profile-info">
                 <span class="profile-name">Chiheb K.</span>
-                <span class="profile-role">Pro Account</span>
+                <span class="profile-role">Modifier le profil</span>
             </div>
-        </div>
+        </a>
     </aside>
 
     <!-- Main Content -->
     <main class="main-content">
-        <header>
-            <div class="greeting">
-                <h1>Historique</h1>
-                <p>Vos performances passées et archives</p>
+        <header class="header">
+            <div class="header-left">
+                <h1>Mon Historique</h1>
+                <p class="subtitle">Suivi de vos entraînements passés</p>
             </div>
+
             <div class="header-actions">
-                <button class="month-selector-btn">
-                    <span>📅</span> Janvier 2026
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                        stroke-linecap="round" stroke-linejoin="round" style="opacity:0.5; margin-top:2px;">
-                        <polyline points="6 9 12 15 18 9"></polyline>
+                <div class="notification-btn">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9">
+                        </path>
                     </svg>
-                </button>
+                    <div class="notif-badge"></div>
+                </div>
+                <div class="date-filter-group">
+                    <input type="month" class="date-picker-input">
+                </div>
             </div>
         </header>
 

@@ -4,14 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programmes - Hustle Hard</title>
+    <title>Mon Profil - Hustle Hard</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="programs.css">
+    <link rel="stylesheet" href="profile.css">
+    <!-- Corrected CSS link for Profile if needed, or keep generic if generic. Keeping existing context mainly but fixing title -->
 </head>
 
 <body>
 
-    <!-- Sidebar -->
+    <!-- MASTER SIDEBAR (ALL PAGES) -->
     <aside class="sidebar">
         <div class="window-controls">
             <div class="logo-container" style="display: flex; align-items: center; gap: 8px;">
@@ -33,7 +34,7 @@
         </div>
 
         <div class="nav-group">
-            <h3 class="nav-section-title">Aujourd'hui</h3>
+            <h3 class="nav-section-title">Quotidien</h3>
             <nav class="nav-menu">
                 <a href="dashboard.html" class="nav-item">
                     <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -60,9 +61,31 @@
                 <a href="habits.html" class="nav-item">
                     <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                        </path>
                     </svg>
                     Habitudes
+                </a>
+            </nav>
+        </div>
+
+        <div class="nav-group">
+            <h3 class="nav-section-title">Performance</h3>
+            <nav class="nav-menu">
+                <a href="programs.html" class="nav-item">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+                    </svg>
+                    Programmes
+                </a>
+                <a href="analysis.html" class="nav-item">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 00-1.423 1.423z">
+                        </path>
+                    </svg>
+                    Analyse IA
                 </a>
                 <a href="history.html" class="nav-item">
                     <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -72,52 +95,17 @@
                     </svg>
                     Historique
                 </a>
-                <a href="#" class="nav-item">
-                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
-                        </path>
-                    </svg>
-                    Analytics
-                </a>
             </nav>
         </div>
 
-        <div class="nav-group">
-            <h3 class="nav-section-title">Bibliothèque</h3>
-            <nav class="nav-menu">
-                <a href="#" class="nav-item">
-                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
-                        </path>
-                    </svg>
-                    Habitudes
-                </a>
-                <a href="programs.html" class="nav-item active">
-                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
-                    </svg>
-                    Programmes
-                </a>
-                <a href="profile.html" class="nav-item active">
-                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                    </svg>
-                    Profil
-                </a>
-            </nav>
-        </div>
-
-        <div class="sidebar-profile">
-            <div class="profile-avatar"></div>
+        <!-- Footer Profile Link -->
+        <a href="profile.html" class="sidebar-profile active">
+            <div class="profile-avatar">👨‍🚀</div>
             <div class="profile-info">
                 <span class="profile-name">Chiheb K.</span>
-                <span class="profile-role">Pro Account</span>
+                <span class="profile-role">Modifier le profil</span>
             </div>
-        </div>
+        </a>
     </aside>
 
     <!-- Main Content -->
@@ -254,81 +242,6 @@
         </div>
     </div>
 
-    <!-- Create Program Modal - Improved Design -->
-    <div id="create-program-modal" class="modal-overlay hidden">
-        <div class="modal-card improved-modal">
-            <div class="modal-header">
-                <h3>Créer un Programme</h3>
-                <button class="close-modal" onclick="closeCreateProgramModal()">×</button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label class="label-heading">Nom du Programme</label>
-                    <input type="text" id="program-title-input" placeholder="Ex: Mon PPL Mass Build"
-                        class="input-field primary-input">
-                </div>
-
-                <div class="form-group" style="margin-top:1rem;">
-                    <label class="label-heading">Description / Objectif</label>
-                    <textarea id="program-description-input" placeholder="Ex: Focus hypertrophie, cycle 6 semaines..."
-                        class="input-field primary-input"
-                        style="min-height:80px; resize:none; font-family:inherit;"></textarea>
-                </div>
-
-                <div class="sessions-section-header">
-                    <h4>Séances</h4>
-                    <span class="subtitle">Définissez vos workouts</span>
-                </div>
-
-                <div id="sessions-container" class="sessions-scroll-area">
-                    <!-- Sessions injected by JS -->
-                </div>
-
-                <button class="btn-dashed-add" onclick="addSession()">
-                    <span>+</span> Ajouter une séance
-                </button>
-            </div>
-            <div class="modal-footer">
-                <button class="btn-save-program" onclick="saveProgram()">Valider le Programme</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Objective Update Modal -->
-    <div id="objective-modal" class="modal-overlay hidden">
-        <div class="modal-card improved-modal" style="max-width: 400px;">
-            <div class="modal-header">
-                <h3>Mise à jour Objectif</h3>
-                <button class="close-modal" onclick="closeObjectiveModal()">×</button>
-            </div>
-            <div class="modal-body">
-                <h4 id="modal-obj-title" style="margin-bottom:1.5rem; color:var(--brand-color); font-size:1.3rem;">
-                    Exercice</h4>
-
-                <div class="form-group">
-                    <label class="label-heading">Max Actuel (1RM)</label>
-                    <input type="number" id="modal-current-weight" class="input-field primary-input" placeholder="kg">
-                </div>
-
-                <div class="form-group" style="margin-top:1.5rem;">
-                    <label class="label-heading">Objectif IA <span
-                            style="font-weight:400; color:var(--text-tertiary); margin-left:5px;">(Calculé)</span></label>
-                    <input type="number" id="modal-target-weight" class="input-field primary-input" placeholder="kg"
-                        readonly style="opacity:0.75; background:#F2F2F7; border-color:transparent;">
-                    <p style="font-size:0.75rem; color:var(--text-secondary); margin-top:8px; line-height:1.4;">
-                        ✨ L'IA a déterminé cet objectif en analysant votre progression sur les 3 derniers mois et votre
-                        volume d'entraînement actuel.
-                    </p>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn-save-program" onclick="closeObjectiveModal(); alert('Objectif mis à jour ! 🚀')"
-                    style="width:100%;">Enregistrer</button>
-            </div>
-        </div>
-    </div>
-
-    <script src="programs.js"></script>
     <script src="script.js"></script>
 </body>
 

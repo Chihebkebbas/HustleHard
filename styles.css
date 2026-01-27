@@ -214,38 +214,60 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(10px);
     cursor: pointer;
-    transition: all 0.2s;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    /* For the anchor tag */
+    border: 1px solid transparent;
 }
 
 .sidebar-profile:hover {
-    background: rgba(255, 255, 255, 0.6);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    background: #E5E5EA;
+    transform: translateY(-1px);
+}
+
+.sidebar-profile:active {
+    transform: scale(0.98);
+}
+
+/* Active state for profile page */
+.sidebar-profile.active {
+    background: white;
+    border-color: var(--brand-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .profile-avatar {
     width: 36px;
     height: 36px;
+    background-color: var(--text-primary);
     border-radius: 50%;
-    background: linear-gradient(135deg, #FF6B35, #F7C59F);
-    border: 2px solid white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
 }
 
 .profile-info {
     display: flex;
     flex-direction: column;
-    line-height: 1.2;
+    overflow: hidden;
 }
 
 .profile-name {
-    font-size: 0.9rem;
     font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .profile-role {
     font-size: 0.75rem;
-    color: var(--text-secondary);
+    color: var(--brand-color);
+    font-weight: 500;
 }
 
 /* --- Main Content --- */
@@ -1737,4 +1759,581 @@ header {
     justify-content: center;
     color: white;
     font-size: 1rem;
+}
+/* Utility Class for JS Toggles */
+.hidden {
+    display: none !important;
+}
+
+/* =========================================
+   🍎 APPLE PRO MODAL SYSTEM (Added for Profile Edit)
+   ========================================= */
+
+/* Overlay with Glassmorphism */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+/* Modal Card Design */
+.modal-card.improved-modal {
+    background: #FFFFFF;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    padding: 0; /* Header/Body split */
+    overflow: hidden;
+    transform: scale(1);
+    animation: modalPopIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalPopIn {
+    0% { transform: scale(0.95) translateY(10px); opacity: 0; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+/* Modal Header */
+.modal-header {
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(10px);
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1C1C1E;
+}
+
+.close-modal {
+    background: #F2F2F7;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    color: #8E8E93;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.close-modal:hover {
+    background: #E5E5EA;
+    color: #1C1C1E;
+}
+
+/* Modal Body */
+.modal-body {
+    padding: 24px;
+    overflow-y: auto;
+    max-height: 70vh;
+}
+
+/* Form Styles inside Modal */
+.label-heading {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #8E8E93;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.input-field.primary-input {
+    background: #F2F2F7;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 1rem;
+    color: #1C1C1E;
+    width: 100%;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.input-field.primary-input:focus {
+    background: #FFFFFF;
+    border-color: #FF6B35;
+    box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.15);
+    outline: none;
+}
+
+/* Avatar Option Selection */
+.avatar-option {
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.avatar-option:hover {
+    transform: scale(1.05);
+}
+
+.avatar-option.selected {
+    border-color: #FF6B35 !important;
+    background: #FFF0EB !important;
+}
+
+/* Modal Footer */
+.modal-footer {
+    padding: 16px 24px 24px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-save-program { 
+    background: linear-gradient(135deg, #FF6B35 0%, #FF2D55 100%);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 14px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(255, 45, 85, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 100%;
+}
+
+.btn-save-program:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 45, 85, 0.4);
+}
+
+.btn-save-program:active {
+    transform: scale(0.98);
+}
+
+/* =========================================
+   🤖 ANALYSIS PAGE STYLES
+   ========================================= */
+
+.analysis-hero {
+    background: linear-gradient(135deg, #1c1c1e 0%, #2c2c2e 100%);
+    border-radius: 24px;
+    padding: 40px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.hero-content {
+    max-width: 60%;
+    z-index: 2;
+}
+
+.ai-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.analysis-hero h2 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.analysis-hero p {
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 32px;
+    line-height: 1.5;
+}
+
+/* Button Launch Analysis */
+.btn-launch-analysis {
+    background: linear-gradient(90deg, #FF6B35, #FF2D55);
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.4);
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-launch-analysis:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 107, 53, 0.6);
+}
+
+.btn-launch-analysis .icon {
+    font-size: 1.2rem;
+}
+
+/* Abstract Orb Visual */
+.ai-orb {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255,107,53,0.8) 0%, rgba(255,45,85,0) 70%);
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0.6;
+    animation: pulseOrb 4s infinite ease-in-out;
+}
+
+@keyframes pulseOrb {
+    0% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 0.6; }
+}
+
+/* Recent Analysis Grid */
+.analysis-history h3 {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+}
+
+.analysis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.analysis-card {
+    background: white;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    transition: transform 0.2s;
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.analysis-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.analysis-date {
+    font-size: 0.85rem;
+    color: var(--text-tertiary);
+}
+
+.status-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 12px;
+    text-transform: uppercase;
+}
+
+.status-badge.excellent {
+    background: #E4FBF0;
+    color: #03A65A;
+}
+
+.status-badge.good {
+    background: #FFFAF0;
+    color: #FF9F0A;
+}
+
+.analysis-card h4 {
+    margin: 0 0 8px 0;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.analysis-card .summary {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+.view-details {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--brand-color);
+    text-decoration: none;
+}
+
+/* =========================================
+   📈 REPORT MODAL STYLES (Added for Analysis)
+   ========================================= */
+
+.modal-card.report-card {
+    max-width: 600px; /* Wider modal for reports */
+    height: 80vh; /* Taller */
+}
+
+.report-subtitle {
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+/* Score Section */
+.report-score-section {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.main-score-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 6px solid #34C759; /* Dynamic color usually */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#modal-score-value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--text-primary);
+}
+
+.main-score-circle label {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.score-breakdown {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.breakdown-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.breakdown-item span {
+    width: 80px; /* Label width */
+}
+
+.progress-bar {
+    flex: 1;
+    height: 8px;
+    background: #F2F2F7;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar .fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.5s ease-out;
+}
+
+/* Insights List */
+.insight-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.insight-item {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    background: #FAFAFC;
+    border-radius: 16px;
+    align-items: flex-start;
+}
+
+.insight-item.positive { border-left: 4px solid #34C759; }
+.insight-item.warning { border-left: 4px solid #FF9F0A; }
+.insight-item.neutral { border-left: 4px solid #007AFF; }
+
+.insight-icon {
+    font-size: 1.5rem;
+}
+
+.insight-item h4 {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--text-primary);
+}
+
+.insight-item p {
+    margin: 4px 0 0 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+/* Action Plan */
+.report-action-plan {
+    margin-top: 30px;
+}
+
+.action-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    border: 1px solid #E5E5EA;
+    padding: 12px 16px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+/* Buttons */
+.btn-share-report {
+    background: #F2F2F7;
+    color: #007AFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s;
+}
+
+.btn-share-report:hover {
+    background: #E5E5EA;
+}
+
+/* Animation Utilities */
+.spin { animation: spin 1s linear infinite; }
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+.delayed-fade-in .progress-bar .fill {
+    width: 0 !important; /* Start at 0 for animation */
+    animation: fillBar 1s ease-out forwards;
+    animation-delay: 0.3s;
+}
+@keyframes fillBar { to { width: var(--final-width); } } /* Note: requires var or distinct implementation, simplified for now using styles directly */
+
+/* Score Circle Colors in grid */
+.score-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+.score-circle.excellent { background: #E4FBF0; color: #03A65A; }
+.score-circle.good { background: #EBF4FF; color: #007AFF; }
+.score-circle.medium { background: #FFF5E5; color: #FF9F0A; }
+
+.card-footer-link {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid rgba(0,0,0,0.03);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--brand-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+/* FIXED: Ensure Report Card has base styles independent of 'improved-modal' class */
+.modal-card.report-card {
+    background: #FFFFFF;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transform: scale(1);
+    animation: modalPopIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ensure modal header in report stays at top */
+.report-card .modal-header {
+    flex-shrink: 0;
+}
+
+/* Ensure modal body in report scrolls */
+.report-card .modal-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px;
+}
+
+/* Ensure modal footer stays at bottom */
+.report-card .modal-footer {
+    flex-shrink: 0;
+    margin-top: auto;
+}
+
+/* Large Modal for Program Creation/Complex Forms */
+.modal-card.large-modal {
+    max-width: 800px !important; /* Wider than standard modal */
+    width: 90%;
+}
+
+/* Ensure dynamic exercise rows wrap correctly if needed, but prefer single line */
+.exercise-row {
+    flex-wrap: nowrap; /* Force single line if width allows */
+    gap: 12px;
+}
+
+/* Adjust inputs in exercise row to share space better */
+.exercise-row input {
+    min-width: 60px; /* Prevent crushing on small screens */
 }

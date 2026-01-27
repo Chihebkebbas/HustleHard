@@ -1301,3 +1301,440 @@ header {
 .ai-score-card.score-elite .value {
     color: white;
 }
+
+/* --- Profile Page V5 (Backend Ready - Simple & Clean) --- */
+
+.profile-container-v5 {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* 1. Identity Card (Simple Row) */
+.identity-card-v5 {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.avatar-v5 {
+    width: 72px;
+    height: 72px;
+    background: #F2F2F7;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+}
+
+.identity-info-v5 h2 {
+    font-size: 1.25rem;
+    margin: 0 0 0.2rem 0;
+    color: var(--text-primary);
+}
+
+.identity-info-v5 p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.btn-edit-v5 {
+    margin-left: auto;
+    padding: 8px 16px;
+    background: #F2F2F7;
+    border-radius: 20px;
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 0.85rem;
+    border: none;
+    cursor: pointer;
+}
+
+/* 2. Key Stats (Streak & Total) - The "cbn" */
+.stats-grid-v5 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.stat-box-v5 {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.stat-icon-v5 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    background: rgba(255, 107, 53, 0.1);
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-value-v5 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.1;
+}
+
+.stat-label-v5 {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    margin-top: 4px;
+    text-transform: uppercase;
+}
+
+/* 3. Personal Info List (Data Fields) */
+.info-card-v5 {
+    background: #FFFFFF;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.info-row-v5 {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid #F2F2F7;
+    align-items: center;
+}
+
+.info-row-v5:last-child {
+    border-bottom: none;
+}
+
+.info-label-v5 {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.info-data-v5 {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Logout Button */
+.btn-logout-v5 {
+    width: 100%;
+    padding: 1rem;
+    background: #FFFFFF;
+    border: 1px solid rgba(255, 59, 48, 0.1);
+    color: var(--accent-red);
+    font-weight: 600;
+    border-radius: 16px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 900px) {
+    .profile-dashboard {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* User Identity Card */
+.pro-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.2s ease;
+}
+
+.pro-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.profile-identity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.pro-avatar-container {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.pro-avatar {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #F2F2F7, #E5E5EA);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    border: 4px solid #FFFFFF;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.pro-level-badge {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: var(--brand-color);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 12px;
+    border: 2px solid #FFFFFF;
+}
+
+.pro-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.2rem;
+}
+
+.pro-handle {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.pro-edit-btn {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #E5E5EA;
+    background: #FFFFFF;
+    border-radius: 12px;
+    font-weight: 600;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.pro-edit-btn:hover {
+    background: #F2F2F7;
+    border-color: #D1D1D6;
+}
+
+/* Physical Stats Mini-Grid */
+.physical-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #F2F2F7;
+    width: 100%;
+}
+
+.phy-item {
+    text-align: center;
+}
+
+.phy-value {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.phy-label {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+}
+
+/* XP Card */
+.xp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.xp-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.xp-bar-container {
+    height: 8px;
+    background: #F2F2F7;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+}
+
+.xp-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--brand-color), #FF2D55);
+    border-radius: 4px;
+    width: 65%;
+    /* Demo Value */
+}
+
+.xp-details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* Activity Chart (CSS only bars) */
+.activity-chart {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 120px;
+    padding-top: 20px;
+}
+
+.chart-bar-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+}
+
+.chart-bar {
+    width: 60%;
+    max-width: 16px;
+    background: #E5E5EA;
+    border-radius: 4px;
+    /* Rounded top */
+    transition: height 0.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.chart-bar::after {
+    content: "";
+    /* Animated fill effect */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: var(--brand-color);
+    transition: height 1s ease 0.2s;
+}
+
+.chart-bar.active {
+    background: #FFD4C2;
+    /* Light orange bg */
+}
+
+.chart-bar.active::after {
+    height: 100%;
+}
+
+.chart-day {
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    font-weight: 600;
+}
+
+/* Quick Stats Row */
+.quick-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.quick-stat-card {
+    background: #FFFFFF;
+    padding: 1.2rem;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.qs-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.qs-value {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.qs-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+/* Settings List V4 (Refined) */
+.settings-list-v4 {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: #FFFFFF;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.setting-item-v4 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem;
+    background: white;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.setting-item-v4:hover {
+    background: #FAFAFA;
+}
+
+.setting-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.setting-icon-box {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1rem;
+}

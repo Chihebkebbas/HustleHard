@@ -214,3 +214,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // New:
     updateAIScoreDesign();
 });
+
+// Profile Edit Modal Logic
+function openProfileEditModal() {
+    const modal = document.getElementById('edit-profile-modal');
+    if (modal) modal.classList.remove('hidden');
+}

@@ -95,7 +95,7 @@
                     </svg>
                     Habitudes
                 </a>
-                <a href="#" class="nav-item">
+                <a href="programs.html" class="nav-item">
                     <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
@@ -194,7 +194,7 @@
                 <div class="quote-text">"La discipline est le pont entre les objectifs et l'accomplissement."</div>
                 <div class="quote-author">
                     <span
-                        style="background:linear-gradient(135deg, #30CFD0, #330867); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-weight:800;">IA
+                        style="background:linear-gradient(135deg, #30CFD0, #330867); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; font-weight:800;">IA
                         Insight</span>
                     <span>• Jim Rohn</span>
                 </div>
@@ -229,6 +229,13 @@
                 <div class="reminder-info">
                     <h4>Marche</h4>
                     <div class="value">5432</div>
+                </div>
+            </div>
+            <div class="reminder-card ai-score-card" id="yesterday-score-card">
+                <div class="widget-icon">🤖</div>
+                <div class="reminder-info">
+                    <h4>Score Hier</h4>
+                    <div class="value" id="ai-score-value">88%</div>
                 </div>
             </div>
         </section>
@@ -425,9 +432,17 @@
 
             <!-- Right: Tasks (Apple Reminders) -->
             <div class="tasks-panel">
-                <h3 style="margin-bottom:1.5rem; font-size:1.2rem; font-weight:700;">Mes Tâches</h3>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+                    <h3 style="margin:0; font-size:1.2rem; font-weight:700;">Mes Tâches</h3>
+                    <div class="segmented-control">
+                        <div class="segmented-option active" id="tab-today" onclick="switchTaskView('today')">
+                            Aujourd'hui</div>
+                        <div class="segmented-option" id="tab-tomorrow" onclick="switchTaskView('tomorrow')">Demain
+                        </div>
+                    </div>
+                </div>
 
-                <div id="tasks-container">
+                <div id="tasks-today" class="tasks-view">
                     <div class="task-row">
                         <div class="task-left">
                             <input type="checkbox" class="apple-checkbox">
@@ -490,29 +505,18 @@
                     </div>
                 </div>
 
+                <div id="tasks-tomorrow" class="tasks-view" style="display:none;">
+                    <!-- Placeholder for empty state -->
+                    <div class="empty-state" style="text-align:center; padding:2rem 1rem; color:#8E8E93;">
+                        <p style="font-size:0.9rem; font-style:italic;">Planifiez votre journée de demain.</p>
+                    </div>
+                </div>
+
                 <!-- Quick Add Row -->
                 <div class="quick-add-row" onclick="document.querySelector('.quick-input').focus()">
                     <span class="plus-icon">+</span>
-                    <input type="text" class="quick-input" placeholder="Ajouter une tâche..." onkeypress="if(event.key === 'Enter') { 
-                        if(this.value.trim() === '') return;
-                        const container = document.getElementById('tasks-container');
-                        const div = document.createElement('div');
-                        div.className = 'task-row';
-                        div.innerHTML = `
-                            <div class='task-left'>
-                                <input type='checkbox' class='apple-checkbox'>
-                                <span class='task-text'>${this.value}</span>
-                            </div>
-                            <button class='task-delete-btn' onclick='deleteTask(this)'>
-                                <svg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'>
-                                    <polyline points='3 6 5 6 21 6'></polyline>
-                                    <path d='M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2'></path>
-                                </svg>
-                            </button>
-                        `;
-                        container.appendChild(div);
-                        this.value = '';
-                    }">
+                    <input type="text" class="quick-input" placeholder="Ajouter une tâche..."
+                        onkeypress="if(event.key === 'Enter') handleQuickAdd(this)">
                 </div>
             </div>
         </section>

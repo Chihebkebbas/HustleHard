@@ -114,3 +114,103 @@ function checkBackendConnection() {
             console.log("Mode Demo (Backend Off):", err);
         });
 }
+
+// 7. Tasks View Switcher (Today / Tomorrow)
+let currentTaskView = 'today';
+
+window.switchTaskView = function (view) {
+    currentTaskView = view;
+
+    // Toggle active tab style
+    document.querySelectorAll('.segmented-option').forEach(el => el.classList.remove('active'));
+    document.getElementById(`tab-${view}`).classList.add('active');
+
+    // Toggle container visibility
+    document.getElementById('tasks-today').style.display = view === 'today' ? 'block' : 'none';
+    document.getElementById('tasks-tomorrow').style.display = view === 'tomorrow' ? 'block' : 'none';
+};
+
+// 8. Handle Quick Add Task
+window.handleQuickAdd = function (input) {
+    if (input.value.trim() === '') return;
+
+    const containerId = currentTaskView === 'today' ? 'tasks-today' : 'tasks-tomorrow';
+    const container = document.getElementById(containerId);
+
+    // Remove empty state if present
+    const emptyState = container.querySelector('.empty-state');
+    if (emptyState) {
+        emptyState.remove();
+    }
+
+    const div = document.createElement('div');
+    div.className = 'task-row';
+    // Animation for new task
+    div.style.transition = 'all 0.3s ease';
+    div.style.opacity = '0';
+    div.style.transform = 'translateY(10px)';
+
+    div.innerHTML = `
+        <div class="task-left">
+            <input type="checkbox" class="apple-checkbox">
+            <span class="task-text">${input.value}</span>
+        </div>
+        <button class="task-delete-btn" onclick="deleteTask(this)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="3 6 5 6 21 6"></polyline>
+                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+            </svg>
+        </button>
+    `;
+
+    container.appendChild(div);
+
+    // Trigger animation
+    requestAnimationFrame(() => {
+        div.style.opacity = '1';
+        div.style.transform = 'translateY(0)';
+    });
+
+    input.value = '';
+};
+
+// 9. Update AI Score Card Design based on Value
+window.updateAIScoreDesign = function () {
+    const card = document.getElementById('yesterday-score-card');
+    const valueEl = document.getElementById('ai-score-value');
+
+    if (!card || !valueEl) return;
+
+    // Parse integer from string (e.g. "88%" -> 88)
+    const scoreText = valueEl.innerText.replace(/\D/g, ''); // Extract digits
+    const score = parseInt(scoreText, 10);
+
+    // Remove all specific classes first
+    card.classList.remove('score-low', 'score-med', 'score-high', 'score-elite');
+
+    if (isNaN(score)) return;
+
+    // Apply logic:
+    // Red: < 60
+    // Yellow: 60 - 110
+    // Green: 110 - 160
+    // Black: > 160
+
+    if (score < 60) {
+        card.classList.add('score-low');
+    } else if (score < 110) {
+        card.classList.add('score-med');
+    } else if (score < 160) {
+        card.classList.add('score-high');
+    } else {
+        card.classList.add('score-elite');
+    }
+};
+
+// Init Logic on load
+document.addEventListener('DOMContentLoaded', () => {
+    // Existing Init
+    // ...
+    // New:
+    updateAIScoreDesign();
+});

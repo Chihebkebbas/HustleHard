@@ -535,7 +535,7 @@ header {
 /* --- Reminders (Widget Style) --- */
 .reminders-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 1.5rem;
     margin-bottom: 2rem;
 }
@@ -1212,4 +1212,92 @@ header {
 
 ::-webkit-scrollbar-track {
     background: transparent;
+}
+
+/* Segmented Control (iOS Style) */
+.segmented-control {
+    display: flex;
+    background: #E5E5EA;
+    /* Light gray background */
+    padding: 2px;
+    border-radius: 8px;
+    position: relative;
+    user-select: none;
+    width: fit-content;
+}
+
+.segmented-option {
+    padding: 4px 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    text-align: center;
+    min-width: 80px;
+}
+
+.segmented-option.active {
+    background: white;
+    color: var(--text-primary);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-weight: 600;
+}
+
+/* AI Score Card - Range-based Styles */
+.ai-score-card {
+    /* Base styles inherited from reminder-card */
+    transition: all 0.3s ease;
+}
+
+/* Range Colors */
+/* Low (<60) - Red */
+.ai-score-card.score-low .widget-icon {
+    background: #FFEBEE !important;
+    color: #D32F2F !important;
+}
+
+.ai-score-card.score-low .value {
+    color: #D32F2F;
+}
+
+/* Medium (60-110) - Yellow/Orange */
+.ai-score-card.score-med .widget-icon {
+    background: #FFF3E0 !important;
+    color: #F57C00 !important;
+}
+
+.ai-score-card.score-med .value {
+    color: #F57C00;
+}
+
+/* High (110-160) - Green */
+.ai-score-card.score-high .widget-icon {
+    background: #E8F5E9 !important;
+    color: #388E3C !important;
+}
+
+.ai-score-card.score-high .value {
+    color: #388E3C;
+}
+
+/* Elite (>160) - Black */
+.ai-score-card.score-elite {
+    background: #1C1C1E;
+    /* Dark card for Elite */
+    color: white;
+}
+
+.ai-score-card.score-elite .widget-icon {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+}
+
+.ai-score-card.score-elite .reminder-info h4 {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.ai-score-card.score-elite .value {
+    color: white;
 }

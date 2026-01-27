@@ -97,7 +97,7 @@
                     </svg>
                     Habitudes
                 </a>
-                <a href="#" class="nav-item">
+                <a href="programs.html" class="nav-item">
                     <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
@@ -168,13 +168,22 @@
 
         <!-- Tasks List (Apple Style) -->
         <section class="full-page-tasks">
-            <div class="tasks-header-row">
-                <h3 style="font-size: 1.1rem; font-weight: 700;">Liste des tâches</h3>
-                <div class="tasks-count-badge">4 restants</div>
+            <div class="tasks-header-row" style="display:flex; justify-content:space-between; align-items:center;">
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <h3 style="font-size: 1.1rem; font-weight: 700;">Liste des tâches</h3>
+                    <div class="tasks-count-badge">4 restants</div>
+                </div>
+                <!-- Segmented Control -->
+                <div class="segmented-control">
+                    <div class="segmented-option active" id="tab-today" onclick="switchTaskView('today')">Aujourd'hui
+                    </div>
+                    <div class="segmented-option" id="tab-tomorrow" onclick="switchTaskView('tomorrow')">Demain</div>
+                </div>
             </div>
 
             <div class="tasks-container-scroll">
-                <div id="tasks-container">
+                <!-- Today Container -->
+                <div id="tasks-today" class="tasks-view">
                     <!-- Task Row 1 -->
                     <div class="task-row">
                         <div class="task-left">
@@ -241,32 +250,22 @@
                         </button>
                     </div>
                 </div>
+
+                <!-- Tomorrow Container (Hidden by default) -->
+                <div id="tasks-tomorrow" class="tasks-view" style="display:none;">
+                    <!-- Placeholder -->
+                    <div class="empty-state" style="text-align:center; padding:3rem 1rem; color:#8E8E93;">
+                        <p style="font-size:1rem; font-style:italic;">Aucune tâche prévue pour demain.</p>
+                    </div>
+                </div>
             </div>
 
             <!-- Quick Add -->
             <div class="quick-add-row" onclick="document.querySelector('.quick-input').focus()"
                 style="padding: 1.5rem 2rem; border-top: 1px solid rgba(0,0,0,0.05); flex-shrink: 0; background: #fff; border-bottom-left-radius: 24px; border-bottom-right-radius: 24px;">
                 <span class="plus-icon">+</span>
-                <input type="text" class="quick-input" placeholder="Ajouter une tâche..." onkeypress="if(event.key === 'Enter') { 
-                    if(this.value.trim() === '') return;
-                    const container = document.getElementById('tasks-container');
-                    const div = document.createElement('div');
-                    div.className = 'task-row';
-                    div.innerHTML = `
-                        <div class='task-left'>
-                            <input type='checkbox' class='apple-checkbox'>
-                            <span class='task-text'>${this.value}</span>
-                        </div>
-                        <button class='task-delete-btn' onclick='deleteTask(this)'>
-                            <svg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'>
-                                <polyline points='3 6 5 6 21 6'></polyline>
-                                <path d='M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2'></path>
-                            </svg>
-                        </button>
-                    `;
-                    container.appendChild(div);
-                    this.value = '';
-                }">
+                <input type="text" class="quick-input" placeholder="Ajouter une tâche..."
+                    onkeypress="if(event.key === 'Enter') handleQuickAdd(this)">
             </div>
 
         </section>

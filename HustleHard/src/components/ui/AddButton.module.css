@@ -1,0 +1,24 @@
+
+.btnAdd {
+    margin-top: 1rem;
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px dashed #E5E5EA;
+    border-radius: 12px;
+    background: transparent;
+    color: var(--text-secondary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.9rem;
+}
+
+.btnAdd:hover {
+    border-color: var(--accent-blue);
+    color: var(--accent-blue);
+    background: rgba(0, 122, 255, 0.05);
+}

@@ -1,0 +1,88 @@
+.statsOverviewCard {
+    background: var(--card-background);
+    border-radius: var(--radius-l);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-md);
+    border: var(--border-light);
+    display: grid;
+    /* 3 Columns: Streak | Rings | AI Quote */
+    grid-template-columns: 0.8fr 1.4fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.streakContainer {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    /* Lighter separator */
+    padding-right: 2rem;
+}
+
+
+
+/* New Quote Section */
+.quoteContainer {
+    padding-left: 2rem;
+    border-left: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.quoteText {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--text-primary);
+    line-height: 1.5;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.quoteAuthor {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.streakIconBox {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #FF9F0A, #FF3B30);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    box-shadow: 0 8px 16px rgba(255, 59, 48, 0.25);
+}
+
+.streakInfo .count {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.streakInfo .label {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+}
+
+.progressGroup {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}

@@ -1,0 +1,104 @@
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+}
+
+.greeting h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.2rem;
+}
+
+.greeting p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* --- Header Actions --- */
+.headerActions {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.notificationBtn {
+    width: 44px;
+    height: 44px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    position: relative;
+    color: var(--text-primary);
+    transition: transform 0.2s;
+}
+
+.notificationBtn:hover {
+    transform: scale(1.05);
+}
+
+.notifBadge {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    width: 10px;
+    height: 10px;
+    background: #FF3B30;
+    border: 2px solid white;
+    border-radius: 50%;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+
+/* --- Segmented Control (View Toggle) --- */
+.viewToggle {
+    background: rgba(118, 118, 128, 0.12);
+    /* Apple Control background */
+    padding: 2px;
+    border-radius: 9px;
+    display: flex;
+    position: relative;
+    height: 32px;
+    box-sizing: content-box;
+}
+
+.toggleBtn {
+    border: none;
+    background: transparent;
+    padding: 0 12px;
+    height: 100%;
+    border-radius: 7px;
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 2;
+    opacity: 0.7;
+}
+
+.toggleBtn:hover {
+    opacity: 1;
+}
+
+.toggleBtn.active {
+    background: white;
+    color: black;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 0.5px 1px rgba(0, 0, 0, 0.1);
+    /* Floating card effect */
+    font-weight: 600;
+    opacity: 1;
+}
+

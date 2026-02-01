@@ -1,0 +1,123 @@
+
+
+.buttonText {
+    opacity: 0;
+    max-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+
+/* IA Button
+
+    icon Path:
+    M12 2L14.4 7.2L20 9.6L14.4 12L12 17.2L9.6 12L4 9.6L9.6 7.2L12 2Z
+*/
+.buttonAi {
+    background: linear-gradient(110deg, #30CFD0 0%, #330867 100%);
+    background: linear-gradient(110deg, #2ac3ff, #9966ff, #ff5588);
+    background-size: 200% 200%;
+    animation: glowShift 4s ease infinite;
+    color: white;
+    border: none;
+    height: 44px;
+    padding: 0 12px;
+    /* Centered icon */
+    border-radius: 22px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    box-shadow: 0 5px 20px rgba(153, 102, 255, 0.3);
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    max-width: 44px;
+    /* Circle initially */
+}
+
+.buttonAi svg {
+    flex-shrink: 0;
+}
+
+.aiText {
+    opacity: 0;
+    max-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.buttonAi:hover {
+    max-width: 210px;
+    /* Expand on hover */
+    padding: 0 1.2rem;
+    gap: 10px;
+    box-shadow: 0 8px 30px rgba(153, 102, 255, 0.5);
+    background-position: 100% 50%;
+}
+
+.buttonAi:hover .aiText {
+    opacity: 1;
+    max-width: 150px;
+}
+
+@keyframes glowShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/*Default button
+    icon path :
+    M19 11H13V5H11V11H5V13H11V19H13V13H19V11Z
+*/
+
+.buttonDefault {
+    background: var(--text-primary);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    border: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.1s;
+}
+
+.buttonDefault:active {
+    transform: scale(0.96);
+}
+
+/*buttonBrand - orange*/
+
+.buttonBrand {
+    background:var(--brand-color);
+    font-weight:600;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    border: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.1s;
+}
+
+.buttonBrand:active {
+    transform: scale(0.96);
+}
+

@@ -1,0 +1,97 @@
+.routineBlock {
+    background: var(--card-background, #FFFFFF);
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm, 0 1px 2px rgba(0, 0, 0, 0.04));
+    border: var(--border-light, 1px solid rgba(0, 0, 0, 0.05));
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+.routineBlock:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md, 0 4px 12px rgba(0, 0, 0, 0.06));
+}
+
+.routineBlock.completed {
+    background: #FAFAFA;
+    border-color: transparent;
+    opacity: 0.9;
+}
+
+.routineBlock.completed::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--accent-green, #34C759);
+}
+
+.routineBlock.completed .routineHeader h3 {
+    text-decoration: line-through;
+    color: var(--text-tertiary, #C7C7CC);
+}
+
+.routineBlock.completed .checkBadge {
+    background: var(--accent-green, #34C759);
+    color: white;
+}
+
+.routineHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.routineHeader h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+}
+
+.checkBadge {
+    width: 26px;
+    height: 26px;
+    background: #E5E5EA;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.routineItems {
+    list-style: none;
+    padding-left: 1.5rem;
+    border-left: 2px solid #F2F2F7;
+    margin-top: 0.5rem;
+}
+
+.routineItems li {
+    font-size: 0.95rem;
+    color: var(--text-secondary, #8E8E93);
+    margin-bottom: 0.5rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.routineItems li::before {
+    content: "•";
+    position: absolute;
+    left: -1rem;
+    color: #D1D1D6;
+    font-size: 1.2rem;
+    line-height: 1;
+}

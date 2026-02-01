@@ -1,0 +1,116 @@
+.habitNameFlex {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.habitIconSq {
+    width: 36px;
+    height: 36px;
+    background: var(--system-background);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+/* Frequency Badge */
+.freqBadge {
+    background: var(--system-background);
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    border: 1px solid transparent;
+    transition: all 0.2s;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+}
+
+.freqInput {
+    width: 30px;
+    border: none;
+    background: transparent;
+    text-align: center;
+    font-weight: 700;
+    color: var(--text-primary);
+    font-family: inherit;
+    margin-right: 4px;
+}
+
+.freqInput:focus {
+    outline: none;
+    border-bottom: 2px solid var(--accent-blue);
+}
+
+.checkRow {
+    display: flex;
+    gap: 8px;
+}
+
+.dayCircle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.dayCircle.filled {
+    background: var(--brand-color);
+    transform: scale(1.1);
+}
+
+.dayCircle.filledBlue {
+    background: var(--accent-blue);
+}
+
+.dayCircle.filledGreen {
+    background: var(--accent-green);
+}
+
+/* Habit Actions */
+.habitActions {
+    display: flex;
+    gap: 8px;
+    opacity: 0;
+    /* Hidden by default */
+    transition: opacity 0.2s;
+    justify-content: flex-end;
+}
+
+tr:hover .habitActions {
+    opacity: 1;
+}
+
+.actionBtn {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.actionBtn:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--text-primary);
+}
+
+.actionBtn.delete:hover {
+    background: rgba(255, 59, 48, 0.1);
+    color: var(--accent-red);
+}
+
+

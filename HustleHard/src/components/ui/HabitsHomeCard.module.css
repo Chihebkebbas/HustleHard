@@ -1,0 +1,71 @@
+.habitSection {
+    background: var(--card-background);
+    border-radius: var(--radius-l);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+    border: var(--border-light);
+    margin-bottom: 2rem;
+
+    /* Dynamic layout with scroll limit */
+    display: flex;
+    flex-direction: column;
+    max-height: 380px;
+    /* Adjusted to scroll after ~4 habits */
+    overflow: hidden;
+}
+
+.tableHeader {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+    padding-left: 0.5rem;
+    flex-shrink: 0;
+}
+
+/* Wrapper for scrollable table body logic */
+.habitTableWrapper {
+    /* Allow wrapper to be smaller if content is small */
+    flex: 0 1 auto;
+    overflow-y: auto;
+    min-height: 0;
+}
+
+/* Custom Scrollbar */
+.habitTableWrapper::-webkit-scrollbar {
+    width: 6px;
+}
+
+.habitTableWrapper::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.habitTableWrapper::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}
+
+.habitTable {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.habitTable th {
+    text-align: left;
+    padding: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.habitTable td {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    vertical-align: middle;
+}
+
+.habitTable tr:last-child td {
+    border-bottom: none;
+}

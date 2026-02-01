@@ -1,0 +1,41 @@
+/* --- Reminders --- */
+
+
+.reminderCard {
+    background: var(--card-background);
+    padding: 1rem;
+    border-radius: var(--radius-m);
+    box-shadow: var(--shadow-sm);
+    border: var(--border-light);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.reminderCard:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.widgetIcon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+}
+
+.reminderInfo h4 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 2px;
+}
+
+.reminderInfo .value {
+    font-size: 1.1rem;
+    font-weight: 700;
+}

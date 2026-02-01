@@ -1,0 +1,41 @@
+.statRingWrapper {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.statRingWrapper svg {
+    transform: rotate(-90deg);
+    width: 100%;
+    height: 100%;
+}
+
+.ringBg {
+    fill: none;
+    stroke: rgba(0, 0, 0, 0.06);
+    stroke-width: 4;
+}
+
+.ringProgress {
+    fill: none;
+    stroke-linecap: round;
+    stroke-width: 4;
+    stroke-dasharray: 220;
+    stroke-dashoffset: 40;
+    transition: stroke-dashoffset 1s ease;
+}
+
+.statContent {
+    text-align: center;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+}
+
+.statContent span {
+    font-weight: 700;
+    font-size: 1.1rem;
+}

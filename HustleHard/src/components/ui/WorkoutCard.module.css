@@ -1,0 +1,92 @@
+.workoutCard {
+    background: linear-gradient(180deg, #1C1C1E 0%, #2C2C2E 100%);
+    color: white;
+    border-radius: var(--radius-l, 24px);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.workoutCard:hover {
+    transform: translateY(-4px);
+}
+
+.workoutCard.completed {
+    opacity: 0.8;
+    background: #2C2C2E;
+}
+
+.workoutCard.completed::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 6px;
+    height: 100%;
+    background: var(--accent-green, #34C759);
+}
+
+.workoutCard.completed .workoutCheck {
+    background: var(--accent-green, #34C759);
+    border-color: var(--accent-green, #34C759);
+    color: white;
+}
+
+.workoutCard h2 {
+    font-size: 1.8rem;
+    margin: 0.5rem 0;
+}
+
+.workoutTitleLabel {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    opacity: 0.7;
+    font-weight: 600;
+}
+
+.workoutMeta {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 1.5rem;
+}
+
+.exercisesPane {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-top: 1rem;
+    display: block;
+}
+
+.exRow {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+}
+
+.exRow:last-child {
+    border: none;
+}
+
+.workoutHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.workoutCheck {
+    width: 28px;
+    height: 28px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    transition: all 0.2s;
+}

@@ -125,21 +125,33 @@
                 <p class="subtitle">Définissez et atteignez vos buts</p>
             </div>
 
-            <div class="header-actions">
-                <button class="toggle-btn" onclick="switchView('gantt')">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="8" y1="6" x2="21" y2="6"></line>
-                        <line x1="8" y1="12" x2="21" y2="12"></line>
-                        <line x1="8" y1="18" x2="21" y2="18"></line>
-                        <line x1="3" y1="6" x2="3.01" y2="6"></line>
-                        <line x1="3" y1="12" x2="3.01" y2="12"></line>
-                        <line x1="3" y1="18" x2="3.01" y2="18"></line>
-                    </svg>
+            <div class="header-actions" style="display: flex; gap: 12px; align-items: center;">
+                <div class="view-toggle">
+                    <button class="toggle-btn active" onclick="switchView('cards')" title="Vue Cartes">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
+                    </button>
+                    <button class="toggle-btn" onclick="switchView('gantt')" title="Vue Gantt">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="8" y1="6" x2="21" y2="6"></line>
+                            <line x1="8" y1="12" x2="21" y2="12"></line>
+                            <line x1="8" y1="18" x2="21" y2="18"></line>
+                            <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                            <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                            <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+                <button class="btn-primary" onclick="openAddGoalModal()"
+                    style="display:flex; align-items:center; gap:8px;">
+                    <span>+</span> Nouvel Objectif
                 </button>
-            </div>
-            <button class="btn-primary" onclick="openAddGoalModal()" style="display:flex; align-items:center; gap:8px;">
-                <span>+</span> Nouvel Objectif
-            </button>
             </div>
         </header>
 

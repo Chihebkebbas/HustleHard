@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26a91b90-7570-4cbe-a911-74f81f552362" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/HustleHard/src/components/layout/Sidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HustleHard/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/HustleHard/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HustleHard/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/HustleHard/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/goals.html" beforeDir="false" afterPath="$PROJECT_DIR$/goals.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/history.html" beforeDir="false" afterPath="$PROJECT_DIR$/history.html" afterDir="false" />
+    <list default="true" id="26a91b90-7570-4cbe-a911-74f81f552362" name="Changes" comment="Dashboard to react - static version">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HustleHard/src/components/ui/AddButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/HustleHard/src/components/ui/AddButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HustleHard/src/components/ui/HabitsHomeCard.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/HustleHard/src/components/ui/HabitsHomeCard.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HustleHard/src/components/ui/HabitsHomeCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/HustleHard/src/components/ui/HabitsHomeCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HustleHard/src/components/ui/HabitsHomeItem.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/HustleHard/src/components/ui/HabitsHomeItem.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HustleHard/src/components/ui/HabitsHomeItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/HustleHard/src/components/ui/HabitsHomeItem.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,18 +32,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Chihebkebbas"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Chihebkebbas&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Chihebkebbas/HustleHard.git",
-    "accountId": "a0b16a31-8980-40aa-9386-82a4ce5322ee"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Chihebkebbas/HustleHard.git&quot;,
+    &quot;accountId&quot;: &quot;a0b16a31-8980-40aa-9386-82a4ce5322ee&quot;
   }
-}]]></component>
+}</component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -96,11 +96,48 @@
       <updated>1769554138648</updated>
       <workItem from="1769554139993" duration="4711000" />
       <workItem from="1769721242229" duration="8967000" />
-      <workItem from="1769869079717" duration="14762000" />
+      <workItem from="1769869079717" duration="15328000" />
+      <workItem from="1770552150978" duration="6161000" />
     </task>
+    <task id="LOCAL-00001" summary="Dashboard to react - static version">
+      <option name="closed" value="true" />
+      <created>1769960023576</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1769960023576</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/frontend" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Dashboard to react - static version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dashboard to react - static version" />
   </component>
 </project>

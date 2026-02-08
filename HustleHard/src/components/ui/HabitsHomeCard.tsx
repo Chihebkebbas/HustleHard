@@ -1,6 +1,7 @@
 import styles from './HabitsHomeCard.module.css'
 import AddButton from "./AddButton.tsx";
 import HabitsHomeItem from "./HabitsHomeItem.tsx";
+import {useState, useRef} from "react";
 
 const MONTHS_FR_SHORT = [
     'Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin',
@@ -36,29 +37,52 @@ function getRolling4WeeksLabel() {
     return { weeks }
 }
 
+type habit = {
+    id: number,
+    name: string,
+    icon: string,
+    frequency: number,
+}
+
+const initialHabits : habit = [
+    {
+        id: 1,
+        name: 'Lecture',
+        icon: '📖',
+        frequency: 7,
+    },
+    {
+        id: 2,
+        name: 'Gym/Sport',
+        icon: '💪',
+        frequency: 4,
+    },
+    {
+        id: 3,
+        name: 'Duolingo',
+        icon: '🦜',
+        frequency: 4,
+    },
+
+]
+
+
+
 export default function HabitsHomeCard() {
 
-    const habits = [
-        {
-            name: 'Lecture',
-            icon: '📖',
-            frequency: 7,
-            color: '#FF9500',
-        },
-        {
-            name: 'Gym/Sport',
-            icon: '💪',
-            frequency: 4,
-            color: '#34C759',
-        },
-        {
-            name: 'Duolingo',
-            icon: '🦜',
-            frequency: 4,
-            color: '#007AFF',
-        },
+    const [homeHabits, setHomeHabits] = useState<habit>(initialHabits);
 
-    ]
+    const newHabit: habit = {
+        id: homeHabits.length + 1,
+        name: 'Nouvelle Habitude',
+        icon: '🦾',
+        frequency: 4,
+    }
+
+
+    function handleAddHabit() {
+        setHomeHabits([...homeHabits, newHabit]);
+    }
 
     const { weeks } = getRolling4WeeksLabel()
     return (
@@ -83,9 +107,9 @@ export default function HabitsHomeCard() {
                     </thead>
                     <tbody>
                     {
-                        habits.map((habit) => {
+                        homeHabits.map((habit) => {
                             return (
-                                <HabitsHomeItem habit={habit} />
+                                <HabitsHomeItem key={habit.id} habit={habit} homeHabits={homeHabits} setHomeHabits={setHomeHabits} />
                             )
                         })
                     }
@@ -93,7 +117,7 @@ export default function HabitsHomeCard() {
                 </table>
             </div>
 
-            <AddButton>Ajouter une habitude</AddButton>
+            <AddButton onClick={() => handleAddHabit()}>Ajouter une habitude</AddButton>
         </section>
     )
 }

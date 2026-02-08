@@ -113,4 +113,18 @@ tr:hover .habitActions {
     color: var(--accent-red);
 }
 
+/* Supprimer les flèches (chevrons) des inputs type number */
+
+/* Chrome, Safari, Edge, Opera */
+.freqInput::-webkit-outer-spin-button,
+.freqInput::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+.freqInput[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
 

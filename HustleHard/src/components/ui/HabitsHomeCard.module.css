@@ -28,6 +28,7 @@
 .habitTableWrapper {
     /* Allow wrapper to be smaller if content is small */
     flex: 0 1 auto;
+    max-height: 400px;
     overflow-y: auto;
     min-height: 0;
 }

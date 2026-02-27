@@ -1,0 +1,147 @@
+.historyDayRow {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    background: transparent;
+    transition: background 0.2s;
+}
+
+.historyDayRow:last-child {
+    border-bottom: none;
+}
+
+.dayHeader {
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s ease;
+}
+
+.dayHeader:hover {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.dayInfo {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.dayName {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    min-width: 90px;
+}
+
+.dayDate {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+.dayStats {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.miniProgress {
+    width: 60px;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.miniBar {
+    height: 100%;
+    border-radius: 4px;
+}
+
+.statBadge {
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.statBadge.high {
+    color: var(--accent-green);
+    background: rgba(52, 199, 89, 0.1);
+}
+
+.statBadge.medium {
+    color: var(--accent-orange);
+    background: rgba(255, 149, 0, 0.1);
+}
+
+.statBadge.low {
+    color: var(--accent-red);
+    background: rgba(255, 59, 48, 0.1);
+}
+
+.dayTasksContainer {
+    padding: 0 2rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    animation: slideDown 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.miniTask {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0.8rem 1rem;
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: 12px;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    transition: all 0.2s;
+}
+
+.miniTask:hover {
+    background: rgba(0, 0, 0, 0.04);
+}
+
+.miniTask.completed .taskLabel {
+    color: var(--text-tertiary);
+    text-decoration: line-through;
+}
+
+.dotStatus {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    border: 1.5px solid var(--text-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.dotStatus.completed {
+    background-color: var(--accent-green);
+    border-color: var(--accent-green);
+}
+
+.dotStatus.completed::after {
+    content: '✓';
+    color: white;
+    font-size: 14px;
+    font-weight: 800;
+}

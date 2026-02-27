@@ -1,0 +1,184 @@
+.historyPage {
+    background: #FFFFFF;
+    border-radius: var(--radius-l);
+    padding: 0;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.dateFilterGroup {
+    display: flex;
+    align-items: center;
+}
+
+.datePickerInput {
+    padding: 8px 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: #FFFFFF;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.datePickerInput:hover {
+    border-color: var(--brand-color);
+}
+
+.historyStatsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.historyMetricCard {
+    background: #FFFFFF;
+    border-radius: var(--radius-m);
+    padding: 1.75rem 1.5rem;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 140px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.historyMetricCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+.historyMetricCard h3 {
+    font-size: 0.75rem;
+    color: #6e6e73;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    z-index: 2;
+    margin-bottom: 0.5rem;
+}
+
+.historyMetricCard .metricValue {
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: #1d1d1f;
+    line-height: 1;
+    z-index: 2;
+    letter-spacing: -0.04em;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+}
+
+.metricGreen {
+    color: var(--accent-green) !important;
+}
+
+.metricBlue {
+    color: var(--accent-blue) !important;
+}
+
+.metricOrange {
+    color: var(--accent-orange) !important;
+}
+
+.historyMetricCard .widgetIcon {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 64px;
+    height: 64px;
+    font-size: 2rem;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.aiCard {
+    background: linear-gradient(135deg, rgba(88, 86, 214, 0.05), rgba(0, 122, 255, 0.05));
+    border: 1px solid rgba(88, 86, 214, 0.1);
+}
+
+.aiCard .metricValue {
+    font-size: 1rem;
+    line-height: 1.4;
+    white-space: normal;
+    font-weight: 500;
+}
+
+.singleCardContainer {
+    background: var(--card-background);
+    border-radius: var(--radius-l);
+    box-shadow: var(--shadow-md);
+    border: var(--border-light);
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.historyToolbar {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+}
+
+.toolbarLabel {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.filterGroup {
+    display: flex;
+    background: rgba(118, 118, 128, 0.12);
+    padding: 3px;
+    border-radius: 10px;
+    gap: 2px;
+}
+
+.filterBtn {
+    border: none;
+    background: transparent;
+    padding: 6px 14px;
+    border-radius: 7px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filterBtn.active {
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: 600;
+    color: black;
+}
+
+.filterBtn:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.historyListView {
+    display: flex;
+    flex-direction: column;
+}

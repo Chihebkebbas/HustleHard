@@ -1,0 +1,72 @@
+.ganttContainer {
+    background: var(--card-background);
+    border-radius: var(--radius-l);
+    box-shadow: var(--shadow-sm);
+    border: var(--border-light);
+    padding: 2rem;
+    overflow-x: auto;
+}
+
+.ganttHeader {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.ganttMonths {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1px;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #8E8E93;
+    letter-spacing: 0.5px;
+}
+
+.ganttBody {
+    background: repeating-linear-gradient(to right,
+            transparent,
+            transparent calc(8.33% - 1px),
+            rgba(0, 0, 0, 0.04) calc(8.33% - 1px),
+            rgba(0, 0, 0, 0.04) 8.33%);
+    border-radius: 12px;
+    padding: 10px 0;
+}
+
+.ganttLine {
+    height: 48px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.ganttBar {
+    position: absolute;
+    height: 24px;
+    border-radius: 12px;
+    background: var(--accent-blue);
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-shadow: 0 2px 6px rgba(0, 122, 255, 0.3);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.ganttBar:hover {
+    transform: scale(1.02);
+    z-index: 5;
+}
+
+.ganttBar.completed {
+    background: var(--accent-green);
+    box-shadow: 0 2px 6px rgba(52, 199, 89, 0.3);
+    opacity: 1;
+}

@@ -89,7 +89,7 @@
     background: var(--text-primary);
     color: white;
     padding: 0.6rem 1.2rem;
-    border-radius: 20px;
+    border-radius: var(--radius-m);
     border: none;
     font-weight: 600;
     font-size: 0.9rem;
@@ -109,7 +109,7 @@
     font-weight:600;
     color: white;
     padding: 0.6rem 1.2rem;
-    border-radius: 20px;
+    border-radius: var(--radius-m);
     border: none;
     font-size: 0.9rem;
     cursor: pointer;

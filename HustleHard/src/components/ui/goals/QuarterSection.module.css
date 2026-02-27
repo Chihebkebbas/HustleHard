@@ -1,0 +1,119 @@
+.quarterSection {
+    background: var(--card-background);
+    border-radius: var(--radius-l);
+    box-shadow: var(--shadow-sm);
+    border: var(--border-light);
+    padding: 1.5rem;
+
+    /* Flex Container for independent scrolling */
+    display: flex;
+    flex-direction: column;
+    height: 420px;
+    max-height: 420px;
+
+    transition: box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.quarterSection:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.quarterHeader {
+    margin-bottom: 0.8rem;
+    flex-shrink: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+    position: relative;
+}
+
+.qTitle {
+    font-size: 1.3rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+}
+
+.qBadge {
+    background: #F2F2F7;
+    color: #8E8E93;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.qProgressWrapper {
+    width: 100%;
+    height: 5px;
+    background: rgba(0, 0, 0, 0.04);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.qProgressBar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--brand-color), #FF2D55);
+    border-radius: 10px;
+}
+
+.goalsList {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 4px;
+    margin-right: -4px;
+}
+
+.goalsList::-webkit-scrollbar {
+    width: 6px;
+}
+
+.goalsList::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.goalsList::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}
+
+.quickAddBtn {
+    margin-top: 10px;
+    width: 100%;
+    padding: 12px;
+    border: 2px dashed rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.quickAddBtn:hover {
+    border-color: var(--accent-blue);
+    color: var(--accent-blue);
+    background: rgba(0, 122, 255, 0.03);
+    transform: translateY(-1px);
+}
+
+.quickAddBtn:active {
+    transform: scale(0.98);
+}

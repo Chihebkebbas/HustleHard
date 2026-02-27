@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26a91b90-7570-4cbe-a911-74f81f552362" name="Changes" comment="Dashboard to react - Dynamic Version (with states)">
+    <list default="true" id="26a91b90-7570-4cbe-a911-74f81f552362" name="Changes" comment="Habits page and dashboard page to react">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HustleHard/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/HustleHard/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HustleHard/src/components/layout/TopBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/HustleHard/src/components/layout/TopBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HustleHard/src/components/ui/CtaButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/HustleHard/src/components/ui/CtaButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HustleHard/src/components/ui/HabitsHomeCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/HustleHard/src/components/ui/HabitsHomeCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HustleHard/src/components/ui/HabitsHomeItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/HustleHard/src/components/ui/HabitsHomeItem.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +92,7 @@
       <workItem from="1769554139993" duration="4711000" />
       <workItem from="1769721242229" duration="8967000" />
       <workItem from="1769869079717" duration="15328000" />
-      <workItem from="1770552150978" duration="8159000" />
+      <workItem from="1770552150978" duration="8347000" />
     </task>
     <task id="LOCAL-00001" summary="Dashboard to react - static version">
       <option name="closed" value="true" />
@@ -115,7 +110,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770559522285</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Habits page and dashboard page to react">
+      <option name="closed" value="true" />
+      <created>1770675878300</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1770675878300</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,6 +150,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Dashboard to react - static version" />
     <MESSAGE value="Dashboard to react - Dynamic Version (with states)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dashboard to react - Dynamic Version (with states)" />
+    <MESSAGE value="Habits page and dashboard page to react" />
+    <option name="LAST_COMMIT_MESSAGE" value="Habits page and dashboard page to react" />
   </component>
 </project>

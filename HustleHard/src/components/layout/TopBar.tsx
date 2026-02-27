@@ -8,14 +8,14 @@ type TopBarProps = {
     title: string,
     subTitle: string,
     headerButton?: boolean,
-    buttonClassName: string,
-    buttonText: string,
+    buttonClassName?: string,
+    buttonText?: string,
     svgPath?: string,
     onButtonClick?: () => void;
 }
 
 export default function TopBar(
-    { notificationIcon = true, isNotif = false, title, subTitle, buttonClassName = 'default', buttonText, svgPath = '', headerButton = true, goalsViewToggle = false, onButtonClick }: TopBarProps
+    { notificationIcon = true, isNotif = false, title, subTitle, buttonClassName = 'buttonDefault', buttonText, svgPath = '', headerButton = true, goalsViewToggle = false, onButtonClick }: TopBarProps
 ) {
 
 
@@ -74,7 +74,7 @@ export default function TopBar(
 
                 {
                     headerButton && (
-                        <CtaButton buttonClassName={buttonClassName} buttonText={buttonText} svgPath={svgPath} onClick={onButtonClick} />
+                        <CtaButton buttonClassName={buttonClassName || ''} buttonText={buttonText || ''} svgPath={svgPath} onClick={onButtonClick} />
                     )
                 }
 

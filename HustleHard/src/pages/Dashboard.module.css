@@ -1,0 +1,613 @@
+.dashboardPage {
+    background: #FFFFFF;
+    border-radius: var(--radius-l);
+    padding: 0;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.dashboardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 1.5rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.greeting h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+.greeting p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.headerActions {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.btnAi {
+    background: linear-gradient(135deg, #1C1C1E 0%, #2C2C2E 100%);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--radius-m);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btnAi:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.statsOverviewCard {
+    background: #FFFFFF;
+    border-radius: var(--radius-l);
+    padding: 2rem;
+    margin: 0 0 2rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.streakContainer {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.streakIconBox {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #FF9500 0%, #FF2D55 100%);
+    border-radius: var(--radius-m);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 8px 16px rgba(255, 149, 0, 0.25);
+}
+
+.streakInfo .count {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1;
+    letter-spacing: -0.04em;
+}
+
+.streakInfo .label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+}
+
+/* Progress Rings Container */
+.progressGroup {
+    display: flex;
+    gap: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.statRingWrapper {
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.statRingWrapper svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.ringBg {
+    fill: none;
+    stroke: #F2F2F7;
+    stroke-width: 8;
+}
+
+.ringProgress {
+    fill: none;
+    stroke-width: 8;
+    stroke-linecap: round;
+    stroke-dasharray: 226;
+    transition: stroke-dashoffset 1s ease-out;
+}
+
+.statContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.statContent span:first-child {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+/* AI Note */
+.quoteContainer {
+    max-width: 250px;
+    position: relative;
+    z-index: 2;
+    padding-left: 1.5rem;
+    border-left: 2px solid #F2F2F7;
+}
+
+.quoteText {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+}
+
+.quoteAuthor {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Reminders Row */
+.remindersGrid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.25rem;
+    margin: 0 0 2.5rem;
+}
+
+.reminderCard {
+    background: #FFFFFF;
+    border-radius: var(--radius-m);
+    padding: 1.5rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.reminderCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.widgetIcon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.reminderInfo h4 {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.reminderInfo .value {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* AI Score Specific */
+.aiScoreCard {
+    background: #1C1C1E;
+    color: white;
+}
+
+.aiScoreCard .widgetIcon {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+}
+
+.aiScoreCard .reminderInfo h4 {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.aiScoreCard .value {
+    color: white;
+}
+
+/* Habits Table Section */
+.habitSection {
+    background: #FFFFFF;
+    border-radius: var(--radius-l);
+    padding: 2rem;
+    margin: 0 0 2.5rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.tableHeader {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #F2F2F7;
+}
+
+.habitTableWrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.habitTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.habitTable th {
+    text-align: left;
+    padding: 0 1rem 1rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.habitTable td {
+    padding: 1rem;
+    border-bottom: 1px solid #F2F2F7;
+    vertical-align: middle;
+}
+
+.habitNameFlex {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.habitIconSq {
+    width: 32px;
+    height: 32px;
+    background: #F2F2F7;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.freqBadge {
+    display: inline-flex;
+    align-items: center;
+    background: #F2F2F7;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.freqInput {
+    width: 20px;
+    background: none;
+    border: none;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-align: center;
+    padding: 0;
+}
+
+.checkRow {
+    display: flex;
+    gap: 6px;
+}
+
+.dayCircle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid #E5E5EA;
+    background: #FFFFFF;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.dayCircle:hover {
+    border-color: #D1D1D6;
+    transform: scale(1.1);
+}
+
+.dayCircle.filled {
+    background: var(--brand-color);
+    border-color: var(--brand-color);
+}
+
+.dayCircle.filledGreen {
+    background: var(--accent-green);
+    border-color: var(--accent-green);
+}
+
+.habitActions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.actionBtn {
+    background: none;
+    border: none;
+    padding: 6px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: var(--text-tertiary);
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.actionBtn:hover {
+    background: #F2F2F7;
+    color: var(--text-primary);
+}
+
+.actionBtn.delete:hover {
+    background: #FFEBEE;
+    color: var(--accent-red);
+}
+
+.btnAddHabit {
+    margin-top: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--brand-color);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 12px;
+    transition: background 0.2s;
+}
+
+.btnAddHabit:hover {
+    background: rgba(255, 107, 53, 0.1);
+}
+
+/* Split View Section */
+.dashboardSplit {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 0 0 3rem;
+    align-items: start;
+}
+
+/* Routine block and workout card */
+.routineBlock {
+    background: #FFFFFF;
+    border-radius: var(--radius-m);
+    padding: 1.5rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.routineBlock:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.routineBlock.completed {
+    background: #F2F2F7;
+    opacity: 0.8;
+}
+
+.routineBlock.completed .checkBadge {
+    background: var(--brand-color);
+    color: white;
+    border-color: var(--brand-color);
+}
+
+.routineBlock.completed .routineItems {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.routineHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.routineHeader h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.checkBadge,
+.workoutCheck {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid #D1D1D6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    font-size: 0.8rem;
+    font-weight: 800;
+    transition: all 0.2s;
+}
+
+.routineItems {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.routineItems li {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.routineItems li:last-child {
+    border-bottom: none;
+}
+
+.workoutCard {
+    background: #FFFFFF;
+    border-radius: var(--radius-m);
+    padding: 1.5rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.workoutCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.workoutCard.completed {
+    background: #F2F2F7;
+    opacity: 0.8;
+}
+
+.workoutCard.completed .workoutCheck {
+    background: var(--brand-color);
+    color: white;
+    border-color: var(--brand-color);
+}
+
+.workoutCard.completed .exercisesPane {
+    opacity: 0.5;
+}
+
+.workoutCard h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 4px 0;
+}
+
+.workoutMeta {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent-blue);
+}
+
+.exercisesPane {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.exRow {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.05);
+    font-size: 0.95rem;
+}
+
+.exRow:last-child {
+    border-bottom: none;
+}
+
+.exRow span:first-child {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.exRow span:last-child {
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+/* Tasks Panel specific inline layout */
+.tasksPanel {
+    background: var(--card-background);
+    border-radius: var(--radius-l);
+    padding: 1.8rem;
+    border: var(--border-light);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.segmentedControl {
+    display: flex;
+    background: #E5E5EA;
+    padding: 2px;
+    border-radius: 8px;
+}
+
+.segmentedOption {
+    padding: 4px 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.segmentedOption.active {
+    background: white;
+    color: var(--text-primary);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-weight: 600;
+}

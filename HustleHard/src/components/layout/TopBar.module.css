@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
 }
 
 .greeting h1 {
@@ -101,4 +101,3 @@
     font-weight: 600;
     opacity: 1;
 }
-

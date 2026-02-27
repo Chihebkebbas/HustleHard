@@ -1,0 +1,91 @@
+.tasksMetrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.taskMetricCard {
+    background: #FFFFFF;
+    border-radius: var(--radius-m);
+    padding: 1.75rem 1.5rem;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 140px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.taskMetricCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+.taskMetricCard h3 {
+    font-size: 0.75rem;
+    color: #6e6e73;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    z-index: 2;
+    margin-bottom: 0.5rem;
+}
+
+.taskMetricValue {
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: #1d1d1f;
+    line-height: 1;
+    z-index: 2;
+    letter-spacing: -0.04em;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+}
+
+.widgetIcon {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 64px;
+    height: 64px;
+    font-size: 2rem;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none;
+    z-index: 1;
+}
+
+.metricBlue {
+    color: #0071e3;
+}
+
+.metricOrange {
+    color: #ff9500;
+}
+
+.metricFire {
+    color: #ff3b30;
+}
+
+.aiCard {
+    background: linear-gradient(135deg, rgba(88, 86, 214, 0.05), rgba(0, 122, 255, 0.05));
+    border: 1px solid rgba(88, 86, 214, 0.1);
+}
+
+.aiCard .taskMetricValue {
+    font-size: 1.1rem;
+    line-height: 1.4;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.aiIcon {
+    background: white;
+    color: #5856D6;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}

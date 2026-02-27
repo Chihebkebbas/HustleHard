@@ -3,7 +3,7 @@ import StatRing from "./StatRing.tsx";
 
 export default function StatsOverview() {
 
-    let streak: number = 12;
+    const streak = 12;
 
     return (
         <section className={styles.statsOverviewCard}>
@@ -15,9 +15,9 @@ export default function StatsOverview() {
                 </div>
             </div>
             <div className={styles.progressGroup}>
-                <StatRing color={"orange"} title={"Routine"} />
-                <StatRing color={"blue"} title={"Tâches"} />
-                <StatRing color={"purple"} title={"Habit."} />
+                <StatRing color={"orange"} label={"Routine"} />
+                <StatRing color={"bleu"} label={"Tâches"} />
+                <StatRing color={"purple"} label={"Habit."} />
 
             </div>
 

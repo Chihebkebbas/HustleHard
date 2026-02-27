@@ -1,0 +1,125 @@
+.programHero {
+    background: linear-gradient(135deg, #1c1c1e 0%, #2c2c2e 100%);
+    border-radius: var(--radius-m);
+    padding: 2.5rem;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.programHero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 107, 53, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+    pointer-events: none;
+}
+
+.heroContent {
+    max-width: 60%;
+    position: relative;
+    z-index: 2;
+}
+
+.heroTag {
+    display: inline-block;
+    background: rgba(255, 107, 53, 0.2);
+    color: #FF6B35;
+    padding: 6px 14px;
+    border-radius: var(--radius-m);
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(255, 107, 53, 0.3);
+}
+
+.heroTitle {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.heroDescription {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.05rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+.heroStats {
+    display: flex;
+    gap: 3rem;
+}
+
+.heroStatItem {
+    display: flex;
+    flex-direction: column;
+}
+
+.heroStatValue {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.heroStatLabel {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.programProgressCircle {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    z-index: 2;
+}
+
+.programProgressCircle svg {
+    width: 120px;
+    height: 120px;
+    transform: rotate(-90deg);
+}
+
+.circleBg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.1);
+    stroke-width: 8;
+}
+
+.circleProgress {
+    fill: none;
+    stroke: #FF6B35;
+    stroke-width: 8;
+    stroke-linecap: round;
+    transition: stroke-dasharray 1s ease-out;
+}
+
+.progressText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.progressPercent {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.progressLabel {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+}

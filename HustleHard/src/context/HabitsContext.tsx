@@ -4,16 +4,14 @@ export type Habit = {
     id: number;
     name: string;
     icon: string;
-    freq: number; // Changed from 'frequency' to match Habits.tsx or vise versa. Let's use 'freq' as per Habits.tsx but I should align. 
-    // HabitsHomeCard uses 'frequency', Habits.tsx uses 'freq'. 
-    // I will use 'freq' to avoid changing Habits.tsx too much, and update HabitsHomeCard.
+    freq: number;
     streak: number;
     history: boolean[]; // last 7 days
     completedToday: boolean;
 };
 
 // Initial data from Habits.tsx
-const initialHabitsData: Habit[] = [
+const initialHabitsData = [
     { id: 1, name: 'Méditation', icon: '🧘', freq: 7, streak: 12, history: [true, true, true, true, false, true, true], completedToday: true },
     { id: 2, name: 'Lecture', icon: '📖', freq: 7, streak: 5, history: [false, true, true, true, true, true, false], completedToday: false },
     { id: 3, name: 'Sport', icon: '🏋️', freq: 5, streak: 24, history: [true, true, true, false, true, true, true], completedToday: true },

@@ -2,8 +2,15 @@ import Sidebar from '../components/layout/Sidebar';
 import TopBar from '../components/layout/TopBar';
 import TaskPanel from '../components/ui/TaskPanel';
 import styles from './Tasks.module.css';
+import { useTasks } from '../context/TasksContext';
 
 export default function Tasks() {
+    const { tasksToday } = useTasks();
+    const total = tasksToday.length;
+    const completed = tasksToday.filter(t => t.completed).length;
+    const pending = total - completed;
+    const percent = total === 0 ? 0 : Math.round((completed / total) * 100);
+
     return (
         <>
             <Sidebar />
@@ -19,12 +26,12 @@ export default function Tasks() {
                 <section className={styles.tasksMetrics}>
                     <div className={styles.taskMetricCard}>
                         <h3>À faire</h3>
-                        <div className={`${styles.taskMetricValue} ${styles.metricBlue}`}>4</div>
+                        <div className={`${styles.taskMetricValue} ${styles.metricBlue}`}>{pending}</div>
                         <div className={styles.widgetIcon} style={{ background: '#E1F5FE', color: '#0288D1' }}>📝</div>
                     </div>
                     <div className={styles.taskMetricCard}>
                         <h3>Accomplissement</h3>
-                        <div className={`${styles.taskMetricValue} ${styles.metricOrange}`}>25%</div>
+                        <div className={`${styles.taskMetricValue} ${styles.metricOrange}`}>{percent}%</div>
                         <div className={styles.widgetIcon} style={{ background: '#FFF3E0', color: '#F57C00' }}>📈</div>
                     </div>
                     <div className={styles.taskMetricCard}>

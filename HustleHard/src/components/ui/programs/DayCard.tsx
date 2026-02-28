@@ -2,8 +2,7 @@ import styles from './DayCard.module.css';
 
 export interface Exercise {
     name: string;
-    sets: number;
-    reps: number;
+    setsRep: string;
 }
 
 export interface Session {

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styles from './WorkoutCard.module.css';
 
 type Exercise = {
@@ -11,15 +10,15 @@ type WorkoutCardProps = {
     duration: string;
     type: string;
     exercises: Exercise[];
+    completed: boolean;
+    onToggle: () => void;
 };
 
-export default function WorkoutCard({ title, duration, type, exercises }: WorkoutCardProps) {
-    const [isCompleted, setIsCompleted] = useState(false);
-
+export default function WorkoutCard({ title, duration, type, exercises, completed, onToggle }: WorkoutCardProps) {
     return (
         <div
-            className={`${styles.workoutCard} ${isCompleted ? styles.completed : ''}`}
-            onClick={() => setIsCompleted(!isCompleted)}
+            className={`${styles.workoutCard} ${completed ? styles.completed : ''}`}
+            onClick={onToggle}
         >
             <div className={styles.workoutHeader}>
                 <div>

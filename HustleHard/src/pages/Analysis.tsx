@@ -4,16 +4,11 @@ import TopBar from '../components/layout/TopBar';
 import AnalysisCard from '../components/ui/analysis/AnalysisCard';
 import styles from './Analysis.module.css';
 import ScoreCircle from '../components/ui/analysis/ScoreCircle';
-
-// Mock Data
-const RECENT_ANALYSIS = [
-    { id: 1, date: "Aujourd'hui", title: "Semaine 4", summary: "Progression constante en force. Volume optimal.", score: 92, status: 'Excellent' },
-    { id: 2, date: "Hier", title: "Séance PPL A", summary: "Intensité bonne mais repos court.", score: 78, status: 'Bon' },
-    { id: 3, date: "01 Janv.", title: "Décembre", summary: "Cible de fréquence manquée.", score: 65, status: 'Moyen' }
-];
+import { useAnalysis, type AnalysisReport } from '../context/AnalysisContext';
 
 export default function Analysis() {
-    const [selectedReport, setSelectedReport] = useState<typeof RECENT_ANALYSIS[0] | null>(null);
+    const { reports, addReport } = useAnalysis();
+    const [selectedReport, setSelectedReport] = useState<AnalysisReport | null>(null);
     const [isAnalyzing, setIsAnalyzing] = useState(false);
 
     const handleLaunchAnalysis = () => {
@@ -21,14 +16,14 @@ export default function Analysis() {
         setTimeout(() => {
             alert("Analyse IA terminée !");
             setIsAnalyzing(false);
-            setSelectedReport({
-                id: Date.now(),
+            const newReport = {
                 title: "Nouveau Bilan",
                 date: "À l'instant",
-                summary: "Excellente semaine, continuez ainsi.",
+                summary: "Excellente progression, continuez ainsi.",
                 score: 95,
                 status: 'Excellent'
-            });
+            };
+            addReport(newReport);
         }, 1000);
     };
 
@@ -64,7 +59,7 @@ export default function Analysis() {
                 <div className={styles.analysisHistory}>
                     <h3 className={styles.historyTitle}>Historique</h3>
                     <div className={styles.analysisGrid}>
-                        {RECENT_ANALYSIS.map(report => (
+                        {reports.map(report => (
                             <AnalysisCard
                                 key={report.id}
                                 date={report.date}

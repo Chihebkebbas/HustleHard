@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { useProfile } from '../../context/ProfileContext';
 import styles from './Sidebar.module.css';
 
 type SidebarProps = {
@@ -6,6 +7,7 @@ type SidebarProps = {
 };
 
 export default function Sidebar({ className = '' }: SidebarProps) {
+    const { profile } = useProfile();
 
 
     return (
@@ -96,9 +98,9 @@ export default function Sidebar({ className = '' }: SidebarProps) {
             </div>
 
             <NavLink to="/profile" className={styles.sidebarProfile}>
-                <div className={styles.profileAvatar}>👨‍🚀</div>
+                <div className={styles.profileAvatar}>{profile.selectedAvatar}</div>
                 <div className={styles.profileInfo}>
-                    <span className={styles.profileName}>Chiheb K.</span>
+                    <span className={styles.profileName}>{profile.firstName} {profile.lastName[0] || ''}.</span>
                     <span className={styles.profileRole}>Modifier le profil</span>
                 </div>
             </NavLink>

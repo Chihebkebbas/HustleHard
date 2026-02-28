@@ -1,9 +1,28 @@
 import styles from './StatsOverview.module.css'
 import StatRing from "./StatRing.tsx";
+import { useHabits } from '../../context/HabitsContext.tsx';
+import { useTasks } from '../../context/TasksContext.tsx';
+import { usePrograms } from '../../context/ProgramsContext.tsx';
 
 export default function StatsOverview() {
+    const { habits } = useHabits();
+    const { tasksToday } = useTasks();
+    const { routines } = usePrograms();
 
-    const streak = 12;
+    // Calculate max streak
+    const streak = habits.length > 0 ? Math.max(...habits.map(h => h.streak)) : 0;
+
+    // Calculate Routine completion
+    const completedRoutines = routines.filter(r => r.completed).length;
+    const routinePercent = routines.length === 0 ? 0 : Math.round((completedRoutines / routines.length) * 100);
+
+    // Calculate Tasks completion
+    const completedTasks = tasksToday.filter(t => t.completed).length;
+    const taskPercent = tasksToday.length === 0 ? 0 : Math.round((completedTasks / tasksToday.length) * 100);
+
+    // Calculate Habits completion
+    const completedHabits = habits.filter(h => h.completedToday).length;
+    const habitPercent = habits.length === 0 ? 0 : Math.round((completedHabits / habits.length) * 100);
 
     return (
         <section className={styles.statsOverviewCard}>
@@ -15,10 +34,9 @@ export default function StatsOverview() {
                 </div>
             </div>
             <div className={styles.progressGroup}>
-                <StatRing color={"orange"} label={"Routine"} />
-                <StatRing color={"bleu"} label={"Tâches"} />
-                <StatRing color={"purple"} label={"Habit."} />
-
+                <StatRing color={"orange"} label={"Routine"} score={routinePercent} />
+                <StatRing color={"bleu"} label={"Tâches"} score={taskPercent} />
+                <StatRing color={"purple"} label={"Habit."} score={habitPercent} />
             </div>
 
             <div className={styles.quoteContainer}>

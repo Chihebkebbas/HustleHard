@@ -20,17 +20,22 @@ function formatDayMonth(date: Date) {
     return `${day} ${monthLabel}`
 }
 
-function getRolling4WeeksLabel() {
+function getPast4WeeksLabel() {
     const now = new Date()
 
     const weeks = Array.from({ length: 4 }, (_, i) => {
-        const startDate = addDays(now, i * 7)
-        const endDate = addDays(now, i * 7 + 6)
+        const weeksAgo = 3 - i;
+        const startDate = addDays(now, -(weeksAgo * 7 + 6));
+        const endDate = addDays(now, -(weeksAgo * 7));
+
+        let label = `Sem. -${weeksAgo}`;
+        if (weeksAgo === 0) label = "Cette sem.";
 
         return {
-            label: `Semaine ${i + 1}`,
+            label,
             startDate,
             endDate,
+            weekIndex: i
         }
     })
 
@@ -42,18 +47,15 @@ export default function HabitsHomeCard() {
     const { habits, addHabit } = useHabits();
 
     const handleAddHabit = () => {
-        // Since AddButton in HomeCard usually just navigated or opened a modal in the original concept,
-        // but here it says "Add Habit", I will make it add a default habit or maybe prompt?
-        // The user request was "add button il existe déjà, utilise le".
-        // In the original file it added a "Nouvelle Habitude".
         addHabit({
             name: 'Nouvelle Habitude',
             icon: '🦾',
-            freq: 4,
+            freq: 7,
         });
     };
 
-    const { weeks } = getRolling4WeeksLabel()
+    const { weeks } = getPast4WeeksLabel()
+
     return (
         <section className={styles.habitSection}>
             <div className={styles.tableHeader}>Suivi Mensuel</div>
@@ -64,27 +66,22 @@ export default function HabitsHomeCard() {
                             <th style={{ width: '25%' }}>Habitude</th>
                             <th style={{ width: '15%' }}>Fréquence</th>
                             {weeks.map((w) => (
-                                <th key={w.label}>
-                                    {w.label}{' '}
-                                    <span style={{ fontWeight: '400', opacity: '0.6', fontSize: '0.75rem' }}>
-                                        ({formatDayMonth(w.startDate)} - {formatDayMonth(w.endDate)})
-                                    </span>
+                                <th key={w.label} style={{ textAlign: 'center', width: '11%' }}>
+                                    <div style={{ fontSize: '0.85rem', fontWeight: w.weekIndex === 3 ? '700' : '600', color: w.weekIndex === 3 ? 'var(--brand-color)' : 'inherit' }}>
+                                        {w.label}
+                                    </div>
+                                    <div style={{ fontWeight: '400', opacity: '0.6', fontSize: '0.7rem' }}>
+                                        {formatDayMonth(w.startDate)} - {formatDayMonth(w.endDate)}
+                                    </div>
                                 </th>
                             ))}
-                            <th style={{ width: '5%' }}></th>
+                            <th style={{ width: '8%', textAlign: 'center' }}>Auj.</th>
+                            <th style={{ width: '8%' }}></th>
                         </tr>
                     </thead>
                     <tbody>
                         {
                             habits.map((habit) => {
-                                // Adapter for HabitsHomeItem if needed, or update HabitsHomeItem to take Habit type.
-                                // Looking at HabitsHomeItem usage, it takes 'habit', 'homeHabits', 'setHomeHabits'.
-                                // I actually need to check HabitsHomeItem to see if it needs refactoring too.
-                                // For now I'm passing valid props if HabitsHomeItem is compatible or I need to refactor it too.
-                                // I'll assume I need to refactor HabitsHomeItem next or now.
-                                // Let's pass the habit. 
-                                // HabitsHomeItem probably expects 'homeHabits' and 'setHomeHabits' for state updates.
-                                // I should check HabitsHomeItem.
                                 return (
                                     <HabitsHomeItem key={habit.id} habit={habit} />
                                 )

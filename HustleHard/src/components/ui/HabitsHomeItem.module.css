@@ -50,29 +50,79 @@
 
 .checkRow {
     display: flex;
-    gap: 8px;
+    gap: 6px;
+    justify-content: center;
 }
 
 .dayCircle {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     background: rgba(0, 0, 0, 0.06);
-    cursor: pointer;
     transition: all 0.2s;
 }
 
 .dayCircle.filled {
     background: var(--brand-color);
-    transform: scale(1.1);
 }
 
-.dayCircle.filledBlue {
-    background: var(--accent-blue);
+/* History Dots Visual */
+.dotContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.dayCircle.filledGreen {
+.historyDot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #E5E5EA;
+    transition: all 0.2s;
+    cursor: default;
+}
+
+.historyDot.done {
     background: var(--accent-green);
+    box-shadow: 0 2px 4px rgba(52, 199, 89, 0.3);
+}
+
+.historyDot.missed {
+    background: #FF3B30;
+    opacity: 0.3;
+}
+
+/* Today Toggle Checkbox */
+.todayToggle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #C7C7CC;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.todayToggle:hover {
+    border-color: var(--accent-green);
+    background: rgba(52, 199, 89, 0.05);
+}
+
+.todayToggle.completed {
+    background: var(--accent-green);
+    border-color: var(--accent-green);
+    box-shadow: 0 2px 5px rgba(52, 199, 89, 0.3);
+}
+
+.todayToggle.completed::after {
+    content: '';
+    width: 8px;
+    height: 5px;
+    border-left: 2px solid white;
+    border-bottom: 2px solid white;
+    transform: rotate(-45deg) translate(1px, -1px);
 }
 
 /* Habit Actions */
@@ -127,4 +177,3 @@ tr:hover .habitActions {
     -moz-appearance: textfield;
     appearance: textfield;
 }
-

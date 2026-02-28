@@ -1,5 +1,5 @@
 import styles from './HabitsHomeItem.module.css'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { type Habit, useHabits } from '../../context/HabitsContext.tsx';
 
 
@@ -8,7 +8,7 @@ type habitsHomeItemProps = {
 }
 
 export default function HabitsHomeItem({ habit }: habitsHomeItemProps) {
-  const { updateHabit, deleteHabit: contextDeleteHabit } = useHabits();
+  const { updateHabit, deleteHabit: contextDeleteHabit, toggleToday } = useHabits();
 
   const [editable, setEditable] = useState(false);
   // Local state for immediate edit feedback, committed on blur/change
@@ -16,19 +16,30 @@ export default function HabitsHomeItem({ habit }: habitsHomeItemProps) {
   const [name, setName] = useState(habit.name);
   const [freq, setFreq] = useState(habit.freq);
 
-  // Sync with prop updates if needed (though usually not needed if single source of truth is context, 
-  // but good if external updates happen). 
-  // For simplicity, we trust local state during edit mode, and prop during view mode. 
-  // But here we initialize state. If prop changes, we might want to useEffect to update state, 
-  // but let's keep it simple for now as we don't expect external concurrent edits.
+  // Sync with prop updates if external changes happen
+  useEffect(() => {
+    setIcon(habit.icon);
+    setName(habit.name);
+    setFreq(habit.freq);
+  }, [habit]);
 
-  function frequencyCircles(key: number) {
+  function frequencyCircles(weekIndex: number) {
+    const filledCount = habit.completionsByWeek ? habit.completionsByWeek[weekIndex] : 0;
+
     return (
-      <td key={key}>
+      <td key={weekIndex}>
         <div className={styles.checkRow}>
-          {Array.from({ length: habit.freq }).map((_, j) => (
-            <div key={j} className={styles.dayCircle}></div>
-          ))}
+          {Array.from({ length: habit.freq }).map((_, j) => {
+            const isFilled = j < filledCount;
+            const circleClass = isFilled ? `${styles.dayCircle} ${styles.filled}` : styles.dayCircle;
+
+            return (
+              <div
+                key={j}
+                className={circleClass}
+              ></div>
+            );
+          })}
         </div>
       </td>
     )
@@ -110,6 +121,16 @@ export default function HabitsHomeItem({ habit }: habitsHomeItemProps) {
       </td>
 
       {Array.from({ length: 4 }).map((_, j) => frequencyCircles(j))}
+
+      <td key="today" style={{ textAlign: 'center', padding: '1rem 0.2rem' }}>
+        <div className={styles.dotContainer}>
+          <div
+            className={`${styles.todayToggle} ${habit.completedToday ? styles.completed : ''}`}
+            onClick={() => toggleToday(habit.id)}
+            title="Aujourd'hui"
+          />
+        </div>
+      </td>
 
       <td>
         <div className={styles.habitActions}>

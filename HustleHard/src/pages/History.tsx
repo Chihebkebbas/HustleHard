@@ -1,46 +1,11 @@
 import Sidebar from '../components/layout/Sidebar';
 import TopBar from '../components/layout/TopBar';
 import HistoryItem from '../components/ui/history/HistoryItem';
+import { useHistory } from '../context/HistoryContext';
 import styles from './History.module.css';
 
-const HISTORY_DATA = [
-    {
-        id: '1',
-        dayName: "Aujourd'hui",
-        date: "24 Janvier",
-        progressPercent: 80,
-        isExpandedInitially: true,
-        tasks: [
-            { id: 't1', label: 'Routine Morning', completed: true },
-            { id: 't2', label: 'Gym / Sport', completed: true },
-            { id: 't3', label: 'Lecture (10 pages)', completed: false }
-        ]
-    },
-    {
-        id: '2',
-        dayName: "Hier",
-        date: "23 Janvier",
-        progressPercent: 100,
-        tasks: [
-            { id: 't4', label: 'Routine Morning', completed: true },
-            { id: 't5', label: 'Gym / Sport', completed: true },
-            { id: 't6', label: 'Lecture', completed: true },
-            { id: 't7', label: 'Routine Soir', completed: true }
-        ]
-    },
-    {
-        id: '3',
-        dayName: "Lundi",
-        date: "22 Janvier",
-        progressPercent: 40,
-        tasks: [
-            { id: 't8', label: 'Routine Morning', completed: true },
-            { id: 't9', label: 'Gym / Sport', completed: false }
-        ]
-    }
-];
-
 export default function History() {
+    const { historyData } = useHistory();
     return (
         <>
             <Sidebar />
@@ -92,7 +57,7 @@ export default function History() {
                     </div>
 
                     <div className={styles.historyListView}>
-                        {HISTORY_DATA.map(day => (
+                        {historyData.map(day => (
                             <HistoryItem
                                 key={day.id}
                                 dayName={day.dayName}

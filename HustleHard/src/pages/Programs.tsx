@@ -2,26 +2,11 @@ import Sidebar from '../components/layout/Sidebar';
 import TopBar from '../components/layout/TopBar';
 import ProgramHero from '../components/ui/programs/ProgramHero';
 import DayCard, { type Session } from '../components/ui/programs/DayCard';
+import { usePrograms } from '../context/ProgramsContext';
 import styles from './Programs.module.css';
 
-const DEFAULT_SESSIONS: Session[] = [
-    { name: 'Séance 1', workoutType: 'Push A', muscleGroups: 'Pecs, Épaules, Triceps', completed: true, exercises: [] },
-    { name: 'Séance 2', workoutType: 'Pull A', muscleGroups: 'Dos, Biceps, Arrière d\'épaule', completed: false, exercises: [] },
-    { name: 'Séance 3', workoutType: 'Legs A', muscleGroups: 'Quads, Ischios, Mollets', completed: false, exercises: [] },
-    { name: 'Séance 4', workoutType: 'Push B', muscleGroups: 'Focus Force', completed: false, exercises: [] },
-    { name: 'Séance 5', workoutType: 'Pull B', muscleGroups: 'Focus Densité', completed: false, exercises: [] },
-    { name: 'Séance 6', workoutType: 'Legs B', muscleGroups: 'Focus Fessiers', completed: false, exercises: [] }
-];
-
 export default function Programs() {
-    const activeProgram = {
-        title: "Push Pull Legs",
-        description: "Focus Hypertrophie • Cycle 2 • Semaine 4<br>Un programme complet sur 6 jours pour maximiser la prise de masse.",
-        sessions: 24,
-        tonnage: 680,
-        regularity: 92,
-        progressPercent: 75
-    };
+    const { activeProgram, schedule, toggleSession } = usePrograms();
 
     const handleSessionClick = (session: Session) => {
         console.log("Session details for:", session);
@@ -68,8 +53,11 @@ export default function Programs() {
                         <h3 className={styles.sectionTitle}>Mes Séances</h3>
                     </div>
                     <div className={styles.scheduleGrid}>
-                        {DEFAULT_SESSIONS.map((session, idx) => (
-                            <DayCard key={idx} session={session} onClick={handleSessionClick} />
+                        {schedule.map((session, idx) => (
+                            <DayCard key={idx} session={session} onClick={() => {
+                                handleSessionClick(session);
+                                toggleSession(idx);
+                            }} />
                         ))}
                     </div>
                 </section>

@@ -1,19 +1,34 @@
 import { useState } from 'react';
 import Sidebar from '../components/layout/Sidebar';
 import TopBar from '../components/layout/TopBar';
+import { useProfile } from '../context/ProfileContext';
 import styles from './Profile.module.css';
 
 export default function Profile() {
+    const { profile, updateProfile } = useProfile();
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-    const [selectedAvatar, setSelectedAvatar] = useState('👨‍🚀');
-    const [firstName, setFirstName] = useState('Chiheb');
-    const [lastName, setLastName] = useState('Kebbas');
-    const [handle, setHandle] = useState('chiheb_hustle');
-    const [weight, setWeight] = useState(75);
+
+    // Local state for the modal form
+    const [selectedAvatar, setSelectedAvatar] = useState(profile.selectedAvatar);
+    const [firstName, setFirstName] = useState(profile.firstName);
+    const [lastName, setLastName] = useState(profile.lastName);
+    const [handle, setHandle] = useState(profile.handle);
+    const [weight, setWeight] = useState(profile.weight);
 
     const avatars = ['👨‍🚀', '🦊', '⚡️', '🦁'];
 
+    const handleOpenModal = () => {
+        // Reset local state to context values when opening
+        setSelectedAvatar(profile.selectedAvatar);
+        setFirstName(profile.firstName);
+        setLastName(profile.lastName);
+        setHandle(profile.handle);
+        setWeight(profile.weight);
+        setIsEditModalOpen(true);
+    };
+
     const handleSave = () => {
+        updateProfile({ selectedAvatar, firstName, lastName, handle, weight });
         setIsEditModalOpen(false);
     };
 
@@ -33,12 +48,12 @@ export default function Profile() {
 
                     {/* Identity Card */}
                     <div className={styles.identityCardV5}>
-                        <div className={styles.avatarV5}>{selectedAvatar}</div>
+                        <div className={styles.avatarV5}>{profile.selectedAvatar}</div>
                         <div className={styles.identityInfoV5}>
-                            <h2>{firstName} {lastName}</h2>
-                            <p>@{handle}</p>
+                            <h2>{profile.firstName} {profile.lastName}</h2>
+                            <p>@{profile.handle}</p>
                         </div>
-                        <button className={styles.btnEditV5} onClick={() => setIsEditModalOpen(true)}>
+                        <button className={styles.btnEditV5} onClick={handleOpenModal}>
                             Modifier
                         </button>
                     </div>
@@ -69,7 +84,7 @@ export default function Profile() {
                         </div>
                         <div className={styles.infoRowV5}>
                             <span className={styles.infoLabelV5}>Poids</span>
-                            <span className={styles.infoDataV5}>{weight} kg</span>
+                            <span className={styles.infoDataV5}>{profile.weight} kg</span>
                         </div>
                     </div>
 

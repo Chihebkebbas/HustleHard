@@ -3,37 +3,32 @@ import Sidebar from '../components/layout/Sidebar';
 import TopBar from '../components/layout/TopBar';
 import QuarterSection from '../components/ui/goals/QuarterSection';
 import GanttChart from '../components/ui/goals/GanttChart';
-import type { Goal } from '../components/ui/goals/GoalCard';
+import { useGoals, type Goal } from '../context/GoalsContext';
 import styles from './Goals.module.css';
-
-const INITIAL_GOALS: Goal[] = [
-    { id: '1', title: 'Atteindre 85kg de PDC sec', quarter: 'Q1', deadline: '2025-03-31', completed: true },
-    { id: '2', title: 'Développer l\'app', quarter: 'Q1', completed: false },
-    { id: '3', title: 'Lancer le MVP', quarter: 'Q2', deadline: '2025-06-30', completed: false },
-    { id: '4', title: 'Atteindre 100 utilisateurs actifs', quarter: 'Q3', completed: false },
-    { id: '5', title: 'Générer 1000€ MRR', quarter: 'Q4', completed: false }
-];
 
 export default function Goals() {
     const [view] = useState<'quarters' | 'gantt'>('quarters');
-    const [goals, setGoals] = useState<Goal[]>(INITIAL_GOALS);
+    const { goals, toggleGoal, deleteGoal, addGoal: addGoalContext } = useGoals();
 
     // Add Goal Modal State logic would go here
-
-    const toggleGoal = (id: string) => {
-        setGoals(goals.map(g => g.id === id ? { ...g, completed: !g.completed } : g));
-    };
-
-    const deleteGoal = (id: string) => {
-        setGoals(goals.filter(g => g.id !== id));
-    };
 
     const editGoal = (goal: Goal) => {
         console.log("Edit goal", goal);
     };
 
     const addGoal = (quarter: string) => {
-        console.log("Add goal for quarter", quarter);
+        addGoalContext({
+            title: "Nouvel Objectif",
+            quarter: quarter as "Q1" | "Q2" | "Q3" | "Q4",
+            completed: false
+        });
+    };
+
+    const getProgress = (quarter: string) => {
+        const qGoals = goals.filter(g => g.quarter === quarter);
+        if (qGoals.length === 0) return 0;
+        const completed = qGoals.filter(g => g.completed).length;
+        return Math.round((completed / qGoals.length) * 100);
     };
 
     return (
@@ -49,11 +44,6 @@ export default function Goals() {
                     buttonText="Nouvel Objectif"
                     buttonClassName="buttonBrand"
                     goalsViewToggle={true}
-                // Since TopBar doesn't accept children and handles the toggle natively,
-                // we would need to lift state up or pass a callback to TopBar.
-                // For now, to match TopBar's current API, we just enable the toggle flag.
-                // To make the toggle functional, we'll need to update TopBar to accept `view` and `onViewChange` later if needed,
-                // or keep the static structure for the design conversion phase.
                 />
 
                 <div className={styles.goalsStatsGrid}>
@@ -82,7 +72,7 @@ export default function Goals() {
                         <div className={`${styles.gIconBox} ${styles.orange}`}>⚡️</div>
                         <div className={styles.gStatInfo}>
                             <span className={styles.gLabel}>Taux de Succès</span>
-                            <span className={styles.gValue}>{Math.round((goals.filter(g => g.completed).length / goals.length) * 100 || 0)}%</span>
+                            <span className={styles.gValue}>{Math.round((goals.filter(g => g.completed).length / (goals.length || 1)) * 100)}%</span>
                         </div>
                     </div>
                 </div>
@@ -92,7 +82,7 @@ export default function Goals() {
                         <QuarterSection
                             title="Fondations"
                             badge="Q1"
-                            progress={30}
+                            progress={getProgress('Q1')}
                             goals={goals.filter(g => g.quarter === 'Q1')}
                             onToggleGoal={toggleGoal}
                             onDeleteGoal={deleteGoal}
@@ -102,7 +92,7 @@ export default function Goals() {
                         <QuarterSection
                             title="Accélération"
                             badge="Q2"
-                            progress={0}
+                            progress={getProgress('Q2')}
                             goals={goals.filter(g => g.quarter === 'Q2')}
                             onToggleGoal={toggleGoal}
                             onDeleteGoal={deleteGoal}
@@ -112,7 +102,7 @@ export default function Goals() {
                         <QuarterSection
                             title="Expansion"
                             badge="Q3"
-                            progress={0}
+                            progress={getProgress('Q3')}
                             goals={goals.filter(g => g.quarter === 'Q3')}
                             onToggleGoal={toggleGoal}
                             onDeleteGoal={deleteGoal}
@@ -122,7 +112,7 @@ export default function Goals() {
                         <QuarterSection
                             title="Finalisation"
                             badge="Q4"
-                            progress={0}
+                            progress={getProgress('Q4')}
                             goals={goals.filter(g => g.quarter === 'Q4')}
                             onToggleGoal={toggleGoal}
                             onDeleteGoal={deleteGoal}

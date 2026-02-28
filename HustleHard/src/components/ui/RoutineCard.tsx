@@ -1,20 +1,19 @@
-import { useState } from 'react';
 import styles from './RoutineCard.module.css';
 
 type RoutineCardProps = {
     title: string;
-    icon?: string; // e.g. "☀️"
+    icon?: string;
     titleColor: string;
     items: string[];
+    completed: boolean;
+    onToggle: () => void;
 };
 
-export default function RoutineCard({ title, icon, titleColor, items }: RoutineCardProps) {
-    const [isCompleted, setIsCompleted] = useState(false);
-
+export default function RoutineCard({ title, icon, titleColor, items, completed, onToggle }: RoutineCardProps) {
     return (
         <div
-            className={`${styles.routineBlock} ${isCompleted ? styles.completed : ''}`}
-            onClick={() => setIsCompleted(!isCompleted)}
+            className={`${styles.routineBlock} ${completed ? styles.completed : ''}`}
+            onClick={onToggle}
         >
             <div className={styles.routineHeader}>
                 <h3 style={{ color: titleColor }}>

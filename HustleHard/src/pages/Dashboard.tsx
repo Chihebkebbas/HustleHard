@@ -6,15 +6,13 @@ import HabitsHomeCard from "../components/ui/HabitsHomeCard.tsx";
 import RoutineCard from "../components/ui/RoutineCard.tsx";
 import WorkoutCard from "../components/ui/WorkoutCard.tsx";
 import TaskPanel from "../components/ui/TaskPanel.tsx";
+import { usePrograms } from '../context/ProgramsContext.tsx';
+import { useProfile } from '../context/ProfileContext.tsx';
 import styles from './Dashboard.module.css';
 
 export default function Dashboard() {
-    const workoutExercises = [
-        { name: "Bench Press", setsRep: "4x10" },
-        { name: "Military Press", setsRep: "3x12" },
-        { name: "Dips", setsRep: "3xMax" },
-        { name: "Lateral Raises", setsRep: "3x15" }
-    ];
+    const { routines, toggleRoutine, dailyWorkout, toggleDailyWorkout } = usePrograms();
+    const { profile } = useProfile();
     const date = new Date();
 
     const fomatted = new Intl.DateTimeFormat("fr-FR", {
@@ -24,8 +22,7 @@ export default function Dashboard() {
     }).format(date);
 
     const today = fomatted.charAt(0).toUpperCase() + fomatted.slice(1);
-
-    const username = "Chiheb"
+    const username = profile.firstName;
 
     return (
         <>
@@ -52,27 +49,30 @@ export default function Dashboard() {
 
                         {/* Routines Row */}
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
-                            <RoutineCard
-                                title="Morning"
-                                icon="☀️"
-                                titleColor="#FF9500"
-                                items={["Boire 500ml d'eau", "Méditation (10 min)", "Lecture (10 pages)"]}
-                            />
-                            <RoutineCard
-                                title="Night"
-                                icon="🌙"
-                                titleColor="#5856D6"
-                                items={["Journaling / Planner", "Pas d'écrans", "Tisane / Relaxation"]}
-                            />
+                            {routines.map(routine => (
+                                <RoutineCard
+                                    key={routine.id}
+                                    title={routine.title}
+                                    icon={routine.icon}
+                                    titleColor={routine.titleColor}
+                                    items={routine.items}
+                                    completed={routine.completed}
+                                    onToggle={() => toggleRoutine(routine.id)}
+                                />
+                            ))}
                         </div>
 
                         {/* Workout Card */}
-                        <WorkoutCard
-                            title="Push Day A"
-                            duration="45 min"
-                            type="Hypertrophie"
-                            exercises={workoutExercises}
-                        />
+                        {dailyWorkout && (
+                            <WorkoutCard
+                                title={dailyWorkout.workoutType}
+                                duration={dailyWorkout.muscleGroups}
+                                type={dailyWorkout.name}
+                                exercises={dailyWorkout.exercises}
+                                completed={dailyWorkout.completed}
+                                onToggle={toggleDailyWorkout}
+                            />
+                        )}
                     </div>
 
                     {/* Right: Tasks */}

@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26a91b90-7570-4cbe-a911-74f81f552362" name="Changes" comment="Habits page and dashboard page to react">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="26a91b90-7570-4cbe-a911-74f81f552362" name="Changes" comment="Habits page and dashboard page to react" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -93,6 +91,7 @@
       <workItem from="1769721242229" duration="8967000" />
       <workItem from="1769869079717" duration="15328000" />
       <workItem from="1770552150978" duration="8347000" />
+      <workItem from="1772458671015" duration="11000" />
     </task>
     <task id="LOCAL-00001" summary="Dashboard to react - static version">
       <option name="closed" value="true" />
